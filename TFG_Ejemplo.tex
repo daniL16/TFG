@@ -1,0 +1,78 @@
+\documentclass[11pt,twoside,a4paper]{book}
+
+
+\usepackage[spanish,activeacute]{babel} % Para poner acentos y ñ en español
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+%Numeracion de teoremas, proposiciones, etc.
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}
+  \theoremstyle{definition}
+        \newtheorem{defn}[thm]{Definici\'{o}n}
+        \theoremstyle{plain}
+  \newtheorem{prop}[thm]{Proposici\'{o}n}
+        \theoremstyle{definition}
+        \newtheorem{example}[thm]{Ejemplo}
+  \theoremstyle{remark}
+        \newtheorem{rem}[thm]{Nota}
+  \theoremstyle{definition}
+        \newtheorem{problem}[thm]{Problema}
+  
+
+\setlength{\oddsidemargin}{2cm}
+\setlength{\evensidemargin}{1cm}
+
+\DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\include{portadaTFG}
+
+
+\newpage
+\phantom{o}
+\newpage
+
+\pagenumbering{roman}
+\setcounter{page}{3}
+
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+
+\newpage
+\phantom{o}
+\newpage
+
+\pagestyle{headings}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%Si quieres poner tus propias marcas en el borde superior de las páginas
+%\pagestyle{myheadings}
+%\def\leftmark{\textsc{Nombre del autor}}
+%\def\rightmark{\textsc{Trabajo Fin de Grado}}
+
+%Cuerpo del trabajo, se incluye por cap´itulos
+
+%\include{introduccion}
+\include{Capitulo2Segundo} % Derivaci\'on e Integraci\'on Num\'erica
+\include{biblio_Ejemplo}
+
+
+
+\end{document}
+
