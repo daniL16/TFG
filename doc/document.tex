@@ -101,11 +101,11 @@ Teoria error logaritmico.
 A priori desconocemos que algoritmo se adapta mejor a nuestro problema, es por ello que realizaremos un estudio comparando varios algoritmos. Los algoritmos elegidos son los siguientes:
 \begin{itemize}
 	\item Un algoritmo clásico como la regresión lineal.
-	\item algoritmos "básicos" como KNN y Arboles de regresión
-	\item algoritmos "potentes" como NeuralNetwork,Gaussian y SVM
+	\item Algoritmos "básicos" como KNN y Árboles de clasificación y regresión(CART).
+	\item Otros algoritmos como NeuralNetwork,Gaussian y SVR(para hallar relaciones no lineales)
 	\item Multiclasificadores ya que debido a su fácil paralelización ofrecen una buena escalabilidad. En este caso he seleccionado 3 algoritmos:
 	\begin{itemize}
-		\item Random Forest. Basado en crear muchos árboles ligeramente diferentes y obtiene el resultado mediante el voto mayoritario.
+		\item RandomForest. Basado en crear muchos árboles ligeramente diferentes y obtiene el resultado mediante el voto mayoritario.
 		\item Boosting. Los árboles se crean de forma lineal teniendo en cuenta los fallos anteriores. Esta técnica permite reducir el sesgo.
 		\item Bagging.
 	\end{itemize}

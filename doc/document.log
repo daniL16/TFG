@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.19)  19 OCT 2017 19:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.19)  19 OCT 2017 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -227,6 +227,11 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Overfull \hbox (18.08284pt too wide) in paragraph at lines 104--105
+[]\OT1/cmr/m/n/10 Algoritmos "b^^Sasicos" como KNN y []Arboles de clasi-fi-caci
+^^Son y re-gresi^^Son(CART). 
+ []
+
 <./img/error.png, id=15, 481.8pt x 361.35pt>
 File: ./img/error.png Graphic file (type png)
  <use ./img/error.png>
@@ -260,10 +265,10 @@ Overfull \hbox (16.3491pt too wide) in paragraph at lines 128--129
 
 [5 <./img/tiempos.png>] [6 <./img/memoria.png>] (./document.aux) ) 
 Here is how much of TeX's memory you used:
- 2480 strings out of 493013
- 32886 string characters out of 6135682
+ 2481 strings out of 493013
+ 32894 string characters out of 6135682
  97231 words of memory out of 5000000
- 6002 multiletter control sequences out of 15000+600000
+ 6003 multiletter control sequences out of 15000+600000
  5158 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,7n,25p,597b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -272,7 +277,7 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on document.pdf (6 pages, 78806 bytes).
+Output written on document.pdf (6 pages, 78896 bytes).
 PDF statistics:
  45 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream
