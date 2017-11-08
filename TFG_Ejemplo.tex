@@ -17,7 +17,7 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \theoremstyle{plain}
-\newtheorem{thm}{Teorema}
+\newtheorem{thm}{Teorema}[chapter]
   \theoremstyle{definition}
         \newtheorem{defn}[thm]{Definici\'{o}n}
         \theoremstyle{plain}
@@ -28,7 +28,9 @@
         \newtheorem{rem}[thm]{Nota}
   \theoremstyle{definition}
         \newtheorem{problem}[thm]{Problema}
-  
+  \theoremstyle{lem}
+	  \newtheorem{lem}[thm]{Lema}
+	  
 
 \setlength{\oddsidemargin}{2cm}
 \setlength{\evensidemargin}{1cm}
@@ -70,7 +72,7 @@
 
 %\include{introduccion}
 \include{./capitulos/cap1} % Polinomios esfericos
-
+%\include{./capitulos/Capitulo2Segundo}
 %\include{biblio_Ejemplo}
 
 
