@@ -187,7 +187,9 @@ $$		\mathds{H}^2_3 = \{ a_1x_1^3 + a_2x_2^3 + a_3x_1^2x_2 + a_4x_1x_2^2 \}
 \medskip
 A continuación vamos a estudiar la dimensión de  $\mathcal{H}^d_n$, llegando a la conclusión de que es un espacio invariante finito dimensional.
 Para determinar $dim \mathcal{H}^d_n$ contamos los monomios de grado n, es decir, $x^\alpha$ con $\alpha_i \ge 0$ y verificando $\alpha_1 + \alpha_2 + ... + \alpha_d = n$
+%%%%
 %Dimension
+%%%%%
 Cada $\mathds{H}_n \in \mathds{H}^d_n$ se puede escribir como:
 $$
 	\mathds{H}_n(x) = \sum_{|\alpha| = n } a_\alpha x^\alpha ,   a_\alpha \in \mathds{C}.
@@ -252,11 +254,45 @@ Ahora, nos centraremos en unos armónicos homogéneos especiales, los armónicos
 \begin{defn}
 	Se define los armónicos de Legendre, $L_{n,d}:\mathds{R^d}\to\mathds{R}$ verificando las siguientes condiciones:
 	\begin{itemize}
-		\item $L_{n,d} \in \mathds{Y}_n(\mathds{R}^d)$ (Isotropical simetria respecto $x_d$)
-		\item $L_{n,d}(Ax) = L_{n,d}(x)   \forall A \in \mathds{O(e_d)}, \forall x \in \mathds{R}^d$ (Normalidad)
+		\item $L_{n,d} \in \mathds{Y}_n(\mathds{R}^d)$ 
+		\item $L_{n,d}(Ax) = L_{n,d}(x)   \forall A \in \mathds{O(e_d)}, \forall x \in \mathds{R}^d$ 
 		\item $L_{n,d}(e_d) = 1$
 	\end{itemize}
 \end{defn}
+\begin{rem}
+La segunda condición implica que $h_{n-j}(A_1x_{d-1})=h_{n-j}(x_{d-1}), \forall A_1\in \mathds{(O)}^{(d-1)},x_{(d-1)}\in\mathds{R}^{d-1},0\le j\le n$
+\end{rem}
+De una proposición anterior%indicar cual %
+se deduce que por ser $h_{n-j}$ polinomio homogéneo,$(n-j)$ es par y 
+\begin{equation}
+h_{n-j}(x_{(d-1)}) = \left\lbrace
+\begin{array}{ll}
+c_k|x_{(d-1)}|^{2k} & \textup{si } n-j=2k \\
+0 & \textup{si } n-j=2k+1
+\end{array}
+\right.
+\end{equation}
+Por tanto,
+$$
+L_{n,d}(x) = \sum_{k=0}^{[n/2]} c_k|x_{(d-1)}|^{2k}(x_d)^{n-2k}
+$$
+Determinamos ahora los coeficientes $c_k$
+$$
+c_k = - \frac{(n-2k+2)(n-2k+1)}{2k(2k+d-3)}c_{k-1}, 1\le k \le [n/2]
+$$
+Usando la condición de normalidad se tiene que $c_0 = 1$ y $$
+c_k = (-1)^k \frac{n!\Gamma(\frac{d-1}{2})}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}, 0\le k \le [n/2]
+$$
+Finalmente, obtenemos la siguiente expresión 
+$$
+L_{n,d}(x) = n!\Gamma(\frac{d-1}{2})\sum_{k=0}^{[n/2]}(-1)^k\frac{|x_{(d-1)|^{2k}}(x_d)^{n-2k}}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}
+$$
+Usando coordenadas polares $x_{(d)}=r\xi_{(d)},\xi_{(d)} = te_d+\sqrt{1-t^2}\xi_{(d-1)}$, definimos el polinomio de Legendre de grado n en d dimensiones, $P_{n,d}(t) = L_{n,d}(\xi_{(d)})$ como la restricción a la esfera unidad del armónico de Legendre. Por tanto $$
+P_{n,d}(t)=n!\Gamma(\frac{d-1}{2})\sum_{k=0}^{[n/2]}(-1)^k\frac{(1-t^2)^{k}t^{n-2k}}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}
+$$
+\begin{rem}
+$P_{n,d}(1)=1$ y $L_{n,d}(x) = L_{n,d}(r\xi_{(d)}) = r^nP_{n,d}(t)$
+\end{rem}
 \subsection{Esféricos Armónicos}
 \begin{defn}
 Se llama espacio de esféricos armónicos de orden n en d dimensiones a	$\mathds{Y}^d_n = \mathds{Y}_n(\mathds{R}^d)|\mathds{S}^{d-1}$ 
