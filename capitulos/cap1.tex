@@ -5,13 +5,15 @@
 \subsection{Notación}
 Usaremos $d\in\mathds{N}$ para representar la dimensión de un conjunto. El conjunto $\mathds{R}^d = {x=(x_1,...,x_d)^T : x_j\in\mathds{R},1 \le j \le d}$ es el espacio euclídeo de dimensión d con el producto escalar y la norma
 $$
-(x,y) = \sum_{j=1}^{d} x_jy_j   |x|=(x,x)^{1/2} x,y\in\mathds{R}^d
+(x,y) = \sum_{j=1}^{d} x_jy_j  , |x|=(x,x)^{1/2} x,y\in\mathds{R}^d
 $$
 En $\mathds{R}^d$ usaremos la base canónica
 $$
 e_1=(1,0,...,0)^T, ..., e_d=(0,0,...,1)^T
 $$
-y escribiremos $x = \sum_{j=1}^{d} x_je_j, x\in\mathds{R}^d$
+y escribiremos $x = \sum_{j=1}^{d} x_je_j, x\in\mathds{R}^d$.
+\medskip
+
 Para indicar la dimensión explícitamente usaremos $x_{(d)}$ en lugar de $x$. En tal caso, $x_{(d)} = x_{(d-1)}+x_de_d$ siendo $x_{(d-1)}=(x_1,...,x_{d-1},0)^T$. También usaremos $x_{(d-1)}$ para referirnos al vector (d-1)-dimensional $(x_1,...,x_{d-1},0)^T$.
 
 \begin{defn} Sean $\xi,\eta\in\mathds{S}^{d-1}$, definimos las siguientes distancias:
@@ -45,7 +47,7 @@ $$
 \end{defn}
 \begin{prop}Se verifican las siguientes formulas:
 	$$
-	\int_{0}^{\infty}  t{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)   x,a,b \in \mathds{R}^+
+	\int_{0}^{\infty}  t{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+
 	$$
 	
 	$$
@@ -53,7 +55,7 @@ $$
 	$$
 	
 	$$
-	\Gamma(x+1) = x \Gamma(x) 		x\in \mathds{R}^+
+	\Gamma(x+1) = x \Gamma(x) ,		x\in \mathds{R}^+
 	$$
 	
 	$$
@@ -129,7 +131,7 @@ Llamamos $C(S^{d-1})$ al espacio de funciones continuas sobre  $S^{d-1}$. Este e
 $$
 Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escalar de $L^2(S^{d-1})$. Este espacio no es completo. Además, el cierre de $C(S^{d-1})$ respecto a dicha norma es $L^2(S^{d-1})$. Es decir, dado una función $f\in L^2(S^{d-1})$ existe una sucesión $\{f_n\} \subset C(S^{d-1})$ tal que ${f_n}\to f$
 
-\begin{prop}Sean $\Sigma_\delta = \{x\in\mathds{R}^d : |x|\in[1-\delta,1+\delta]\}$ y $f^*(x)= f(\frac{x}{|x|}),x\in\Sigma_\delta$ y $k\in\mathds{N}$. $f$ es k veces diferenciable en $S^{d-1}$ cuando $f^*$ lo es.  
+\begin{prop}Sean $\Omega_\delta = \{x\in\mathds{R}^d : |x|\in[1-\delta,1+\delta]\}$ y $f^*(x)= f(\frac{x}{|x|}),x\in\Omega_\delta$ y $k\in\mathds{N}$. $f$ es k veces diferenciable en $S^{d-1}$ cuando $f^*$ lo es.  
 \end{prop}
 \begin{defn}Definimos $C^k(S^{d-1}), k\in\mathds{N}\cup0$ como el espacio de funciones k veces diferenciables en $S^{d-1}$
 \end{defn}
@@ -141,37 +143,41 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 \begin{rem}Usaremos $||f||_\infty = ||f||_{C(S^{d-1})}$
 
 \end{rem}
-\section{Esféricos Armónicos Through Primitive Spaces}
-Consideramos $\mathds{O}^d$ el conjunto de matrices ortogonales de orden d. Para cualquier $v \in \mathds{O}^d$ vector no nulo, $\mathds{O}^d (v)= \{ A \in \mathds{O}^d : Av = v \} $ es el subconjunto de matrices ortogonales que deja el subespacio $span\{v\} = \{\alpha v : \alpha \in \mathds{R}\}$ invariante.
+\section{Esféricos Armónicos a partir de Espacios Primitivos.}
+Consideramos $\mathds{O}^d$ el conjunto de matrices ortogonales de orden d. Para cualquier $\eta \in \mathds{O}^d$ vector no nulo, $\mathds{O}^d (\eta)= \{ A \in \mathds{O}^d : A\eta = \eta \} $ es el subconjunto de matrices ortogonales que deja el subespacio $span\{\eta\} = \{\alpha \eta : \alpha \in \mathds{R}\}$ invariante.
+
 \begin{defn}
-Sea $f:\mathds{R}^d \to \mathds{C}$ y A$ \in \mathds{R}^{dxd}$, se define $f_A$ como:
-$$
-	f_A(x)=f(Ax)    \forall x \in \mathds{R}^d
-$$
+	Sea $f:\mathds{R}^d \to \mathds{C}$ y A$ \in \mathds{R}^{dxd}$, se define $f_A$ como:
+	$$
+	f_A(x)=f(Ax)   , \forall x \in \mathds{R}^d
+	$$
+\end{defn}
+
+Consideremos un subespacio $\mathds{V}$ de funciones definidas de $\mathds{R}^d$ a un subconjunto de $\mathds{R}^d$.
+\begin{defn}
+	Sea $\mathcal{V}$ un subespacio de funciones definidas de $\mathds{R}^d$ a $A \subseteqq \mathds{R}^d$. Se dice que $\mathcal{V}$ es invariante si para  $f \in \mathcal{V}$ y  $A\in\mathds{O}^d$, entonces  $f_A \in \mathcal{V}$.
+	Considerando $\mathcal{V}$ un subespacio invariante de un espacio proveniente de un producto escalar se define:
+	\begin{itemize}
+		\item $\mathcal{V}$ es reducible si  $\mathcal{V} = \mathcal{V}_1 + \mathcal{V}_2$ con $\mathcal{V}_1 \not= \emptyset$, $\mathcal{V}_2 \not= \emptyset$ verificando $\mathcal{V}_1,\mathcal{V}_2$ irreducibles y $\mathcal{V}_1 \perp \mathcal{V}_2$.
+		\item $\mathcal{V}$ es irreducible si no es reducible.
+		\item $\mathcal{V}$ es primitivo si es invariante e irreducible.
+	\end{itemize}
 \end{defn}
 
 \begin{prop}
-Si $f_A=f$ para algún $A\in \mathds{O}^d$ entonces f(x) depende de x a través de |x|, luego f es constante en una esfera de radio arbitrario.
+Si $f_A=f$ para cualquier $A\in \mathds{O}^d$ entonces f(x) depende de x por medio de |x|, luego f es constante en una esfera de radio arbitrario.
 \end{prop}
 
 \begin{proof} Sean $x,y \in \mathds{R}^d$ con |x| = |y|, podemos encontrar una matriz $A \in \mathds{O}^d$ tal que $Ax = y$. Entonces $f(x)=f_A(x)=f(y)$.
 	
 \end{proof}
 
-Introduciremos los armónicos esféricos como... Consideramos un subespacio $\mathds{V}$ de funciones definidas de $\mathds{R}^d$ a un subconjunto de $\mathds{R}^d$.
-\begin{defn}
-
-Sea $\mathcal{V}$ un subespacio de funciones definidas de $\mathds{R}^d$ a $A \subseteqq \mathds{R}^d$. Se dice que $\mathcal{V}$ es invariante si para  $f \in \mathcal{V}$ y  $A\in\mathds{O}^d$, entonces  $f_A \in \mathcal{V}$.
-Considerando $\mathcal{V}$ un subespacio invariante de un espacio proveniente de un producto escalar se define:
-\begin{itemize}
-	\item $\mathcal{V}$ es reducible si  $\mathcal{V} = \mathcal{V}_1 + \mathcal{V}_2$ con $\mathcal{V}_1 \not= \emptyset$, $\mathcal{V}_2 \not= \emptyset$ verificando $\mathcal{V}_1,\mathcal{V}_2$ irreducibles y $\mathcal{V}_1 \perp \mathcal{V}_2$.
-	\item $\mathcal{V}$ es irreducible si no es reducible.
-	\item $\mathcal{V}$ es primitivo si es invariante e irreducible.
-\end{itemize}
-\end{defn}
 \begin{defn}Dado $f:\mathds{R}^d \to \mathds{C}$ se define $span\{f_A : A \in \mathcal()^d\}$ como el espacio de las series convergentes $\sum c_jf_{A_j}$ con $A_j \in \mathds{O}^d$,$c_j \in \mathds{C}$ 
 \end{defn}
 De la definición se deduce que $span\{f_A : A \in \mathds{O}^d\}$ es un subespacio de funciones. Además, si $\mathcal{V}$ es un espacio finito dimensional $\mathcal{V} = span\{f_A\}$
+\medskip
+
+Introduciremos los espacios de armónicos esféricos de diferentes órdenes como subespacios primitivos de $C(\mathds{S}^{d-1})$. 
 \subsection{Espacios de Polinomios Homogéneos.}
 Consideramos $\mathcal{H}^d_n$ el espacio de polinomios homogéneos de grado n en d dimensiones. Las funciones son de la forma:
 $$
@@ -186,10 +192,21 @@ $$		\mathds{H}^2_3 = \{ a_1x_1^3 + a_2x_2^3 + a_3x_1^2x_2 + a_4x_1x_2^2 \}
 \end{example}
 \medskip
 A continuación vamos a estudiar la dimensión de  $\mathcal{H}^d_n$, llegando a la conclusión de que es un espacio invariante finito dimensional.
-Para determinar $dim \mathcal{H}^d_n$ contamos los monomios de grado n, es decir, $x^\alpha$ con $\alpha_i \ge 0$ y verificando $\alpha_1 + \alpha_2 + ... + \alpha_d = n$
-%%%%
-%Dimension
-%%%%%
+Para determinar $dim \mathcal{H}^d_n$ contamos los monomios de grado n, es decir, $x^\alpha$ con $\alpha_i \ge 0$ y verificando $\alpha_1 + \alpha_2 + ... + \alpha_d = n$. Tomamos un conjunto $S=\{1,2,...,n+d-1\}$. Seleccionamos $d-1$ números de dicho conjunto y los llamamos $\beta_i, 1\leq i \leq d-1$. Definimos  $\beta_0 = 0 y \beta_d = n+d$.
+
+Ahora, tomamos $\alpha_i$ como el número elementos de $S$ entre 2 $\beta_i$ consecutivos, es decir, $ \alpha_i =  \beta_i - \beta_{i-1} - 1,  1\leq i \leq d$. Tenemos que $$
+\sum_{i=1}^{d} \alpha_i = \sum_{i=1}^{d} \beta_i - \beta_{i-1} - \sum_{i=1}^{d} 1 = \beta_d - d = n+d-d = n
+$$
+Por tanto tenemos una biyección entre el conjunto de $\alpha_i$ que suman $n$ y el conjunto de $\beta_i$. Finalmente, contamos las distintas elecciones posibles de los $\beta_i$ y tenemos que
+$$
+dim \mathds{H}^d_n = \begin{pmatrix}
+n+d-1 \\
+d-1
+\end{pmatrix} = \begin{pmatrix}
+n+d-1 \\
+n
+\end{pmatrix}
+$$
 Cada $\mathds{H}_n \in \mathds{H}^d_n$ se puede escribir como:
 $$
 	\mathds{H}_n(x) = \sum_{|\alpha| = n } a_\alpha x^\alpha ,   a_\alpha \in \mathds{C}.
@@ -305,19 +322,34 @@ En consecuencia, $dim \mathds{Y}^d_n= N_{n,d}$
 \begin{thm}Sea $\mathds{Y}^d \in \mathds{Y}^d_n$ y $\xi\in\mathds{S}^{d-1}$. Entonces $\mathds{Y}_n$ es invariante respecto a $\mathds{O}^d(\xi)$, si y sólo si, $\mathds{Y}_n(\eta)=\mathds{Y}_n(\xi)\mathds{P}_{n,d}(\xi.\eta)    \forall \eta\in\mathds{S}^{d-1}$
 \end{thm}
 \begin{proof}
-	
+$(\Rightarrow)$ Dado que $\xi$ es un vector unitario podemos encontrar $A_1 \mathds{O}^d$ tal que $\xi = A_1e_d$. Sea $\overset{~}{Y_n(\eta)} = Y_n(A_1\eta),\eta\in\sphere{d-1}$, que es invariante respecto a $\orto(e_d)$. De la definición de armónico de Legendre sabemos que $r^n\overset{~}{Y_n(\eta)} = c_1L_{n_d}(r^n\eta), r\ge0, \eta\in\sphere$ con $c_1$ una constante.
+\medskip
+
+Por tanto, $\overset{~}{Y_n(\eta)} = c_1 L_{n,d}(\eta)$ y tomando $\eta = e_d$ tenemos que $c_1 = \overset{~}{Y_n(e_d)}$.
+
+\medskip
+Finalmente como 
+$$
+\overset{~}{Y_n(\eta)} = \overset{~}{Y_n(e_d)}\mathds{P}_{n,d}(\eta.e_d)
+$$
+se tiene que
+$$
+\mathds{Y}_n(\eta)=\overset{~}{Y_n(A_1^T\eta)}=Y_n(A_1^T\eta)\mathds{P}_{n,d}(A_1^T\eta.e_d)=Y_n(A_1^T\eta)\mathds{P}_{n,d}(\eta.A_1e_d) = \mathds{Y}_n(\xi)\mathds{P}_{n,d}(\xi.\eta)
+$$
+$(\Leftarrow)$ Obvio
 \end{proof}
-\section{Teorema de Adición. Consecuencias.}
-\begin{thm}
-Sea $\{Y_{n,j}:1\le j \le N_{n,d}\}$ una base ortonormal de $\mathds{Y}^d$, es decir,
-$$
-\int_{\mathds{S}^{d-1}} Y_{n,j}(\eta)\overline{Y_{n,j}(\eta)} d\mathds{S}^{d-1} = \delta_{j,k},		1 \le j,k \le N_{n,d}
-$$
-Entonces, 
-$$
-\sum_{j=1}^{N_{n,d}}Y_{n,f}(\xi)\overline{Y_{n,j}(\eta)} = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)		\forall \xi,\eta \in \mathds{S}^{d-1}
-$$
-\end{thm}
-\begin{proof}
-	
-\end{proof}
+
+%\section{Teorema de Adición. Consecuencias.}
+%\begin{thm}
+%Sea $\{Y_{n,j}:1\le j \le N_{n,d}\}$ una base ortonormal de $\mathds{Y}^d$, es decir,
+%$$
+%\int_{\mathds{S}^{d-1}} Y_{n,j}(\eta)\overline{Y_{n,j}(\eta)} d\mathds{S}^{d-1} = \delta_{j,k},		1 \le j,k \le N_{n,d}
+%$$
+%Entonces, 
+%$$
+%\sum_{j=1}^{N_{n,d}}Y_{n,f}(\xi)\overline{Y_{n,j}(\eta)} = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)		\forall \xi,\eta \in \mathds{S}^{d-1}
+%$$
+%\end{thm}
+%\begin{proof}
+%	
+%\end{proof}
