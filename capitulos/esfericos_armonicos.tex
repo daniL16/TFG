@@ -3,9 +3,9 @@
         {Esféricos Armónicos}
 \section{Preliminares}
 \subsection{Notación}
-Usaremos $d\in\mathds{N}$ para representar la dimensión de un conjunto. El conjunto $\mathds{R}^d = {x=(x_1,...,x_d)^T : x_j\in\mathds{R},1 \le j \le d}$ es el espacio euclídeo de dimensión d con el producto escalar y la norma
+Para empezar fijaremos la notación que seguiremos durante el capítulo. Usaremos $d\in\mathds{N}$ para representar la dimensión de un conjunto; en particular, el conjunto $\mathds{R}^d = \{x=(x_1,...,x_d)^T : x_j\in\mathds{R},1 \le j \le d\}$ es el espacio euclídeo de dimensión d con el producto escalar y la norma
 $$
-(x,y) = \sum_{j=1}^{d} x_jy_j  , |x|=(x,x)^{1/2} x,y\in\mathds{R}^d
+(x,y) = \sum_{j=1}^{d} x_jy_j  \qquad |x|=(x,x)^{1/2}  \qquad x,y\in\mathds{R}^d
 $$
 En $\mathds{R}^d$ usaremos la base canónica
 $$
@@ -15,7 +15,9 @@ y escribiremos $x = \sum_{j=1}^{d} x_je_j, x\in\mathds{R}^d$.
 \medskip
 
 Para indicar la dimensión explícitamente usaremos $x_{(d)}$ en lugar de $x$. En tal caso, $x_{(d)} = x_{(d-1)}+x_de_d$ siendo $x_{(d-1)}=(x_1,...,x_{d-1},0)^T$. También usaremos $x_{(d-1)}$ para referirnos al vector (d-1)-dimensional $(x_1,...,x_{d-1},0)^T$.
+\medskip
 
+Trabajaremos sobre la esfera unidad $\sphere = \{\xi\in\R : |\xi| = 1\}$. Por simplicidad, llamaremos esfera a $\sphere$.
 \begin{defn} Sean $\xi,\eta\in\mathds{S}^{d-1}$, definimos las siguientes distancias:
 	\begin{itemize}
 		\item La distancia euclídea $|\xi-\eta| = \sqrt{2(1-\xi\eta)}$
@@ -30,19 +32,19 @@ Para indicar la dimensión explícitamente usaremos $x_{(d)}$ en lugar de $x$. E
 \end{rem}
 
 Para $x =(x_1,...,x_d)$ definimos $x^\alpha = x_1^{\alpha_1}...x_d^{\alpha_d}$. Análogamente,
-Para el operador gradiente $\triangledown = (\partial_{x_1},...,\partial_{x_d})^T$ definimos
+para el operador gradiente $\triangledown = (\partial_{x_1},...,\partial_{x_d})^T$ definimos
 $$
 	\triangledown^\alpha = \frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1}...\partial x_d^{\alpha_d}}
 $$
 Y finalmente definimos el operador laplaciano como
 $$
-	\triangle = \triangledown.\triangledown = \sum_{j=1}^{d}(\partial/\partial x_j)^2
+	\triangle = \triangledown.\triangledown = \sum_{j=1}^{d}(\frac{\partial}{\partial x_j})^2
 $$
 
 \subsection{La función $\Gamma$}
-\begin{defn}
+\begin{defn} Dado $x\in\mathds{(R)^+}$ definimos la función gamma como
 	$$
-	\Gamma(x) := \int_{0}^{\infty} t^{x-1}e^{-t}dt,		x\in\mathds{(R)^+}
+	\Gamma(x) := \int_{0}^{\infty} t^{x-1}e^{-t}dt		
 	$$
 \end{defn}
 \begin{prop}Se verifican las siguientes formulas:
@@ -63,9 +65,9 @@ $$
 	$$
 \end{prop}
 \begin{rem}
-Obviamente, $\Gamma(1)=1$ y de la tercera fórmula se deduce que $\Gamma(n+1)=n!, n\in\mathds{N}_0$. Es decir, la función $\Gamma$ extiende el operador factorial de los números naturales a los reales positivos.
+$\Gamma(1)=1$ y de la tercera fórmula se deduce que $\Gamma(n+1)=n!, n\in\mathds{N}_0$. Es decir, la función $\Gamma$ extiende el operador factorial de los números naturales a los reales positivos.
 \end{rem}
-\begin{lem}
+\begin{lem} 
 	$$
 	\Gamma(\frac{1}{2}) = 	\sqrt{\pi}
 	$$
@@ -78,15 +80,15 @@ Obviamente, $\Gamma(1)=1$ y de la tercera fórmula se deduce que $\Gamma(n+1)=n!
 	(x)_0 = 1, (x)_n=x(x+1)(x+2)...(x+n-1)
 	$$
 \end{defn}
-\begin{prop}
+\begin{prop} Sea $x\in\mathds{R}^+$ entonces
 	$$
-	(x)_n = \frac{\Gamma(x+n)}{\Gamma(x)}, x\in\mathds{R}^+
+	(x)_n = \frac{\Gamma(x+n)}{\Gamma(x)}
 	$$
 \end{prop}
 \subsection{Resultados básicos de la esfera.}
-Usaremos $dV^d$ para el elemento de volumen de dimensión d y $dS^{d-1}$ para el elemento (d-1)-dimensional de la superficie de la esfera unidad $\mathds{S^{d-1}}$.Sobre la superficie de un dominio general usaremos $d_\sigma$ para los elementos de la superficie
+Usaremos $dV^d$ para elemento diferencial de volumen y $dS^{d-1}$ para elemento diferencial de superficie de la esfera.  $\mathds{S^{d-1}}$
 
-\begin{prop}Para $d \ge 3$ y $\xi \in \mathds{S}^{d-1}$,con $\xi_{(d)} = te_d+\sqrt{1-t^2}\xi_{(d-1)} t\in[-1,1]$ , se tiene que
+\begin{prop}Para $d \ge 3$ y $\xi \in \mathds{S}^{d-1}$,con $\xi_{(d)} = te_d+\sqrt{1-t^2}\xi_{(d-1)},  t\in[-1,1]$ , se tiene que
 	$$
 	dS^{d-1}(te_d+\sqrt{1-t^2}\xi_{(d-1)}) = (1-t^2)^{\frac{d-3}{2}}dt  dS^{d-2}(\xi_{(d-1)})
 	$$
@@ -106,23 +108,23 @@ Usaremos $dV^d$ para el elemento de volumen de dimensión d y $dS^{d-1}$ para el
 Sea $t=cos\theta$ entonces
 $$
 \xi_{(2)} = \begin{pmatrix}
-cos\phi
-sen\phi
-0
+cos\phi\\
+sen\phi\\
+0\\
 \end{pmatrix}
 $$
 Por tanto,$ \xi_{(3)} = te_3 + \sqrt{1-t^2} \xi_{(2)}$ y $dS^1 = d\phi , dS^2 = dtd\phi$
 
 \end{example}
 Podemos usar la anterior proposición para el cálculo del área de la superficie de la esfera.
-\begin{prop}
+\begin{prop}Se verifica que
 $$
 |\mathds{S}^{d-1}| = \int_{\mathds{S}^{d-1}} dS^{d-1} = \frac{2\pi^\frac{d}{2}}{\Gamma(\frac{d}{2})}
 $$
 \end{prop} 
 
 \begin{prop}
-	Sea $A\in\mathds{R^{dxd}}$ ortogonal entonces
+	Sea $A\in\mathds{R}^{dxd}$ ortogonal entonces
 	$$ dS^{d-1}(A\xi) =  dS^{d-1}(\xi)$$
 	$$ dV^{d}(A\xi) =  dV^{d}(\xi)$$
 \end{prop}
@@ -131,7 +133,7 @@ Llamamos $C(S^{d-1})$ al espacio de funciones continuas sobre  $S^{d-1}$. Este e
 $$
 Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escalar de $L^2(S^{d-1})$. Este espacio no es completo. Además, el cierre de $C(S^{d-1})$ respecto a dicha norma es $L^2(S^{d-1})$. Es decir, dado una función $f\in L^2(S^{d-1})$ existe una sucesión $\{f_n\} \subset C(S^{d-1})$ tal que ${f_n}\to f$
 
-\begin{prop}Sean $\Omega_\delta = \{x\in\mathds{R}^d : |x|\in[1-\delta,1+\delta]\}$ y $f^*(x)= f(\frac{x}{|x|}),x\in\Omega_\delta$ y $k\in\mathds{N}$. $f$ es k veces diferenciable en $S^{d-1}$ cuando $f^*$ lo es.  
+\begin{prop}Sean $\Omega_\delta = \{x\in\mathds{R}^d : |x|\in[1-\delta,1+\delta]\}$ y $f^*(x)= f(\frac{x}{|x|}),x\in\Omega_\delta$ y $k\in\mathds{N}$.Entonces $f$ es k veces diferenciable en $S^{d-1}$ cuando $f^*$ lo es.  
 \end{prop}
 \begin{defn}Definimos $C^k(S^{d-1}), k\in\mathds{N}\cup0$ como el espacio de funciones k veces diferenciables en $S^{d-1}$
 \end{defn}
@@ -164,7 +166,7 @@ Consideremos un subespacio $\mathds{V}$ de funciones definidas de $\mathds{R}^d$
 	\end{itemize}
 \end{defn}
 
-\begin{prop}
+\begin{prop}\label{prop:1}
 Si $f_A=f$ para cualquier $A\in \mathds{O}^d$ entonces f(x) depende de x por medio de |x|, luego f es constante en una esfera de radio arbitrario.
 \end{prop}
 
@@ -172,7 +174,7 @@ Si $f_A=f$ para cualquier $A\in \mathds{O}^d$ entonces f(x) depende de x por med
 	
 \end{proof}
 
-\begin{defn}Dado $f:\mathds{R}^d \to \mathds{C}$ se define $span\{f_A : A \in \mathcal()^d\}$ como el espacio de las series convergentes $\sum c_jf_{A_j}$ con $A_j \in \mathds{O}^d$,$c_j \in \mathds{C}$ 
+\begin{defn}Dado $f:\mathds{R}^d \to \mathds{C}$ se define $span\{f_A : A \in \orto\}$ como el espacio de las series $\sum c_jf_{A_j}$ convergentes con $A_j \in \mathds{O}^d$,$c_j \in \mathds{C}$ 
 \end{defn}
 De la definición se deduce que $span\{f_A : A \in \mathds{O}^d\}$ es un subespacio de funciones. Además, si $\mathcal{V}$ es un espacio finito dimensional $\mathcal{V} = span\{f_A\}$
 \medskip
@@ -181,7 +183,7 @@ Introduciremos los espacios de armónicos esféricos de diferentes órdenes como
 \subsection{Espacios de Polinomios Homogéneos.}
 Consideramos $\mathcal{H}^d_n$ el espacio de polinomios homogéneos de grado n en d dimensiones. Las funciones son de la forma:
 $$
-\sum_{|\alpha|=n}a_\alpha x^\alpha, a_\alpha \in \mathds{C}.\mathcal{H}^d_n
+\sum_{|\alpha|=n}a_\alpha x^\alpha, a_\alpha \in \mathds{C}
 $$
 \begin{example}
 	$$
@@ -192,7 +194,7 @@ $$		\mathds{H}^2_3 = \{ a_1x_1^3 + a_2x_2^3 + a_3x_1^2x_2 + a_4x_1x_2^2 \}
 \end{example}
 \medskip
 A continuación vamos a estudiar la dimensión de  $\mathcal{H}^d_n$, llegando a la conclusión de que es un espacio invariante finito dimensional.
-Para determinar $dim \mathcal{H}^d_n$ contamos los monomios de grado n, es decir, $x^\alpha$ con $\alpha_i \ge 0$ y verificando $\alpha_1 + \alpha_2 + ... + \alpha_d = n$. Tomamos un conjunto $S=\{1,2,...,n+d-1\}$. Seleccionamos $d-1$ números de dicho conjunto y los llamamos $\beta_i, 1\leq i \leq d-1$. Definimos  $\beta_0 = 0 y \beta_d = n+d$.
+Para determinar $dim \mathcal{H}^d_n$ contamos los monomios de grado n, es decir, $x^\alpha$ con $\alpha_i \ge 0$ y verificando $\alpha_1 + \alpha_2 + ... + \alpha_d = n$. Tomamos un conjunto $S=\{1,2,...,n+d-1\}$. Seleccionamos $d-1$ números de dicho conjunto y los llamamos $\beta_i, 1\leq i \leq d-1$. Definimos  $\beta_0 = 0 $ y $\beta_d = n+d$.
 
 Ahora, tomamos $\alpha_i$ como el número elementos de $S$ entre 2 $\beta_i$ consecutivos, es decir, $ \alpha_i =  \beta_i - \beta_{i-1} - 1,  1\leq i \leq d$. Tenemos que $$
 \sum_{i=1}^{d} \alpha_i = \sum_{i=1}^{d} \beta_i - \beta_{i-1} - \sum_{i=1}^{d} 1 = \beta_d - d = n+d-d = n
@@ -207,28 +209,28 @@ n+d-1 \\
 n
 \end{pmatrix}
 $$
-Cada $\mathds{H}_n \in \mathds{H}^d_n$ se puede escribir como:
-$$
-	\mathds{H}_n(x) = \sum_{|\alpha| = n } a_\alpha x^\alpha ,   a_\alpha \in \mathds{C}.
-$$
-Para el polinomio $	\mathds{H}_n(x)$ definimos
-$$
-		\mathds{H}_n(\triangledown) = \sum_{|\alpha| = n } a_\alpha \triangledown^\alpha.
-$$
-Dados 2 polinomios cualesquiera $\mathds{H}_n(x)$,
-$$
-\mathds{H}_{n,1}(x) =  \sum_{|\alpha| = n } a_{\alpha,1} x^\alpha ,		\mathds{H}_{n,2}(x) =  \sum_{|\alpha| = n } a_{\alpha,2} x^\alpha   
-$$
-Se sigue que 
-$$
-%cosas raras
-$$
-Luego $(\mathds{H}_{n,1},\mathds{H}_{n,2})_{\mathds{H}_n^d} := \mathds{H}_{n,1}(\triangledown)\overline{\mathds{H}_{n,2}(x)}$ define un producto escalar en $\mathds{H}_n^d$
+%Cada $\mathds{H}_n \in \mathds{H}^d_n$ se puede escribir como:
+%$$
+%	\mathds{H}_n(x) = \sum_{|\alpha| = n } a_\alpha x^\alpha ,   a_\alpha \in \mathds{C}.
+%$$
+%Para el polinomio $	\mathds{H}_n(x)$ definimos
+%$$
+%		\mathds{H}_n(\triangledown) = \sum_{|\alpha| = n } a_\alpha \triangledown^\alpha.
+%$$
+%Dados 2 polinomios cualesquiera $\mathds{H}_n(x)$,
+%$$
+%\mathds{H}_{n,1}(x) =  \sum_{|\alpha| = n } a_{\alpha,1} x^\alpha ,		\mathds{H}_{n,2}(x) =  \sum_{|\alpha| = n } a_{\alpha,2} x^\alpha   
+%$$
+%Se sigue que 
+%$$
+%%cosas raras
+%$$
+%Luego $(\mathds{H}_{n,1},\mathds{H}_{n,2})_{\mathds{H}_n^d} := \mathds{H}_{n,1}(\triangledown)\overline{\mathds{H}_{n,2}(x)}$ define un producto escalar en $\mathds{H}_n^d$
 \begin{defn}
 Una función f es armónica si $\triangle f (x) = 0$. 
 \end{defn}
 \begin{lem}
-	Si $\triangle f = 0$, entonces $\triangle f_A = 0   \forall A \in \mathds{O}^d$
+	Si $\triangle f = 0$, entonces $\triangle f_A = 0, \quad \forall A \in \mathds{O}^d$
 \end{lem}
 \begin{proof}
 	Sea $ y = Ax$, entonces $\triangledown_x = A \triangledown_y$. Como $ A \in \mathds{O}^d$ se tiene que 
@@ -243,7 +245,7 @@ Llamamos $\mathds{Y}_n(\mathds{R}^d)$ al espacio de los polinomios homogéneos d
 \begin{example}
 $\mathds{Y}_n(\mathds{R}^d) = \mathds{H}^d_n$ si n = 0 o n = 1\\
 Para d = 1, $\mathds{Y}_n(\mathds{R})=\emptyset$ para $n\ge 2$\\
-Para d = 2, $\mathds{Y}_n(\mathds{R}^2)$, los polinomios de la forma $(x_1 + ix_2) ^n$ pertenecen a $\mathds{Y}_n(\mathds{R}^2).$ En particular,  $\mathds{Y}_2(\mathds{R}^2)$ está formado por polinomios de la forma $a(x_1^2-x_2^2)+bx_1x_2,		a,b\in\mathds{C}$
+Para d = 2, $\mathds{Y}_n(\mathds{R}^2)$, los polinomios de la forma $(x_1 + ix_2) ^n$ pertenecen a $\mathds{Y}_n(\mathds{R}^2).$ En particular,  $\mathds{Y}_2(\mathds{R}^2)$ está formado por polinomios de la forma $a(x_1^2-x_2^2)+bx_1x_2, \qquad	a,b\in\mathds{C}$
 \end{example} 
 Calculamos ahora la dimensión de $\mathds{Y}_n(\mathds{R}^d)$. Llamaremos $N_{n,d}$ a la dimensión de $\mathds{Y}_n(\mathds{R}^d)$.
 Sea $H_{n}\in\mathds{H}_n^d$, dicho polinomio puede ser escrito de la forma
@@ -254,15 +256,15 @@ Aplicamos el operador laplaciano a $H_n$,
 $$
 \triangle_{(d)}H_n(x_{(d)}) = \sum_{j=0}^{n-2}(x_d)^j[\triangle_{(d-1)}h_{n-j}(x_{(d-1)})+(j+2)(j+1)h_{n-j-2}(x_{(d-1)})]
 $$
-Luego, si $H_n \in \mathds{Y}_n(\mathds{R}^d) $ entonces $\triangle_(d)H_n(x_{(d)}) \equiv 0$ y
+Luego, si $H_n \in \mathds{Y}_n(\mathds{R}^d) $ entonces $\triangle_{(d)}H_n(x_{(d)}) \equiv 0$ y
 $$
 h_{n-j-2} = -\frac{1}{(j+2)(j+1)}\triangle_{(d-1)}h_{n-j},		0 \le j \le n-2
 $$
-En consecuencia un armónico homogéneo está únicamente determinado por $h_n \in \mathds{H}_n^{d-1}$ y$h_{n-1} \in \mathds{H}_{n-1}^{d-2}$. De este modo, obtenemos la siguiente relación ..
+En consecuencia un armónico homogéneo está únicamente determinado por $h_n \in \mathds{H}_n^{d-1}$ y $h_{n-1} \in \mathds{H}_{n-1}^{d-2}$. De este modo, obtenemos la siguiente relación
 $$
 N_{n,d} = dim \mathds{H}_n^{d-1}+  \mathds{H}_{n-1}^{d-1}
 $$
-Usando la formula se tiene que para $d\ge 2$,
+Usando la formula obtenida para $dim \mathds{H}_n^d$ se tiene que para $d\ge 2$,
 $$
 N_{n,d} = \frac{(2n+d-2)(n+d-3)!}{n!(d-2!)},	n\in\mathds{N}
 $$
@@ -272,14 +274,14 @@ Ahora, nos centraremos en unos armónicos homogéneos especiales, los armónicos
 	Se define los armónicos de Legendre, $L_{n,d}:\mathds{R^d}\to\mathds{R}$ verificando las siguientes condiciones:
 	\begin{itemize}
 		\item $L_{n,d} \in \mathds{Y}_n(\mathds{R}^d)$ 
-		\item $L_{n,d}(Ax) = L_{n,d}(x)   \forall A \in \mathds{O(e_d)}, \forall x \in \mathds{R}^d$ 
+		\item $L_{n,d}(Ax) = L_{n,d}(x) \qquad  \forall A \in \orto(e_d), \forall x \in \mathds{R}^d$ 
 		\item $L_{n,d}(e_d) = 1$
 	\end{itemize}
 \end{defn}
 \begin{rem}
-La segunda condición implica que $h_{n-j}(A_1x_{d-1})=h_{n-j}(x_{d-1}), \forall A_1\in \mathds{(O)}^{(d-1)},x_{(d-1)}\in\mathds{R}^{d-1},0\le j\le n$
+La segunda condición implica que $h_{n-j}(A_1x_{d-1})=h_{n-j}(x_{d-1}), \forall A_1\in \mathds{O}^{(d-1)},\quad x_{(d-1)}\in\mathds{R}^{d-1}, \quad 0\le j\le n$
 \end{rem}
-De una proposición anterior%indicar cual %
+De la proposición \hyperref[]{\ref*{prop:1} }
 se deduce que por ser $h_{n-j}$ polinomio homogéneo,$(n-j)$ es par y 
 \begin{equation}
 h_{n-j}(x_{(d-1)}) = \left\lbrace
@@ -295,10 +297,10 @@ L_{n,d}(x) = \sum_{k=0}^{[n/2]} c_k|x_{(d-1)}|^{2k}(x_d)^{n-2k}
 $$
 Determinamos ahora los coeficientes $c_k$
 $$
-c_k = - \frac{(n-2k+2)(n-2k+1)}{2k(2k+d-3)}c_{k-1}, 1\le k \le [n/2]
+c_k = - \frac{(n-2k+2)(n-2k+1)}{2k(2k+d-3)}c_{k-1}, \qquad 1\le k \le [n/2]
 $$
 Usando la condición de normalidad se tiene que $c_0 = 1$ y $$
-c_k = (-1)^k \frac{n!\Gamma(\frac{d-1}{2})}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}, 0\le k \le [n/2]
+c_k = (-1)^k \frac{n!\Gamma(\frac{d-1}{2})}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}, \qquad 0\le k \le [n/2]
 $$
 Finalmente, obtenemos la siguiente expresión 
 $$
@@ -312,7 +314,7 @@ $P_{n,d}(1)=1$ y $L_{n,d}(x) = L_{n,d}(r\xi_{(d)}) = r^nP_{n,d}(t)$
 \end{rem}
 \subsection{Esféricos Armónicos}
 \begin{defn}
-Se llama espacio de esféricos armónicos de orden n en d dimensiones a	$\mathds{Y}^d_n = \mathds{Y}_n(\mathds{R}^d)|\mathds{S}^{d-1}$ 
+Se llama espacio de esféricos armónicos de orden n en d dimensiones a	$\mathds{Y}^d_n = \mathds{Y}_n(\mathds{R}^d)_{|\mathds{S}^{d-1}}$ 
 \end{defn}
 De la definición se deduce que un esférico armónico $\mathds{Y}_n \in \mathds{Y}^d_n$ está asociado a un armónico homogéneo $\mathds{H}_n \in \mathds{Y}^d_n$ de la siguiente forma:
 $$
