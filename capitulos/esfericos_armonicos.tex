@@ -321,7 +321,7 @@ $$
 \mathds{H}_n(r\xi) = r^n\mathds{Y}_n(\xi)
 $$
 En consecuencia, $dim \mathds{Y}^d_n= N_{n,d}$
-\begin{thm}Sea $\mathds{Y}^d \in \mathds{Y}^d_n$ y $\xi\in\mathds{S}^{d-1}$. Entonces $\mathds{Y}_n$ es invariante respecto a $\mathds{O}^d(\xi)$, si y sólo si, $\mathds{Y}_n(\eta)=\mathds{Y}_n(\xi)\mathds{P}_{n,d}(\xi.\eta)    \forall \eta\in\mathds{S}^{d-1}$
+\begin{thm}\label{thm:1}Sea $\mathds{Y}^d \in \mathds{Y}^d_n$ y $\xi\in\mathds{S}^{d-1}$. Entonces $\mathds{Y}_n$ es invariante respecto a $\mathds{O}^d(\xi)$, si y sólo si, $\mathds{Y}_n(\eta)=\mathds{Y}_n(\xi)\mathds{P}_{n,d}(\xi.\eta)    \forall \eta\in\mathds{S}^{d-1}$
 \end{thm}
 \begin{proof}
 $(\Rightarrow)$ Dado que $\xi$ es un vector unitario podemos encontrar $A_1 \mathds{O}^d$ tal que $\xi = A_1e_d$. Sea $\overset{~}{Y_n(\eta)} = Y_n(A_1\eta),\eta\in\sphere{d-1}$, que es invariante respecto a $\orto(e_d)$. De la definición de armónico de Legendre sabemos que $r^n\overset{~}{Y_n(\eta)} = c_1L_{n_d}(r^n\eta), r\ge0, \eta\in\sphere$ con $c_1$ una constante.
@@ -341,17 +341,66 @@ $$
 $(\Leftarrow)$ Obvio
 \end{proof}
 
-%\section{Teorema de Adición. Consecuencias.}
-%\begin{thm}
-%Sea $\{Y_{n,j}:1\le j \le N_{n,d}\}$ una base ortonormal de $\mathds{Y}^d$, es decir,
-%$$
-%\int_{\mathds{S}^{d-1}} Y_{n,j}(\eta)\overline{Y_{n,j}(\eta)} d\mathds{S}^{d-1} = \delta_{j,k},		1 \le j,k \le N_{n,d}
-%$$
-%Entonces, 
-%$$
-%\sum_{j=1}^{N_{n,d}}Y_{n,f}(\xi)\overline{Y_{n,j}(\eta)} = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)		\forall \xi,\eta \in \mathds{S}^{d-1}
-%$$
-%\end{thm}
-%\begin{proof}
-%	
-%\end{proof}
+\section{Teorema de Adición. Consecuencias.}
+\begin{thm}
+Sea $\{Y_{n,j}:1\le j \le N_{n,d}\}$ una base ortonormal de $\mathds{Y}^d$, es decir,
+$$
+\int_{\mathds{S}^{d-1}} Y_{n,j}(\eta)\overline{Y_{n,j}(\eta)} d\mathds{S}^{d-1} = \delta_{j,k},		1 \le j,k \le N_{n,d}
+$$
+Entonces, 
+$$
+\sum_{j=1}^{N_{n,d}}Y_{n,f}(\xi)\overline{Y_{n,j}(\eta)} = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)		\forall \xi,\eta \in \mathds{S}^{d-1}
+$$
+\end{thm}
+\begin{proof}Sean $A\in\orto$ y $1\le k \le N_{n,d}$, $Y_{n,k}(A\xi)\in \spharm$ podemos escribir
+$$
+Y_{n,k}(A\xi) = \sum_{j=1}^{N_{n,d}} c_{kj}Y_{n,j}(\xi), \qquad  c_{kj}\in\mathds{C}
+$$
+Como $$
+\int_{\sphere} Y_{n,k}(A\xi) \overline{Y_{n,k}(A\xi) } d\sphere(\xi) = \int_{\sphere} Y_{n,k}(\eta) \overline{Y_{n,k}(A\eta) } d\sphere(\eta) =\delta_{j,k}
+$$
+tenemos que 
+$$
+\delta_{jk} = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,m}}(Y_{n,l},Y_{n,m}) = sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,l}}
+$$
+\end{proof}
+\begin{thm}Para cualquier $n\in\mathds{N}_0$ y $d\in\mathds{N}$ el espacio $\spharm$ es irreducible
+\end{thm}
+\begin{proof}
+Razonamos por deducción al absurdo. Supongamos que $\spharm$ es reducible entonces $\exists V_1,V_2$ no vacíos, verificando que $\spharm = V_1 + V_2$ y $V_1 \perp V_2$. Tomamos una base ortonormal de $\spharm$ tal que las primeras $N_1$ funciones recubren $V_1$ y las restantes $N_2 = N_{n,d} - N_1$ recubren  $V_2$. Podemos aplicar el teorema de adición a $V_1$ y $V_2$ con las funciones de Legendre $P_{n,d,1}$ y $P_{n,d,2}$.
+\medskip
+
+Como $V_1 \perp V_2$ 
+\begin{equation}\label{eq:1}
+\int_{\sphere} P_{n,d,1}(\xi\eta)P_{n,d,2}(\xi\eta)d\sphere(\eta) = 0 \qquad \forall\xi\in\sphere
+\end{equation}
+
+Fijamos $\xi\in\sphere$ y sea $\phi$ una función tal que $\phi(\eta) = P_{n,d,1}(\xi.\eta)$. Tomamos $A\in\orto(\xi)$ y se cumple que $A^T\xi= \xi$. Entonces
+$$P_{n,d,1}(\xi.A.\eta) = P_{n,d,1}(A^T\xi.\eta)=P_{n,d,1}(\xi.\eta)
+$$
+es decir, $\phi$ es invariante respecto a $\orto(\xi)$. Por el teorema \hyperref[]{\ref*{thm:1}}
+$$
+P_{n,d,1}(\xi.\eta) = P_{n,d,1}(\xi.\xi).P_{n,d}(\xi.\eta) = P_{n,d}(\xi.\eta)
+$$
+Razonando de forma análoga para $P_{n,d,2}$ se tiene que
+$$
+P_{n,d,2}(\xi.\eta) = P_{n,d}(\xi.\eta)
+$$
+Sin embargo, tenemos que 
+$$ 0=\int_{\sphere}P_{n,d,1}(\xi\eta)P_{n,d,2}(\xi\eta)d\sphere(\eta) =\int_{\sphere} |P_{n,d}(\xi\eta)|^2 d\sphere(\eta) = \frac{|\sphere|}{N_{n,d}}
+$$
+Hemos llegado a una contradicción, por tanto, $\spharm$ es irreducible
+\end{proof}
+\section{Operador de Proyección}
+\section{Generando Bases Ortonormales para Espacios de Esféricos Armónicos.}
+\section{Polinomios de Legendre. Fórmulas de Representación}
+\subsection{Fórmula de Rodrigues}
+\subsection{Fórmulas de Representación Integral.}
+\section{Polinomios de Legendre. Propiedades}
+\begin{prop}
+Si $f\in C^n([-1,1])$ entonces 
+$$
+\int_{-1}^{1} f(t)P_{n,d}(t)(1-t^2)^{\frac{d-3}{2}} dt = R_{n,d}\int_{-1}^{1} f^{(n)}(t)(1-t^2)^{n+\frac{d-3}{2}} dt
+$$
+donde la constante $R_{n,d}$ viene dada por !!
+\end{prop}
