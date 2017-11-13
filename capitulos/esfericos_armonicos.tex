@@ -349,8 +349,9 @@ $$
 $$
 Entonces, 
 $$
-\sum_{j=1}^{N_{n,d}}Y_{n,f}(\xi)\overline{Y_{n,j}(\eta)} = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)		\forall \xi,\eta \in \mathds{S}^{d-1}
+\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)} = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)		\forall \xi,\eta \in \mathds{S}^{d-1}
 $$
+
 \end{thm}
 \begin{proof}Sean $A\in\orto$ y $1\le k \le N_{n,d}$, $Y_{n,k}(A\xi)\in \spharm$ podemos escribir
 $$
@@ -361,9 +362,29 @@ Como $$
 $$
 tenemos que 
 $$
-\delta_{jk} = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,m}}(Y_{n,l},Y_{n,m}) = sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,l}}
+\delta_{jk} = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,m}}(Y_{n,l},Y_{n,m}) = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,l}}
 $$
+Sea $C=(c_{j,l})$ y $C^H$ su matriz conjugada transpuesta. Se verifica que $CC^H=I$ y $C^HC=I$ luego C es unitaria y
+$$
+\sum_{j=1}^{N_{n,d}} \overline{c_{jl}}c_{jk} = \delta_{lk} \qquad 1\le l,k \le N_{n,d}
+$$
+Ahora, consideramos la suma
+$$
+Y(\xi,\eta) = \sum_{j=1}^{N_{n,d}} Y_{n,j}(\xi)\overline{ Y_{n,j}(\eta)} ,\quad \xi,\eta\in\sphere
+$$
+Para $A\in\orto$ y fijado $\xi$ se tiene que
+$$
+Y(A\xi,A\eta) = \sum_{j=1}^{N_{n,d}} Y_{n,j}(A\xi)\overline{ Y_{n,j}(A\eta)} = \sum_{j,k,l=1}^{N_{n,d}} c_{jk}\overline{c_{jl}} Y_{n,k}(\xi)\overline{ Y_{n,l}(\eta)} = \sum_{j=1}^{N_{n,d}} Y_{n,k}(\xi)\overline{ Y_{n,k}(\eta)} = Y(\xi,\eta)
+$$
+luego $Y(\xi,.)\in\spharm$ es invariante respecto a $\orto(\xi)$. Por el teorema \ref*{thm:1} $Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta)$. Análogamente, $Y(\xi,\eta)=Y(\eta,\eta)P_{n,d}(\xi.\eta)$. En consecuencia, $Y(\xi,\xi) = Y(\eta,\eta)$ y es una constante en $\sphere$. Para determinar dicha constante, integramos la igualdad  $Y(\xi,\xi) =  \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 $ sobre la esfera, obteniendo que
+$$
+Y(\xi,\xi)|\sphere| =  \sum_{j=1}^{N_{n,d}}\int_{\sphere} |Y_{n,j}(\xi)|^2 d\sphere = N_{n,d}
+$$
+Por tanto, $Y(\xi,\xi)=\frac{N_{n,d}}{|\sphere|}$ y se cumple $\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}= Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta) = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)	$
 \end{proof}
+
+
+
 \begin{thm}Para cualquier $n\in\mathds{N}_0$ y $d\in\mathds{N}$ el espacio $\spharm$ es irreducible
 \end{thm}
 \begin{proof}
