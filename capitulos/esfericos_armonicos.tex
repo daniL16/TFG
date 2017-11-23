@@ -383,8 +383,13 @@ $$
 Por tanto, $Y(\xi,\xi)=\frac{N_{n,d}}{|\sphere|}$ y se cumple $\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}= Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta) = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)	$
 \end{proof}
 
+Veamos ahora algunas aplicaciones del teorema de adicion. En primer lugar, aplicaremos el teorema para encontrar una expresión reducida del kernel de $\spharm$.
+\medskip
 
-
+Cada $Y_n \in \spharm$ puede escribirse de la forma
+$$Y_n(\xi) = \sum_{j=1}^{N_{n,d}} (Y_n,Y_{n,j})_\sphere Y_{n,j}(\xi)$$
+Aplicando el teorema,
+$$Y_(\xi)=\int_{\sphere} Y_n(\eta)$$%rollo feo%
 \begin{thm}Para cualquier $n\in\mathds{N}_0$ y $d\in\mathds{N}$ el espacio $\spharm$ es irreducible
 \end{thm}
 \begin{proof}
@@ -412,10 +417,43 @@ $$ 0=\int_{\sphere}P_{n,d,1}(\xi\eta)P_{n,d,2}(\xi\eta)d\sphere(\eta) =\int_{\sp
 $$
 Hemos llegado a una contradicción, por tanto, $\spharm$ es irreducible
 \end{proof}
-\section{Operador de Proyección}
+\section{Un Operador de Proyección}
+Buscamos la mejor aproximación de una función $f\in L^2(\sphere)$ en $\spharm$, es decir, $inf{||f-Y_n||_{L^2(\sphere)}: Y_n \in \spharm}$. 
+%cosas raras%
+\begin{defn}Se define la proyección de $f\in L^1(\sphere)$ en $\spharm$ como $$
+		(P_{n,d}f)(\xi) =\frac{N_{n,d}}{|\sphere|} \int_{\mathds{S}^{d-1}}P_{n,d}(\xi.\eta)f(\eta)d\mathds{S}^{d-1},\qquad \xi\in\sphere
+	$$
+\end{defn}
+\begin{rem}El operador $P_{n,d}$ es lineal
+\end{rem}
+%mas cosas
+\begin{prop}El operador proyección $P_{n,d}$ conmuta con las transformaciones ortogonales, es decir, $P_{n,d}f_A=(P_{n,d}f)_A \quad \forall A\in\orto$
+\end{prop}
+\begin{proof}
+\end{proof}
+%corolario
+\begin{thm}
+\end{thm}
+\begin{proof}
+\end{proof}
+%corolario
 \section{Generando Bases Ortonormales para Espacios de Esféricos Armónicos.}
 \section{Polinomios de Legendre. Fórmulas de Representación}
+El estudio de los esféricos armónicos requiere "un conocimiento" de los polinomios de Legendre.
 \subsection{Fórmula de Rodrigues}
+\begin{thm}
+	$$P_{n,d}(t) = (-1)^n \frac{\Gamma(\frac{d-1}{2}) }{2^n\Gamma(n+\frac{d-1}{2})}(1-t^2)^{\frac{3-d}{2}}(\frac{d}{dt})^n (1-t^2)^{n+\frac{d-3}{2}}, \quad d\ge2
+	$$
+\end{thm}
+\begin{rem}
+	A la constante $R_{n,d} = \frac{\Gamma(\frac{d-1}{2})}{2^n\Gamma(n+\frac{d-1}{2})}$ se le llama constante de Rodrigues
+\end{rem}
+\begin{example}
+	\begin{itemize}
+		\item Si d = 2, $$P_{n,2}(t) = (-1)^n \frac{2^n n!} {(2n)!}(1-t^2)^{\frac{1}{2}}(\frac{d}{dt})^n (1-t^2)^{n-\frac{1}{2}}, \quad n\in \mathds{N}_0$$. Una forma reducida se obtiene usando el polinomio de Chebyshev obteniendo que $P_{n,2}(t) = cos(n arccos t), t\in[-1,1]$
+		\item Si d=3, $$P_{n,3}(t) = \frac{1} {2^n n!}(\frac{d}{dt})^n (t^2-1)^{n}, \quad n\in \mathds{N}_0$$
+	\end{itemize}
+\end{example}
 \subsection{Fórmulas de Representación Integral.}
 \section{Polinomios de Legendre. Propiedades}
 \begin{prop}
