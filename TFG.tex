@@ -1,10 +1,11 @@
+
 \documentclass[11pt,twoside,a4paper]{book}
 
 \newcommand{\sphere}{\mathds{S}^{d-1}}
 \newcommand{\orto}{\mathds{O}^d}
 \newcommand{\R}{\mathds{R}^d}
 \newcommand{\spharm}{\mathds{Y}^d_n}
-
+\newcommand{\sphint}{\int_{\sphere}}
 \usepackage[spanish,activeacute]{babel} % Para poner acentos y ñ en español
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -36,7 +37,8 @@
         \newtheorem{problem}[thm]{Problema}
   \theoremstyle{lem}
 	  \newtheorem{lem}[thm]{Lema}
-	  
+  \theoremstyle{cor}
+  \newtheorem{cor}[thm]{Corolario}
 
 \setlength{\oddsidemargin}{2cm}
 \setlength{\evensidemargin}{1cm}
@@ -79,7 +81,7 @@
 %\include{introduccion}
 \include{./capitulos/esfericos_armonicos} % Polinomios esfericos
 
-\include{./capitulos/kaggle1}
+%\include{./capitulos/kaggle1}
 %\include{./capitulos/Capitulo2Segundo}
 %\include{biblio_Ejemplo}
 
