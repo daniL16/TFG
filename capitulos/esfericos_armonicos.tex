@@ -284,9 +284,9 @@ $(\Leftarrow)$ Obvio
 
 \section{Teorema de Adición. Consecuencias.}
 \begin{thm}
-Sea $\{Y_{n,j}:1\le j \le N_{n,d}\}$ una base ortonormal de $\mathds{Y}^d$, es decir,
+Sea $\{Y_{n,j}:1\le j \le N_{n,d}\}$ una base ortonormal de $\spharm$, es decir,
 $$
-\int_{\mathds{S}^{d-1}} Y_{n,j}(\eta)\overline{Y_{n,j}(\eta)} d\mathds{S}^{d-1} = \delta_{j,k},		1 \le j,k \le N_{n,d}
+\int_{\mathds{S}^{d-1}} Y_{n,j}(\eta)\overline{Y_{n,j}(\eta)} d\mathds{S}^{d-1} = \delta_{j,k},\qquad	1 \le j,k \le N_{n,d}
 $$
 Entonces, 
 $$
@@ -317,12 +317,13 @@ Para $A\in\orto$ y fijado $\xi$ se tiene que
 $$
 Y(A\xi,A\eta) = \sum_{j=1}^{N_{n,d}} Y_{n,j}(A\xi)\overline{ Y_{n,j}(A\eta)} = \sum_{j,k,l=1}^{N_{n,d}} c_{jk}\overline{c_{jl}} Y_{n,k}(\xi)\overline{ Y_{n,l}(\eta)} = \sum_{j=1}^{N_{n,d}} Y_{n,k}(\xi)\overline{ Y_{n,k}(\eta)} = Y(\xi,\eta)
 $$
-luego $Y(\xi,.)\in\spharm$ es invariante respecto a $\orto(\xi)$. Por el teorema \ref*{thm:1} $Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta)$. Análogamente, $Y(\xi,\eta)=Y(\eta,\eta)P_{n,d}(\xi.\eta)$. En consecuencia, $Y(\xi,\xi) = Y(\eta,\eta)$ y es una constante en $\sphere$. Para determinar dicha constante, integramos la igualdad  $Y(\xi,\xi) =  \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 $ sobre la esfera, obteniendo que
+luego $Y(\xi,.)\in\spharm$ es invariante respecto a $\orto(\xi)$. Por el teorema \ref{thm:1} $Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta)$. Análogamente, $Y(\xi,\eta)=Y(\eta,\eta)P_{n,d}(\xi.\eta)$. En consecuencia, $Y(\xi,\xi) = Y(\eta,\eta)$ y es una constante en $\sphere$. Para determinar dicha constante, integramos la igualdad  $Y(\xi,\xi) =  \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 $ sobre la esfera, obteniendo que
 $$
 Y(\xi,\xi)|\sphere| =  \sum_{j=1}^{N_{n,d}}\int_{\sphere} |Y_{n,j}(\xi)|^2 d\sphere = N_{n,d}
 $$
 Por tanto, $Y(\xi,\xi)=\frac{N_{n,d}}{|\sphere|}$ y se cumple $\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}= Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta) = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)	$
 \end{proof}
+\medskip 
 
 Veamos ahora algunas aplicaciones del teorema de adición. En primer lugar, aplicaremos el teorema para encontrar una expresión reducida del kernel de $\spharm$.
 \medskip
@@ -336,6 +337,35 @@ K_{n,d}(\xi.\eta)P_{n,d}(\xi.\eta)
 $$
 es el kernel "reproducing" de $\spharm$, es decir, $$
 Y_n(\xi) = (Y_n,K_{n,d}(\xi,\cdot))_{\sphere} \qquad \forall Y_n \in \spharm, \xi \in \sphere$$
+Definimos $\mathds{Y}_{0:m}^d = \underset{n=0}{\overset{m}{\oplus}} \spharm$ como el espacio de todos los esfericos armónicos de orden menor o igual a m. Entonces 
+$${K}_{0:m,d}(\xi,\eta) = \frac{1}{|\sphere|}\sum_{n=0}^{m}N_{n,d}P_{n,d}(\xi.\eta)$$ es el "reproducing kernel" de  $\mathds{Y}_{0:m}^d$.
+\medskip
+
+A continuación, obtendremos límites para los esféricos armónicos y los polinomios de Legendre.
+\begin{prop}
+	\begin{gather}
+		||Y_n||_\infty \le \left(\frac{N_{n,d}}{|\sphere|}\right)^{\frac{1}{2}}||Y_n||_{L^2(\sphere)} \\
+		|P_{n,d}(t)| \le 1 = P_{n,d}(1)
+	\end{gather}
+\end{prop}
+\begin{proof}Tomando $\xi \in \sphere$ por el teorema de adición $$
+	\sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 = \frac{N_{n,d}}{|\sphere|} P_{n,d}(||\xi||^2) = \frac{N_{n,d}}{|\sphere|}$$
+\end{proof}
+\begin{prop}
+	$$\sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) = \frac{|\sphere|}{N_{n,d}}
+	$$
+\end{prop}
+\begin{proof}
+
+	\begin{gather*}
+		\begin{aligned}
+	\sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) &= \\ (\frac{|\sphere|}{N_{n,d}})^2 \sphint |\sum_{j=1}^{N_{n,d}} Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}|^2 dS^{d-1}(\eta)  &=\\  (\frac{|\sphere|}{N_{n,d}})^2 \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 &= \frac{|\sphere|}{N_{n,d}}
+	\end{aligned}
+	\end{gather*}	
+	
+	
+	
+\end{proof}
 \begin{thm}Para cualquier $n\in\mathds{N}_0$ y $d\in\mathds{N}$ el espacio $\spharm$ es irreducible
 \end{thm}
 \begin{proof}
@@ -350,7 +380,7 @@ Como $V_1 \perp V_2$
 Fijamos $\xi\in\sphere$ y sea $\phi$ una función tal que $\phi(\eta) = P_{n,d,1}(\xi.\eta)$. Tomamos $A\in\orto(\xi)$ y se cumple que $A^T\xi= \xi$. Entonces
 $$P_{n,d,1}(\xi.A.\eta) = P_{n,d,1}(A^T\xi.\eta)=P_{n,d,1}(\xi.\eta)
 $$
-es decir, $\phi$ es invariante respecto a $\orto(\xi)$. Por el teorema \hyperref[]{\ref*{thm:1}}
+es decir, $\phi$ es invariante respecto a $\orto(\xi)$. Por el teorema \hyperref[]{\ref{thm:1}}
 $$
 P_{n,d,1}(\xi.\eta) = P_{n,d,1}(\xi.\xi).P_{n,d}(\xi.\eta) = P_{n,d}(\xi.\eta)
 $$
@@ -364,7 +394,7 @@ $$
 Hemos llegado a una contradicción, por tanto, $\spharm$ es irreducible
 \end{proof}
 \section{Un Operador de Proyección}
-Buscamos la mejor aproximación de una función $f\in L^2(\sphere)$ en $\spharm$, es decir, $inf{||f-Y_n||_{L^2(\sphere)}: Y_n \in \spharm}$. Si $\{Y_{n,j} : 1\le j \le N_{n,d}\}$ es una base ortonormal de $\spharm$ entonces la solución es la proyección de f en $\spharm$ que está definido para $f\in L^1(\sphere)$ 
+Buscamos la mejor aproximación de una función $f\in L^2(\sphere)$ en $\spharm$, es decir, $inf\{||f-Y_n||_{L^2(\sphere)}: Y_n \in \spharm\}$. Si $\{Y_{n,j} : 1\le j \le N_{n,d}\}$ es una base ortonormal de $\spharm$ entonces la solución es la proyección de f en $\spharm$ que está definido para $f\in L^1(\sphere)$ 
 $$ (P_{n,d}f)(\xi) = \sum_{j=1}^{N_{n,d}}(f,Y_{n,f})_{\sphere} Y_{n,j}(\xi)$$
 
 
@@ -378,10 +408,13 @@ $$ (P_{n,d}f)(\xi) = \sum_{j=1}^{N_{n,d}}(f,Y_{n,f})_{\sphere} Y_{n,j}(\xi)$$
 \begin{prop}El operador proyección $P_{n,d}$ conmuta con las transformaciones ortogonales, es decir, $P_{n,d}f_A=(P_{n,d}f)_A \quad \forall A\in\orto$
 \end{prop}
 \begin{proof}
-	$$
-	(P_{n,d}f_A) (\xi) = \frac{N_{n,d}}{|\sphere|} \int_{\sphere}P_{n,d}(\xi.\eta)f(A\eta)d\sphere(\eta) = \frac{N_{n,d}}{|\sphere|} \int_{\sphere}P_{n,d}(A\xi.\zeta)f(\zeta)d\sphere(\zeta) = 
+	\begin{gather*}
+	\begin{aligned}
+	(P_{n,d}f_A) (\xi) &= \frac{N_{n,d}}{|\sphere|} \int_{\sphere}P_{n,d}(\xi.\eta)f(A\eta)d\sphere(\eta) \\&= \frac{N_{n,d}}{|\sphere|} \int_{\sphere}P_{n,d}(A\xi.\zeta)f(\zeta)d\sphere(\zeta) =  
 	(P_{n,d}f)_A (\xi)
-	$$
+	\end{aligned}
+	\end{gather*}
+	
 \end{proof}
 \begin{cor}Si $\mathds{V}$ es un espacio invariante, entonces $P_{n,d}\mathds{V} = {P_{n,d}f : f\in\mathds{V}}$ es un subespacio invariante de $\spharm$.
 \end{cor}
@@ -494,6 +527,8 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 	
 \end{rem}
 \chapter{Polinomios de Legendre}\label{aped.C}
+
+
 \section{Fórmulas de Representación}
 \subsection{Fórmula de Rodrigues}
 \begin{thm}
@@ -545,9 +580,22 @@ siendo $R_{n,d}$ la constante de Rodrigues \hyperref[]{(Nota \ref{cte_Rod})}
 \begin{prop}Para $d\ge 2$
 $$\sum_{n=0}^{\infty} N_{n,d}r^nP_{n,d}(t) = \frac{1-r^2}{(1+r^2-2rt)^\frac{d}{2}},\quad |r| < 1, t\in[-1,1] 
 $$
-
+\end{prop}
+\begin{prop}
+	\begin{gather*}
+	P_{n,d}(0) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}\int_{-1}^{1} i^n s^n(1-s^2)^{\frac{d-4}{2}}ds \\
+	P_{n,d}(-1) = (-1)^n
+	\end{gather*}
 \end{prop}
 \begin{prop}
 	$$
-	|P_{n,d}(t)| < \frac{\Gamma(\frac{d-1}{2})}{\sqrt{\pi}}[\frac{4}{n(1-t^2)}]^{\frac{d-2}{2}},\quad n\in\mathds{N}_0,d\ge2,t\in(-1,1)$$
+	|P_{n,d}(t)| < \frac{\Gamma(\frac{d-1}{2})}{\sqrt{\pi}}\left[\frac{4}{n(1-t^2)}\right]^{\frac{d-2}{2}},\quad n\in\mathds{N}_0,d\ge2,t\in(-1,1)$$
+\end{prop}
+
+\chapter{Polinomios de Gegenbauer}\label{aped.D}
+\begin{defn}Sean $v\ge 0,n\in\mathds{N}_0$ se define el polinomio de Gegenbauer de grado n e índice v, como:
+	$$C_{n,v}(t) = \binom{n+2v-1}{n}\frac{\Gamma(v+\frac{1}{2})}{\sqrt{\pi}\Gamma(v)}\int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n (1-s^2)^{v-1} ds$$ 
+\end{defn}
+\begin{prop}(Identidad de Gegenbauer.)$$
+	\sum_{n=0}^{\infty} C_{n,v}(t) = \frac{1}{(1+r^2-2rt)^v}, \qquad |r|<1, t\in[-1,1]$$
 \end{prop}
