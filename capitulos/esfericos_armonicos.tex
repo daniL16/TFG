@@ -333,25 +333,51 @@ $$Y_n(\xi) = \sum_{j=1}^{N_{n,d}} (Y_n,Y_{n,j})_{\sphere} Y_{n,j}(\xi)$$
 Aplicando el teorema,
 $$Y_(\xi)=\int_{\sphere} Y_n(\eta)\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}d\sphere(\eta) = \frac{N_{n,d}}{|\sphere|}\int_{\sphere}P_{n,d}(\xi.\eta)Y_n(\eta)d\sphere(\eta)$$
 Por tanto, $$
-K_{n,d}(\xi.\eta)P_{n,d}(\xi.\eta)
+K_{n,d}(\xi.\eta)= \frac{N_{n,d}}{|\sphere|}P_{n,d}(\xi.\eta)
 $$
-es el kernel "reproducing" de $\spharm$, es decir, $$
+es el kernel reproductivo de $\spharm$, es decir, $$
 Y_n(\xi) = (Y_n,K_{n,d}(\xi,\cdot))_{\sphere} \qquad \forall Y_n \in \spharm, \xi \in \sphere$$
-Definimos $\mathds{Y}_{0:m}^d = \underset{n=0}{\overset{m}{\oplus}} \spharm$ como el espacio de todos los esfericos armónicos de orden menor o igual a m. Entonces 
-$${K}_{0:m,d}(\xi,\eta) = \frac{1}{|\sphere|}\sum_{n=0}^{m}N_{n,d}P_{n,d}(\xi.\eta)$$ es el "reproducing kernel" de  $\mathds{Y}_{0:m}^d$.
+Definimos $\mathds{Y}_{0:m}^d = \underset{n=0}{\overset{m}{\oplus}} \spharm$ como el espacio de todos los esféricos armónicos de orden menor o igual a m. Entonces 
+$${K}_{0:m,d}(\xi,\eta) = \frac{1}{|\sphere|}\sum_{n=0}^{m}N_{n,d}P_{n,d}(\xi.\eta)$$ es el kernel reproductivo de  $\mathds{Y}_{0:m}^d$.
 \medskip
 
 A continuación, obtendremos límites para los esféricos armónicos y los polinomios de Legendre.
-\begin{prop}
+\begin{prop}Se verifican las siguientes desigualdades:
 	\begin{gather}
 		||Y_n||_\infty \le \left(\frac{N_{n,d}}{|\sphere|}\right)^{\frac{1}{2}}||Y_n||_{L^2(\sphere)} \\
 		|P_{n,d}(t)| \le 1 = P_{n,d}(1)
 	\end{gather}
 \end{prop}
-\begin{proof}Tomando $\xi \in \sphere$ por el teorema de adición $$
-	\sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 = \frac{N_{n,d}}{|\sphere|} P_{n,d}(||\xi||^2) = \frac{N_{n,d}}{|\sphere|}$$
+\begin{proof}Tomando $\xi \in \sphere$ por el teorema de adición 
+	\begin{gather}\label{ig_Y_n}
+		\sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 = \frac{N_{n,d}}{|\sphere|} P_{n,d}(||\xi||^2) = \frac{N_{n,d}}{|\sphere|}
+	\end{gather}
+
+Por tanto, $max\{|Y_{n,j}(\xi)|\}\le \left(\frac{N_{n,d}}{|\sphere|}\right)^{1/2}$.
+\medskip
+
+Por otro lado, 
+\begin{gather*}
+\sphint |Y_n(\xi)|^2 dS^{d-1}(\xi) = \sphint \sum_{j=1}^{N_{n,d}} \sum_{k=1}^{N_{n,d}}(Y_n,Y_{n,j})_{\sphere}(Y_n,Y_{n,j})_{\sphere}Y_{n,j}Y_{n,k}dS^{d-1} \\=\sum_{j=1}^{N_{n,d}}|(Y_n,Y_{n,j})_{\sphere}Y_{n,j}|^2
+\end{gather*}
+
+Finalmente uniendo lo anterior se tiene que 
+\begin{gather*}
+|Y_n(\xi)|^2 \le \left(\sum_{j=1}^{N_{n,d}}(Y_n,Y_{n,j})\right)^2\left(\sum_{j=1}^{N_{n,d}}Y_{n,j}\right)^2 =\frac{N_{n,d}}{|\sphere|} \sphint |Y_n|^2 dS^{d-1}  =\frac{N_{n,d}}{|\sphere|}||Y_n||^2_{L^2(\sphere)}
+\end{gather*}
+y en consecuencia 
+$$  ||Y_n||_{\infty} \le \left(\frac{N_{n,d}}{|\sphere|}\right)^{1/2} ||Y_n||_{L^2(\sphere)}$$
+
+Ahora, usando \hyperref[]{\ref{ig_Y_n}} y el teorema de adición tenemos que
+\begin{gather*}
+\frac{N_{n,d}}{|\sphere|}|P_{n,d}(\xi\cdot\eta)| = \sum_{j=1}^{N_{n,d}}|Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}| \le \left(\sum_{j=1}^{N_{n,d}} Y^2_{n,j}(\xi)\right)^{1/2}\left(\sum_{j=1}^{N_{n,d}} Y^2_{n,j}(\eta)\right)^{1/2} = \frac{N_{n,d}}{|\sphere|}
+\end{gather*}
+es decir, 
+$$
+|P_{n,d}(\xi\cdot\eta)| \le 1 = P_{n,d}(1)
+$$
 \end{proof}
-\begin{prop}
+\begin{prop}\label{prop:2}
 	$$\sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) = \frac{|\sphere|}{N_{n,d}}
 	$$
 \end{prop}
@@ -399,12 +425,36 @@ $$ (P_{n,d}f)(\xi) = \sum_{j=1}^{N_{n,d}}(f,Y_{n,f})_{\sphere} Y_{n,j}(\xi)$$
 
 
 \begin{defn}Se define la proyección de $f\in L^1(\sphere)$ en $\spharm$ como $$
-		(P_{n,d}f)(\xi) =\frac{N_{n,d}}{|\sphere|} \int_{\mathds{S}^{d-1}}P_{n,d}(\xi.\eta)f(\eta)d\mathds{S}^{d-1},\qquad \xi\in\sphere
+		(P_{n,d}f)(\xi) =\frac{N_{n,d}}{|\sphere|} \int_{\mathds{S}^{d-1}}P_{n,d}(\xi.\eta)f(\eta)d\mathds{S}^{d-1}(\eta),\qquad \xi\in\sphere
 	$$
 \end{defn}
 \begin{rem}El operador $P_{n,d}$ es lineal
 \end{rem}
-%mas cosas
+\begin{prop}Sea $f\in L^1(\sphere)$ entonces $||P_{n,d}f||_{L^1(\sphere)} \le N_{n,d}||f||_{L^1(\sphere)}$
+\end{prop}
+\begin{proof}
+Como $|P_(n,d)(t)|\le 1$ entonces dado $\xi \in \sphere$
+\begin{gather*}
+|P_{n,d}f(\xi)|\le \frac{N_{n,d}}{|\sphere|} \sphint |f(\eta)| dS^{d-1}(\eta) = \frac{N_{n,d}}{|\sphere|} ||f||_{L^1(\sphere)}
+\end{gather*}
+Por tanto, $$ ||P_{n,d}f||_{L^1(\sphere)} \le N_{n,d}||f||_{L^1(\sphere)}$$
+\end{proof}
+\begin{prop}Sea $f \in L^2(\sphere)$ entonces $||P_{n,d}f||_{L^2(\sphere)} \le (N_{n,d})^{1/2}||f||_{L^2(\sphere)}$
+\end{prop}
+\begin{proof}
+Sea $\xi \in \sphere$
+\begin{gather*}
+|(P_{n,d}f)(\xi)|^2 \le \left(\frac{N_{n,d}}{|\sphere|}\right)^2 \sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) \sphint |f(\eta)|^2 dS^{d-1}(\eta)
+\end{gather*}
+Usando la proposición  \hyperref[]{\ref*{prop:2}} tenemos que 
+\begin{gather*}
+ |(P_{n,d}f)(\xi)|^2 \le \left(\frac{N_{n,d}}{|\sphere|}\right)^2  \frac{|\sphere|}{N_{n,d}}  \sphint |f(\eta)|^2 dS^{d-1}(\eta)=\frac{N_{n,d}}{|\sphere|}||f||^2_{L^2(\sphere)}
+\end{gather*}
+Por tanto, \begin{gather*}
+||P_{n,d}f||^2_{C(\sphere)} \le \frac{N_{n,d}}{|\sphere|}||f||^2_{L^2(\sphere)} \\
+||P_{n,d}f||_{L^2(\sphere)} \le N_{n,d}^{1/2}||f||_{L^2(\sphere)}
+\end{gather*} 
+\end{proof}
 \begin{prop}El operador proyección $P_{n,d}$ conmuta con las transformaciones ortogonales, es decir, $P_{n,d}f_A=(P_{n,d}f)_A \quad \forall A\in\orto$
 \end{prop}
 \begin{proof}
@@ -424,7 +474,10 @@ $$ (P_{n,d}f)(\xi) = \sum_{j=1}^{N_{n,d}}(f,Y_{n,f})_{\sphere} Y_{n,j}(\xi)$$
 Veamos que si $P_{n,d}:\mathds{V} \to \spharm$ es una biyección entonces $\mathds{V}=\spharm$. Ambos espacios son de dimensión finita y tienen la misma dimensión, $N_{n,d}=dim(\spharm)$. Sea $\{V_j : 1 \le j \le N_{n,d} \}$ una base ortonormal de  $\mathds{V}$. Por ser $\mathds{V}$ primitivo, para cada $A\in\orto$ $$
 V_j(A\xi) = \sum_{k=1}^{N_{n,d}}c_{jk}V_k(\xi), \quad c_{jk}\in\mathds{C}$$ siendo la matriz $(c_{jk})$ unitaria. Definimos la función $V(\xi,\eta) = \sum_{k=1}^{N_{n,d}}V_j(\xi)\overline{V_j(\eta)}$
 y $V(A\xi,A\eta) = V(\xi,\eta), \quad \forall A \in \orto$.
-Dados $\xi,\eta \in \sphere$ podemos encontrar $A\in\orto$ tal que, $A\xi=e_d, A\eta = te_d + (1-t^2)^{\frac{1}{2}}e_{d-1}$ para $t=\xi.\eta$. Entonces $V(\xi,\eta) = V(e_d, te_d + (1-t^2)^{\frac{1}{2}}e_{d-1})$ es una función de $t=\xi\eta$. Llamaremos a esta funcion $P_d(t)$. Fijado $\xi$, el "maping" $\eta \to \overline{P_d(\xi.\eta)}$ es una función en $\mathds{V}$, del mismo modo, fijado $\zeta$ el mapping $\eta \to P_{n,d}(\zeta.\eta)$ es una función en $\spharm$.%fumada gorda%
+Dados $\xi,\eta \in \sphere$ podemos encontrar $A\in\orto$ tal que, $A\xi=e_d, A\eta = te_d + (1-t^2)^{\frac{1}{2}}e_{d-1}$ para $t=\xi.\eta$. Entonces $V(\xi,\eta) = V(e_d, te_d + (1-t^2)^{\frac{1}{2}}e_{d-1})$ es una función de $t=\xi\eta$. Llamaremos a esta función $P_d(t)$. Fijado $\xi$, la aplicación $\eta \to \overline{P_d(\xi.\eta)}$ es una función en $\mathds{V}$, del mismo modo, fijado $\zeta$ la aplicación $\eta \to P_{n,d}(\zeta.\eta)$ es una función en $\spharm$.Consideramos la función $\phi(\xi,\zeta) = \sphint \overline{P_d(\xi.\eta)}P_{n,d}(\zeta.\eta)dS^{d-1}(\eta)$ con $\phi(A\xi,A\zeta)= \phi(\xi,\zeta), \forall A\in\orto$. Es decir, $\phi(\xi,\zeta)$ depende sólo de $\xi.\zeta$. $\phi$ pertenece a $\mathds{V}$ y a $\spharm$, luego o $\mathds{V} = \spharm$ o $\phi \equiv 0$. En el último caso tenemos que $$
+\sum_{j,k=1}^{N_{n,d}} \overline{V_j(\xi)}Y_{n,k}(\zeta)(V_j,Y_{n,k})_{L^2(\sphere)}=0 \qquad \forall\xi,\zeta \in \sphere
+$$ donde $\{Y_{n,k}:1\le k\le N_{n,d}\}$ es una base ortonormal de $\spharm$. Como cada elemento de los conjuntos $\{V_j : 1\le j\le N_{n,d}\}$ y $\{Y_{n,j}:1\le j\le N_{n,d}\}$ son linealmente independientes, deducimos de la igualdad anterior que $$
+(V_j,Y_{n,k})_{L^2(\sphere)} = 0, \qquad 1 \le j,k \le N_{n,d} $$. Por lo que $\mathds(V) \perp \spharm$.
 \end{proof}
 \begin{cor}Para $m\neq n$, $\mathds{Y}_m^d \perp \mathds{Y}_n^d$
 \end{cor}
@@ -447,14 +500,18 @@ Finalmente, como $m\neq n$, $$
 $$
 \end{proof}
 \section{Generando Bases Ortonormales para Espacios de Esféricos Armónicos.}
+Tomamos $d\ge3$ y el vector $\zeta = \zeta_{(d)} \in \mathds{C^{d}}$ 
 \begin{prop}Si $Y_{j,d-1}\in\mathds{Y}_j^{d-1}$ entonces $P{n,d,j}(t)Y_{j,d-1}(\xi_{(d-1)})\in\spharm$ en coordenadas polares.
 \end{prop}
 \begin{defn}
-Para $d\ge3$ y $m\le n$ definimos el operador $$
-P_{n,m} : \mathds{Y}_m^{d-1} \to \spharm
+Para $d\ge3$ y $m\le n$ definimos el operador $$ \tilde{P}_{n,m} : \mathds{Y}_m^{d-1} \to \spharm
 $$
 como
+$$
+(\tilde{P}_{n,m}Y_{m,d-1})(\xi) = \tilde{P}_{n,d,m}(t)Y_{m,d-1}(\xi_{(d-1)}), \quad Y_{m,d-1} \in \mathds{Y}_m^{d-1}
+$$
 \end{defn}
+Ahora, definimos $\mathds{Y}^d_{n,m} = \tilde{P}_{n,m}(\mathds{Y_{m}^{d-1}})$ como el espacio de orden m asociado a $\spharm$
 \begin{thm}Para $d\ge 3$ y $n\ge 0$ se tiene que $$
 	\spharm = \mathds{Y}^d_{n,0} \oplus ... \oplus \mathds{Y}^d_{n,n}
 $$
@@ -463,9 +520,52 @@ $$
 En primer lugar,veamos que los subespacios $\mathds{Y}^d_{n,i}$ son ortogonales 2 a 2. Sea $0\le k,m\le n$ con $k \neq m$. Para cualesquiera $\mathds{Y}_{k,d-1}\in\mathds{Y}_k^{d-1},\mathds{Y}_{m,d-1}\in\mathds{Y}_m^{d-1}$, %igualdades guapas
 Luego, $\mathds{Y}_{n,k} \perp \mathds{Y}_{n,m}$ para  $k \neq m$.
 \end{proof}
-
+%los ejemplos de aqui son importantes
 \appendix
 \chapter{La Función Gamma}\label{aped.A}
+\begin{defn} Dado $x\in\mathds{(R)^+}$ definimos la función gamma como
+	$$
+	\Gamma(x) := \int_{0}^{\infty} t^{x-1}e^{-t}dt		
+	$$
+\end{defn}
+\begin{prop}Se verifican las siguientes formulas:
+	$$
+	\int_{0}^{\infty}  t{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+
+	$$
+	
+	$$
+	\int_{0}^{1} |ln t|^{x-1}dt = \Gamma(x),   x \in \mathds{R}^+
+	$$
+	
+	$$
+	\Gamma(x+1) = x \Gamma(x) ,		x\in \mathds{R}^+
+	$$
+	
+	$$
+	\Gamma^{(k)}(x) = \int_{0}^{\infty} (ln t)^k t^{x-1} e^{-t} dt,   k\in\mathds{N}_0,x\in\mathds{R}^+
+	$$
+\end{prop}
+\begin{rem}
+	$\Gamma(1)=1$ y de la tercera fórmula se deduce que $\Gamma(n+1)=n!, n\in\mathds{N}_0$. Es decir, la función $\Gamma$ extiende el operador factorial de los números naturales a los reales positivos.
+\end{rem}
+\begin{lem} 
+	$$
+	\Gamma(\frac{1}{2}) = 	\sqrt{\pi}
+	$$
+	$$
+	\Gamma(n+\frac{1}{2})=\frac{(2n)!}{2^{2n}n!} \sqrt{\pi}
+	$$
+\end{lem}
+\begin{defn}Sea $x\in\mathds{R}$ y $n\in\mathds{N}$,el símbolo de Pochhammer se define como
+	$$
+	(x)_0 = 1, (x)_n=x(x+1)(x+2)...(x+n-1)
+	$$
+\end{defn}
+\begin{prop} Sea $x\in\mathds{R}^+$ entonces
+	$$
+	(x)_n = \frac{\Gamma(x+n)}{\Gamma(x)}
+	$$
+\end{prop}
 \chapter{Resultados básicos de la esfera.}\label{aped.B}
 Usaremos $dV^d$ para elemento diferencial de volumen y $dS^{d-1}$ para elemento diferencial de superficie de la esfera.  $\mathds{S^{d-1}}$
 
@@ -593,9 +693,25 @@ $$
 \end{prop}
 
 \chapter{Polinomios de Gegenbauer}\label{aped.D}
+
 \begin{defn}Sean $v\ge 0,n\in\mathds{N}_0$ se define el polinomio de Gegenbauer de grado n e índice v, como:
 	$$C_{n,v}(t) = \binom{n+2v-1}{n}\frac{\Gamma(v+\frac{1}{2})}{\sqrt{\pi}\Gamma(v)}\int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n (1-s^2)^{v-1} ds$$ 
 \end{defn}
 \begin{prop}(Identidad de Gegenbauer.)$$
 	\sum_{n=0}^{\infty} C_{n,v}(t) = \frac{1}{(1+r^2-2rt)^v}, \qquad |r|<1, t\in[-1,1]$$
+\end{prop}
+\chapter{Funciones de Legendre Asociadas}\label{aped.E}
+\begin{defn}Sea $d\ge3$ y $n,j \in \mathds{N}_0$ se define la función asociada de Legendre de grado n y orden j en dimensión d, como
+	$$
+	P_{n,d,j}(t) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}i^{-j} \int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n P_{j,d-1}(s)(1-s^2)^{\frac{d-4}{2}}, \quad t\in[-1,1]
+	$$
+\end{defn}
+\begin{rem}Si $j=0, P_{n,d,0}(t)=P_{n,d}$
+\end{rem}
+\begin{prop}Sea $d\le3 y 0\le j \le n$ 
+	$$	P_{n,d,j}(t) = \frac{n!\Gamma(\frac{d-1}{2})}{2^j(n-j)!\Gamma(j+\frac{d-1}{2})}(1-t^2)^{1/2} P_{n-j,d+2j}(t), t\in[-1,1]$$
+\end{prop}
+El siguiente resultado nos proporciona una relación entre las funciones asociadas de Legendre y las derivadas de los polinomios de Legendre.
+\begin{prop}Sea $d\le3 y 0\le j \le n$ 
+	$$	P_{n,d,j}(t) = \frac{(n+d-3)!}{(n+j+d-3)!}(1-t^2)^{1/2} P^{(j)}_{n,d}(t), t\in[-1,1]$$
 \end{prop}
