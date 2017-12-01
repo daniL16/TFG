@@ -517,8 +517,17 @@ Ahora, definimos $\mathds{Y}^d_{n,m} = \tilde{P}_{n,m}(\mathds{Y_{m}^{d-1}})$ co
 $$
 \end{thm}
 \begin{proof}
-En primer lugar,veamos que los subespacios $\mathds{Y}^d_{n,i}$ son ortogonales 2 a 2. Sea $0\le k,m\le n$ con $k \neq m$. Para cualesquiera $\mathds{Y}_{k,d-1}\in\mathds{Y}_k^{d-1},\mathds{Y}_{m,d-1}\in\mathds{Y}_m^{d-1}$, %igualdades guapas
-Luego, $\mathds{Y}_{n,k} \perp \mathds{Y}_{n,m}$ para  $k \neq m$.
+En primer lugar,veamos que los subespacios $\mathds{Y}^d_{n,i}$ son ortogonales 2 a 2. Sea $0\le k,m\le n$ con $k \neq m$. Para cualesquiera $\mathds{Y}_{k,d-1}\in\mathds{Y}_k^{d-1},\mathds{Y}_{m,d-1}\in\mathds{Y}_m^{d-1}$,
+\begin{gather}
+(\tilde{P}_{n,k}Y_{k,d-1},\tilde{P}_{n,m}Y_{m,d-1})_{L^2(\sphere)} \\= (Y_{k,d-1},Y_{m,d-1})_{L^2(\mathds{S^{d-2}})}\int_{-1}^{1} \tilde{P}_{n,d,k}(t)\tilde{P}_{n,d,m}(t)(1-t^2)^{\frac{d-3}{2}}dt = 0
+\end{gather}
+Por tanto, $\mathds{Y}^d_{n,k}\perp\mathds{Y}^d_{n,m}$ para $k\neq m$.
+
+Para cada $0\le m\le n$, $\mathds{Y}^d_{m,n}$ es un subespacio de $\spharm$ y $$
+\spharm \supset \mathds{Y}^d_{n,0} \oplus ... \oplus \mathds{Y}^d_{n,n}$$
+Como $\tilde{P}_{n,m}:\mathds{Y_{n,m}^{d-1}} \to \mathds{Y_{m}^{d}}$ es una biyección entonces $dim \mathds{Y_{n,m}^{d}} = dim \mathds{Y_{m}^{d-1}} = N_{m,d-1}$
+Por otro lado, $\sum_{m=0}^{n} dim \mathds{Y_{n,m}^{d}} = \sum_{m=0}^{n} N_{m,d-1} =  N_{n,d} = dim \spharm$
+Es decir, ambos lados de la igualdad son espacios de dimensión finita con la misma dimensión.
 \end{proof}
 %los ejemplos de aqui son importantes
 \appendix
@@ -627,8 +636,6 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 	
 \end{rem}
 \chapter{Polinomios de Legendre}\label{aped.C}
-
-
 \section{Fórmulas de Representación}
 \subsection{Fórmula de Rodrigues}
 \begin{thm}
@@ -715,3 +722,5 @@ El siguiente resultado nos proporciona una relación entre las funciones asociad
 \begin{prop}Sea $d\le3 y 0\le j \le n$ 
 	$$	P_{n,d,j}(t) = \frac{(n+d-3)!}{(n+j+d-3)!}(1-t^2)^{1/2} P^{(j)}_{n,d}(t), t\in[-1,1]$$
 \end{prop}
+%la ortogonalidad del final es importante
+%mete toda la seccion
