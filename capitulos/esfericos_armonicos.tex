@@ -323,8 +323,23 @@ Y(\xi,\xi)|\sphere| =  \sum_{j=1}^{N_{n,d}}\int_{\sphere} |Y_{n,j}(\xi)|^2 d\sph
 $$
 Por tanto, $Y(\xi,\xi)=\frac{N_{n,d}}{|\sphere|}$ y se cumple $\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}= Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta) = \frac{N_{n,d}}{|\mathds{S}^{d-1}|}P_{n,d}(\xi.\eta)	$
 \end{proof}
+
 \medskip 
 
+\begin{example}En el caso $d=2$ $$
+	\sum_{j=1}^{2}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)} = \frac{1}{\pi}P_{n,2}(\xi.\eta)	\qquad	\forall \xi,\eta \in \mathds{S}^{1}
+	$$
+Si tomamos $\xi= (cos \theta,sen \theta)^T, \eta=(cos \psi,sen \psi)^T$. Entonces $\xi\cdot\eta = cos(\theta - \psi)$ y 
+\begin{gather}\label{base_d2}
+Y_{n,1}(\xi) = \frac{1}{\sqrt{\pi}} cos(n\theta) \\
+Y_{n,2}(\xi) = \frac{1}{\sqrt{\pi}} sin(n\theta) 
+\end{gather}
+es una base ortonormal de $\mathds{Y}^2_n$.
+\end{example}
+\begin{example}Si $d=3$ $$
+	\sum_{j=1}^{2n+1}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)} = \frac{2n+1}{4\pi}P_{n,3}(\xi.\eta)\qquad		\forall \xi,\eta \in \mathds{S}^{2}
+$$	
+\end{example}
 Veamos ahora algunas aplicaciones del teorema de adición. En primer lugar, aplicaremos el teorema para encontrar una expresión reducida del kernel de $\spharm$.
 \medskip
 
@@ -531,7 +546,25 @@ Es decir, ambos lados de la igualdad son espacios de dimensión finita con la mi
 \end{proof}
 \begin{rem}Si $\{Y_{m,d-1,j}:1\le j \le N_{m,d-1}$ es una base ortonormal de $\mathds{Y}_m^{d-1}, 0\le m\le n$ entonces $\{\tilde{P}_{n,d,m}Y_{m,d-1,j}(\xi_{(d-1)}):1\le j \le N_{m,d-1}, 0\le m \le n\}$ es una base ortonormal de $\spharm$
 \end{rem}
-%los ejemplos de aqui son importantes
+A partir de la base ortonormal de $\mathds{Y}^2_n$ obtenida en \hyperref[]{\ref{base_d2}} y del resultado anterior, construiremos una base ortonormal de $\mathds{Y}^3_n$.
+
+$ \xi_{(3)} = te_3 + \sqrt{1-t^2}\begin{pmatrix}
+\xi_{(2)} \\
+0
+\end{pmatrix}$
+$$ 
+\tilde{P}_{n,3,m}(t)= \left[\frac{(n+\frac{1}{2})(n-m)!}{(n+m)!}\right]^\frac{1}{2} (1-t^2)^{\frac{m}{2}}P_{n,3}^{(m)}(t)
+$$
+Entonces una base ortonormal viene dada por las funciones
+\begin{gather}
+\left[\frac{(2n+1)(n-m)!}{2\pi(n+m)!}\right]^{\frac{1}{2}} (sen\theta)^{m}P_{n,3}^{(m)}(cos\theta)cos(m\phi) \quad 0 \le m \le n \\
+\left[\frac{(2n+1)(n-m)!}{2\pi(n+m)!}\right]^{\frac{1}{2}} (sen\theta)^{m}P_{n,3}^{(m)}(cos\theta)sen(m\phi), \quad 1\le m \le n 
+\end{gather}
+Esta base también puede ser escrita de otra forma más cómoda para realizar cálculos
+\begin{gather}
+(-1)^{m+|m|}/2\left[\frac{(2n+1)(n-|m|!)}{4\pi(n+|m|)!}\right]^{\frac{1}{2}} (sen \theta)^m P_{n,3}^{(m)}(cos\theta)e^{im\phi}, \qquad -n\le m \le n
+\end{gather}
+
 \appendix
 \chapter{La Función Gamma}\label{aped.A}
 \begin{defn} Dado $x\in\mathds{(R)^+}$ definimos la función gamma como
@@ -717,6 +750,7 @@ $$
 \end{defn}
 \begin{rem}Si $j=0, P_{n,d,0}(t)=P_{n,d}$
 \end{rem}
+Las funciones asociadas de Legendre nos permiten generar "sistemas" de esféricos armónicos en la esfera.
 \begin{prop}Sea $d\le3 y 0\le j \le n$ 
 	$$	P_{n,d,j}(t) = \frac{n!\Gamma(\frac{d-1}{2})}{2^j(n-j)!\Gamma(j+\frac{d-1}{2})}(1-t^2)^{1/2} P_{n-j,d+2j}(t), t\in[-1,1]$$
 \end{prop}
