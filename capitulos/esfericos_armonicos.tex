@@ -392,7 +392,7 @@ $$
 |P_{n,d}(\xi\cdot\eta)| \le 1 = P_{n,d}(1)
 $$
 \end{proof}
-\begin{prop}\label{prop:2}
+\begin{prop}\label{prop:2}Se verifica la siguiente igualdad
 	$$\sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) = \frac{|\sphere|}{N_{n,d}}
 	$$
 \end{prop}
@@ -481,7 +481,7 @@ Por tanto, \begin{gather*}
 	\end{gather*}
 	
 \end{proof}
-\begin{cor}Si $\mathds{V}$ es un espacio invariante, entonces $P_{n,d}\mathds{V} = {P_{n,d}f : f\in\mathds{V}}$ es un subespacio invariante de $\spharm$.
+\begin{cor}Si $\mathds{V}$ es un espacio invariante, entonces $P_{n,d}\mathds{V} = \{P_{n,d}f : f\in\mathds{V}\}$ es un subespacio invariante de $\spharm$.
 \end{cor}
 \begin{thm}Si $\mathds{V}$ es un espacio invariante de $C(\sphere)$ entonces o $\mathds{V} \perp \spharm$ o $P_{n,d}$ es una biyección de $\mathds{V}$ sobre $\spharm$. En el último caso, $\mathds{V}=\spharm$
 \end{thm}
@@ -515,9 +515,32 @@ Finalmente, como $m\neq n$, $$
 $$
 \end{proof}
 \section{Generando Bases Ortonormales para Espacios de Esféricos Armónicos.}
-Tomamos $d\ge3$ y el vector $\zeta = \zeta_{(d)} \in \mathds{C^{d}}$ 
-\begin{prop}Si $Y_{j,d-1}\in\mathds{Y}_j^{d-1}$ entonces $P{n,d,j}(t)Y_{j,d-1}(\xi_{(d-1)})\in\spharm$ en coordenadas polares.
+A continuación, generaremos una base ortonormal de $\spharm$ a partir de bases ortonormales de dimensión d-1. Para ello, haremos uso de las funciones de Legendre asociadas (\hyperref[]{Apéndice \ref{aped.E}}).
+
+\medskip
+
+\begin{prop}Si $Y_{j,d-1}\in\mathds{Y}_j^{d-1}$ entonces $P_{n,d,j}(t)Y_{j,d-1}(\xi_{(d-1)})\in\spharm$ en coordenadas polares.
 \end{prop}
+\begin{proof}
+	
+	Tomamos $d\ge3$ y 
+	$$
+	f(x) = \frac{i^{-j}}{|\mathds{S}^{d-2}|}\int_{\mathds{S}^{d-2}} (x_d+ix_{(d-1)}.\eta)^n Y_{j,d-1}(\eta) d{S}^{d-2}(\eta)
+	$$
+	es un polinomio homogéneo de grado n. Usando coordenadas polares $x = |x|\xi, \xi= te_d + \sqrt{1-t^2}\xi_{(d-1)}, \quad |t|\le 1, \xi_{(d-1)}\in \sphere$. 
+	La restricción de f(x) a la esfera es
+	$$
+	f(\xi) =  \frac{i^{-j}}{|\mathds{S}^{d-2}|}\int_{\mathds{S}^{d-2}} (t+i\sqrt{1-t^2}\xi_{(d-1)}.\eta)^n Y_{j,d-1}(\eta) dS^{d-2}(\eta)
+		$$
+		Ahora, aplicamos la fórmula de Funk-Hecke 
+		$$
+		\int_{\mathds{S}^{d-2}} (t+i\sqrt{1-t^2}\xi_{(d-1)}.\eta)^n Y_{j,d-1}(\eta) dS^{d-2}(\eta) = \lambda  Y_{j,d-1}(\xi)
+			$$ 
+			siendo $\lambda = |\mathds{S}^{d-3}|\int_{-1}^{1} P_{j,d-1}(s)(t+i\sqrt{1-t^2}s)^j(1-t^2)^{\frac{d-4}{2}}dt$.\\
+			
+			Por tanto, $f(\xi) = P_{n,d,j}(t)Y_{j,d-1}(\xi_{(d-1)})$ es un esférico armónico de orden n y dimensión d.
+\end{proof}
+Este resultado nos permite construir una base de $\spharm$ a partir de bases de $Y_{0}^{d-1},...,Y_{n}^{d-1}$
 \begin{defn}
 Para $d\ge3$ y $m\le n$ definimos el operador $$ \tilde{P}_{n,m} : \mathds{Y}_m^{d-1} \to \spharm
 $$
@@ -526,7 +549,9 @@ $$
 (\tilde{P}_{n,m}Y_{m,d-1})(\xi) = \tilde{P}_{n,d,m}(t)Y_{m,d-1}(\xi_{(d-1)}), \quad Y_{m,d-1} \in \mathds{Y}_m^{d-1}
 $$
 \end{defn}
-Ahora, definimos $\mathds{Y}^d_{n,m} = \tilde{P}_{n,m}(\mathds{Y_{m}^{d-1}})$ como el espacio de orden m asociado a $\spharm$
+Llamaremos a $\mathds{Y}^d_{n,m} = \tilde{P}_{n,m}(\mathds{Y}_{m}^{d-1})$  el espacio de orden m asociado a $\spharm$. \medskip
+
+El siguiente resultado nos permite descomponer $\spharm$ como suma ortogonal de espacios asociados.
 \begin{thm}Para $d\ge 3$ y $n\ge 0$ se tiene que $$
 	\spharm = \mathds{Y}^d_{n,0} \oplus ... \oplus \mathds{Y}^d_{n,n}
 $$
@@ -541,17 +566,26 @@ Por tanto, $\mathds{Y}^d_{n,k}\perp\mathds{Y}^d_{n,m}$ para $k\neq m$.
 Para cada $0\le m\le n$, $\mathds{Y}^d_{m,n}$ es un subespacio de $\spharm$ y $$
 \spharm \supset \mathds{Y}^d_{n,0} \oplus ... \oplus \mathds{Y}^d_{n,n}$$
 Como $\tilde{P}_{n,m}:\mathds{Y_{n,m}^{d-1}} \to \mathds{Y_{m}^{d}}$ es una biyección entonces $dim \mathds{Y_{n,m}^{d}} = dim \mathds{Y_{m}^{d-1}} = N_{m,d-1}$
-Por otro lado, $\sum_{m=0}^{n} dim \mathds{Y_{n,m}^{d}} = \sum_{m=0}^{n} N_{m,d-1} =  N_{n,d} = dim \spharm$
+Por otro lado, $\sum_{m=0}^{n} dim \mathds{Y_{n,m}^{d}} = \sum_{m=0}^{n} N_{m,d-1} =  N_{n,d} = dim \spharm$.
 Es decir, ambos lados de la igualdad son espacios de dimensión finita con la misma dimensión.
 \end{proof}
-\begin{rem}Si $\{Y_{m,d-1,j}:1\le j \le N_{m,d-1}$ es una base ortonormal de $\mathds{Y}_m^{d-1}, 0\le m\le n$ entonces $\{\tilde{P}_{n,d,m}Y_{m,d-1,j}(\xi_{(d-1)}):1\le j \le N_{m,d-1}, 0\le m \le n\}$ es una base ortonormal de $\spharm$
+\begin{rem}Si $\{Y_{m,d-1,j}:1\le j \le N_{m,d-1}\}$ es una base ortonormal de $\mathds{Y}_m^{d-1}, 0\le m\le n$ entonces $\{\tilde{P}_{n,d,m}Y_{m,d-1,j}(\xi_{(d-1)}):1\le j \le N_{m,d-1}, 0\le m \le n\}$ es una base ortonormal de $\spharm$
 \end{rem}
 A partir de la base ortonormal de $\mathds{Y}^2_n$ obtenida en \hyperref[]{\ref{base_d2}} y del resultado anterior, construiremos una base ortonormal de $\mathds{Y}^3_n$.
+\bigskip
 
+Usaremos que
 $ \xi_{(3)} = te_3 + \sqrt{1-t^2}\begin{pmatrix}
 \xi_{(2)} \\
 0
-\end{pmatrix}$
+\end{pmatrix}$ con $t=cos \theta, \quad 0\le\theta\pi$, $\xi_{(2)}=(cos(\phi),sen(\phi))^T, 0\le\phi \le 2\pi$
+Por lo visto anteriormente, 
+$$
+\left\{Y_{m,2,1}(\xi_{(2)})=\frac{1}{\sqrt{\pi}}cos(m\phi),Y_{m,2,2}(\xi_{(2)})=\frac{1}{\sqrt{\pi}}sen(m\phi)\right\}
+$$
+es una base ortonormal de $\mathds{Y}^2_m$.
+
+Por otro lado tenemos que (\hyperref[]{\ref{note:fun_leg}})
 $$ 
 \tilde{P}_{n,3,m}(t)= \left[\frac{(n+\frac{1}{2})(n-m)!}{(n+m)!}\right]^\frac{1}{2} (1-t^2)^{\frac{m}{2}}P_{n,3}^{(m)}(t)
 $$
@@ -562,7 +596,7 @@ Entonces una base ortonormal viene dada por las funciones
 \end{gather}
 Esta base también puede ser escrita de otra forma más cómoda para realizar cálculos
 \begin{gather}
-(-1)^{m+|m|}/2\left[\frac{(2n+1)(n-|m|!)}{4\pi(n+|m|)!}\right]^{\frac{1}{2}} (sen \theta)^m P_{n,3}^{(m)}(cos\theta)e^{im\phi}, \qquad -n\le m \le n
+(-1)^{(m+|m|)/2}\left[\frac{(2n+1)(n-|m|!)}{4\pi(n+|m|)!}\right]^{\frac{1}{2}} (sen \theta)^m P_{n,3}^{(m)}(cos\theta)e^{im\phi}, \qquad -n\le m \le n
 \end{gather}
 
 \appendix
@@ -574,7 +608,7 @@ Esta base también puede ser escrita de otra forma más cómoda para realizar c�
 \end{defn}
 \begin{prop}Se verifican las siguientes formulas:
 	$$
-	\int_{0}^{\infty}  t{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+
+	\int_{0}^{\infty}  t^{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+
 	$$
 	
 	$$
@@ -682,7 +716,7 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 \end{rem}
 \begin{example}
 	\begin{itemize}
-		\item Si d = 2, $$P_{n,2}(t) = (-1)^n \frac{2^n n!} {(2n)!}(1-t^2)^{\frac{1}{2}}(\frac{d}{dt})^n (1-t^2)^{n-\frac{1}{2}}, \quad n\in \mathds{N}_0$$ Una forma reducida se obtiene usando el polinomio de Chebyshev obteniendo que $P_{n,2}(t) = cos(n arccos t), t\in[-1,1]$
+		\item Si d = 2, $$P_{n,2}(t) = (-1)^n \frac{2^n n!} {(2n)!}(1-t^2)^{\frac{1}{2}}(\frac{d}{dt})^n (1-t^2)^{n-\frac{1}{2}}, \quad n\in \mathds{N}_0$$ Una forma reducida se obtiene usando el polinomio de Chebyshev obteniendo que $P_{n,2}(t) = cos(n \quad arccos t), t\in[-1,1]$
 		\item Si d=3, $$P_{n,3}(t) = \frac{1} {2^n n!}(\frac{d}{dt})^n (t^2-1)^{n}, \quad n\in \mathds{N}_0$$
 	\end{itemize}
 \end{example}
@@ -693,7 +727,7 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 \end{thm}
 \begin{rem}Como consecuencia de la fórmula anterior se tiene que $P_{n,d}(-t) = (-1)^n P_{n,d}(t), t\in[-1,1]$, es decir $P_{n,d}(t)$ tiene la misma paridad que $n$.
 \end{rem}
-Podemos obtener otra fórmula de representación integral, usando funciones trigonométricas mediante el cambio de variable $s = tanh u, u\in\mathds{R}$
+Podemos obtener otra fórmula de representación integral, usando funciones trigonométricas mediante el cambio de variable $s = tanh(u), u\in\mathds{R}$
 \begin{thm}Sea $n\in\mathds{N}_0$ y $d\ge3$, $$
 		P_{n,d}(t) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}\int_{-1}^{1}\frac{(1-s^2)^{\frac{d-4}{2}}}{[t\pm i(1-t^2)^{\frac{1}{2}}s]^{n+d-2}} ds, \quad t\in(0,1]
 	$$
@@ -743,20 +777,35 @@ $$
 	\sum_{n=0}^{\infty} C_{n,v}(t) = \frac{1}{(1+r^2-2rt)^v}, \qquad |r|<1, t\in[-1,1]$$
 \end{prop}
 \chapter{Funciones de Legendre Asociadas}\label{aped.E}
+Las funciones asociadas de Legendre nos permiten construir esféricos armónicos a partir de otros de menor dimensión.
 \begin{defn}Sea $d\ge3$ y $n,j \in \mathds{N}_0$ se define la función asociada de Legendre de grado n y orden j en dimensión d, como
 	$$
 	P_{n,d,j}(t) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}i^{-j} \int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n P_{j,d-1}(s)(1-s^2)^{\frac{d-4}{2}}, \quad t\in[-1,1]
 	$$
 \end{defn}
-\begin{rem}Si $j=0, P_{n,d,0}(t)=P_{n,d}$
+\begin{rem}Si $j=0, P_{n,d,0}(t)=P_{n,d}(t)$
 \end{rem}
-Las funciones asociadas de Legendre nos permiten generar "sistemas" de esféricos armónicos en la esfera.
-\begin{prop}Sea $d\le3 y 0\le j \le n$ 
+%Las funciones asociadas de Legendre nos permiten generar "sistemas" de esféricos armónicos en la esfera.
+\begin{prop}Sea $d\le3$ y $0\le j \le n$ 
 	$$	P_{n,d,j}(t) = \frac{n!\Gamma(\frac{d-1}{2})}{2^j(n-j)!\Gamma(j+\frac{d-1}{2})}(1-t^2)^{1/2} P_{n-j,d+2j}(t), t\in[-1,1]$$
 \end{prop}
 El siguiente resultado nos proporciona una relación entre las funciones asociadas de Legendre y las derivadas de los polinomios de Legendre.
-\begin{prop}Sea $d\le3 y 0\le j \le n$ 
+\begin{prop}Sea $d\le3$ y $0\le j \le n$ 
 	$$	P_{n,d,j}(t) = \frac{(n+d-3)!}{(n+j+d-3)!}(1-t^2)^{1/2} P^{(j)}_{n,d}(t), t\in[-1,1]$$
 \end{prop}
-%la ortogonalidad del final es importante
-%mete toda la seccion
+\begin{prop}
+	\begin{gather*}
+	\int_{-1}^{1} P_{m,d,j}(t)P_{n,d,j}(t)(1-t^2)^{\frac{d-3}{2}} dt = 0, \qquad m \neq n
+	\end{gather*}
+\end{prop}
+\begin{prop} Las funciones $\tilde{P}_{n,d,j}$ definidas como
+	\begin{gather*}
+		\tilde{P}_{n,d,j}(t) = \frac{[(2n+d-2)(n-j)!(n+d+j-3)!]^{1/2}}{2^{\frac{d-2}{2}n!\Gamma(\frac{d-1}{2})}}P_{n,d,j}(t), \quad t\in[-1,1]
+	\end{gather*}
+están normalizadas, es decir $\int_{-1}^{1} [	\tilde{P}_{n,d,j}]^2(1-t^2)^\frac{d-3}{2} dt = 1$
+\end{prop}
+\begin{rem}\label{note:fun_leg}Las funciones $	\tilde{P}_{n,d,j}$ pueden ser escritas en función de las derivadas de los polinomios de Legendre 
+	\begin{gather*}
+	\tilde{P}_{n,d,j}(t) =\frac{(n+d-3)!}{n!\Gamma(\frac{d-1}{2})} \frac{[(2n+d-2)(n-j)!]^{1/2}}{2^{d-2}(n+d+j-3)!}(1-t^2)^{j/2}P^{(j)}_{n,d}(t), \quad t\in[-1,1]
+	\end{gather*}
+\end{rem}
