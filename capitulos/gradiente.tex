@@ -1,0 +1,23 @@
+\chapter[Cálculo del Gradiente]{Cálculo del Gradiente}
+\section{title}
+Para el cálculo del gradiente usaremos una expresión de la base en términos de los polinomios de Gegenbauer. De \ref{geb_rel}, se deduce que esta base es equivalente a la calculada anteriormente.
+Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chevyschev de $1^{er}$ y 2º orden respectivamente.	Y definimos
+\begin{gather*}
+ g_{0,n}(x_1,x_2) = (x_1^2+x_2^2)T_n^2(x_2(x_1^2+x_2^2)^{-1/2})
+\\
+g_{1,n-1}(x_1,x_2) = x_1(x_1^2+x_2^2)^{\frac{n-1}{2}}U_{n-1}(x_2(x_1^2+x_2^2)^{-1/2})
+\end{gather*}
+entonces, si tomamos $n=(n_1,...,n_d)$ con $n_1 = {0,1}$ se define
+\begin{gather*}
+Y_n = g_{n_1,n_2}(x_1,x_2)\prod_{j=3}^{d}(x_1^2+...+x_j^2)^{n_j/2}C_{n_j,\lambda_j}(x_j(x_1^2+...+x_j^2)^{-1/2})
+\end{gather*}
+donde $\lambda_j =\lambda_j(n_1,...,n_{j-1}) = \sum_{i=1}^{j-1}n_i + \frac{j-2}{2}$
+Tomamos, $F_n^\lambda (x) = (x_1^2+...+x_j^2)^{n/2}C_{n,\lambda}(\frac{x_d}{\sqrt{(x_1^2+...+x_j^2)}})$.
+Si $x=(x_1,...,x_d), n=(n_1,...,n_d)$ y $x' = (x_1,...,x_{d-1}), n=(n_1,..n_{d-1})$.
+$Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico armónico de dimensión $d-1$ y grado $n-n_d$.
+\begin{prop}Para $i=1,...,d-1$
+	\begin{gather*}
+	\partial_i  F_{n}^\lambda(x) = -2\lambda x_i F_{n-2}^{\lambda+1}(x) \\ 
+	\partial_d F_{n}^{\lambda}(x) = (n+2\lambda-1)  F_{n-1}^{\lambda}(x)
+	\end{gather*}
+\end{prop}

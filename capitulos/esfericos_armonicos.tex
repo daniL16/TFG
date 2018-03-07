@@ -773,10 +773,19 @@ $$
 \begin{defn}Sean $v\ge 0,n\in\mathds{N}_0$ se define el polinomio de Gegenbauer de grado n e índice v, como:
 	$$C_{n,v}(t) = \binom{n+2v-1}{n}\frac{\Gamma(v+\frac{1}{2})}{\sqrt{\pi}\Gamma(v)}\int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n (1-s^2)^{v-1} ds$$ 
 \end{defn}
+
+\begin{prop}\label{geb_rel}Se verifica la siguiente relación
+	$$C_{n,\frac{d-2}{2}}(t) = \begin{pmatrix}
+	n+d-3 \\
+	b
+	\end{pmatrix} P_{n,d}(t)
+	$$
+\end{prop}
 \begin{prop}(Identidad de Gegenbauer.)$$
 	\sum_{n=0}^{\infty} C_{n,v}(t) = \frac{1}{(1+r^2-2rt)^v}, \qquad |r|<1, t\in[-1,1]$$
 \end{prop}
 \chapter{Funciones de Legendre Asociadas}\label{aped.E}
+
 Las funciones asociadas de Legendre nos permiten construir esféricos armónicos a partir de otros de menor dimensión.
 \begin{defn}Sea $d\ge3$ y $n,j \in \mathds{N}_0$ se define la función asociada de Legendre de grado n y orden j en dimensión d, como
 	$$
