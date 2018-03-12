@@ -7,11 +7,13 @@ Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chevyschev de $1^{er}$ y 2º orden r
 \\
 g_{1,n-1}(x_1,x_2) = x_1(x_1^2+x_2^2)^{\frac{n-1}{2}}U_{n-1}(x_2(x_1^2+x_2^2)^{-1/2})
 \end{gather*}
-entonces, si tomamos $n=(n_1,...,n_d)$ con $n_1 = {0,1}$ se define
+entonces, si tomamos $n=(n_1,...,n_d)$ con $n_1 = \{0,1\}$ se define
 \begin{gather*}
 Y_n = g_{n_1,n_2}(x_1,x_2)\prod_{j=3}^{d}(x_1^2+...+x_j^2)^{n_j/2}C_{n_j,\lambda_j}(x_j(x_1^2+...+x_j^2)^{-1/2})
 \end{gather*}
 donde $\lambda_j =\lambda_j(n_1,...,n_{j-1}) = \sum_{i=1}^{j-1}n_i + \frac{j-2}{2}$
+
+
 Tomamos, $F_n^\lambda (x) = (x_1^2+...+x_j^2)^{n/2}C_{n,\lambda}(\frac{x_d}{\sqrt{(x_1^2+...+x_j^2)}})$.
 Si $x=(x_1,...,x_d), n=(n_1,...,n_d)$ y $x' = (x_1,...,x_{d-1}), n=(n_1,..n_{d-1})$.
 $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico armónico de dimensión $d-1$ y grado $n-n_d$.
@@ -21,3 +23,27 @@ $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico 
 	\partial_d F_{n}^{\lambda}(x) = (n+2\lambda-1)  F_{n-1}^{\lambda}(x)
 	\end{gather*}
 \end{prop}
+\begin{proof}
+	Sea $r=\sqrt{x_1^2+...+x_d^2}$. Usando que $\frac{d}{dx}C_{n,\lambda}(x) = 2\lambda C_{n-1,\lambda+1}(x)$ entonces para $i=1,2,...,d-1$ se tiene que$$
+	\partial_i F_{n}^{\lambda} = x_i r^{n-2} \left[ n C_{n,\lambda}(\frac{x_d}{r})-2\lambda\frac{x_d}{r}C_{n+1,\lambda+1}(\frac{x_d}{r})\right] = -2\lambda x_ir^{n-2}C_{n-2,\lambda+1}(\frac{x_d}{r})
+	$$
+	Además, $$
+	\partial_d F_{n}^{\lambda}(x) = r^{n-1}\left[n\frac{x_d}{r}C_{n,\lambda}(\frac{x_d}{r})+2\lambda(1-\frac{x_d^2}{r^2})C_{n-1,\lambda+1}(\frac{x_d}{r})\right] = (n+2\lambda-1)r^{n-1}C_{n-1,\lambda}(\frac{x_d}{r})
+	$$
+\end{proof}
+
+\begin{prop}Sea $n'=|n'|=n-n_d$ e $i=1,2,...,d-1$
+	\begin{gather*}
+	\partial_i Y_n(x) = -2\lambda_d proj_{n'+1,\sphere}^{d-1}(xY_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x)+\frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d-2)}\partial_iY_{n'}(x')F_{n_d}^{\lambda_d-1}(x) \\
+	\partial_dY_n(x) = (n_d+2\lambda_d-1)Y_{n'}(x')F_{n_d-1}^{\lambda_d}(x)
+	\end{gather*}
+\end{prop}}
+\begin{thm}
+	Sea $n=(n_1,n_2,...,n_d)\in\mathds{N}_0^d$ con $n_1=\{0,1\}$ y $|n|=n$. Entonces
+	(1) $\partial_i Y_n(x)$ es un esférico armónico de grado n-1 $$
+	<\partial_i Y_n,Y_m>_{\sphere} \neq 0 \quad |m|=n-1$$
+	para al menos $2^{d-2}$ $m\in\mathds{N}_0^d$ con $m_1=\{0,1\}$
+\end{thm}
+\begin{proof}
+	
+\end{proof}
