@@ -1,5 +1,6 @@
-\chapter[Cálculo del Gradiente]{Cálculo del Gradiente}
-\section{title}
+\chapter[Cálculo del Gradiente]
+		{Cálculo del Gradiente}
+\section{Cálculo Teórico.}
 Para el cálculo del gradiente usaremos una expresión de la base en términos de los polinomios de Gegenbauer. De \ref{geb_rel}, se deduce que esta base es equivalente a la calculada anteriormente.
 Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chevyschev de $1^{er}$ y 2º orden respectivamente.	Y definimos
 \begin{gather*}
@@ -37,7 +38,15 @@ $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico 
 	\partial_i Y_n(x) = -2\lambda_d proj_{n'+1,\sphere}^{d-1}(xY_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x)+\frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d-2)}\partial_iY_{n'}(x')F_{n_d}^{\lambda_d-1}(x) \\
 	\partial_dY_n(x) = (n_d+2\lambda_d-1)Y_{n'}(x')F_{n_d-1}^{\lambda_d}(x)
 	\end{gather*}
-\end{prop}}
+\end{prop}
+\begin{prop}
+	De la proposición anterior se deduce que
+	$$ \partial_i Y_n(x) = \partial_i Y_{n'}(x')F_{n_d}^{\lambda_d}(x) - 2 \lambda_dx_iY_{n'}(x')F_ {n_d-2}^{\lambda_d+1}(x) = -2\lambda_dproj_{n'+1,\sphere}^{d-1}(x_i Y_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x) + \partial_iY_{n'}(x')\left[F_{n_d}^{\lambda_d}(x)-\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x)\right]$$
+	donde hemos usado que $2n'+d-3=2\lambda_d-1$. Como $||x'||^2=r^2-x_d^2$
+	$$
+	F_{n_d}^{\lambda_d}(x)-\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x) = r^{n_d}\left[C_{n_d}^{\lambda_d}(\frac{x_d}{r})-\frac{2\lambda_d}{2\lambda_d-1}(1-\frac{x_d^2}{r^2})C_{n_d-2}^{\lambda_d+1}(\frac{x_d}{r})\right] = \frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d-2)}r^{n_d}C_{n_d}^{\lambda_d-1}(\frac{x_d}{r})
+	$$
+\end{prop}
 \begin{thm}
 	Sea $n=(n_1,n_2,...,n_d)\in\mathds{N}_0^d$ con $n_1=\{0,1\}$ y $|n|=n$. Entonces
 	(1) $\partial_i Y_n(x)$ es un esférico armónico de grado n-1 $$
@@ -47,3 +56,35 @@ $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico 
 \begin{proof}
 	
 \end{proof}
+\subsection{Caso particular d=3}
+El espacio de los esféricos armónicos de grado n en dimensión 3 tiene dimensión 2n+1. Tomando coordenadas esféricas,
+$$
+x_1 = r sen \theta sen \phi
+x_2 = r sen \theta sen \phi
+x_3 = r cos \theta
+0\le \theta \le \pi,0\le\phi\le2\pi,r>0
+$$
+una base ortogonal de $\spharm$ es
+$$
+Y^n_ {k,1} = r^n(sen \theta)^kC_{n,k}^{k+1/2}(cos \theta) cos(k\phi), 0\le k\le n \\
+Y^n_{k,2}(x) = r^{n-k}(sen\theta)^kC^{k+1/2}_{n-k}(cos\theta)sen(k\phi), 1\le k\le n
+$$ 
+\begin{prop} Para $k=0,...,n$
+	\begin{gather*} 
+		\begin{aligned}
+			\partial_1Y^{n}_{k,1}(x) &= -\frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,2}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,2}(x) \\
+		\partial_2Y^{n}_{k,1}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,1}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,1}(x) \\
+		\partial_3 Y_{k,1}^{n}(x) &=(n+k)Y_{k,1}^{n-1}(x)
+			\end{aligned}
+	\end{gather*}
+ Para $k=1,...,n$
+	\begin{gather*}
+	\begin{aligned}
+	\partial_1Y^{n}_{k,2}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,1}(x)+(k+\frac{1}{2})Y^{n-1}_ {k+1,1}(x)\\
+	\partial_2Y^{n}_{k,2}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,2}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,2}(x)\\
+	\partial_3 Y_{k,2}^{n}(x) &=(n+k)Y_{k,2}^{n-1}(x)
+		\end{aligned}
+	\end{gather*}
+
+	
+\end{prop}

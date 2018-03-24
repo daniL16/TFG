@@ -76,13 +76,20 @@
 %\def\leftmark{\textsc{Nombre del autor}}
 %\def\rightmark{\textsc{Trabajo Fin de Grado}}
 
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+
 %Cuerpo del trabajo, se incluye por cap´itulos
 
 %\include{introduccion}
 \include{./capitulos/esfericos_armonicos} % Polinomios esfericos
-\include{./capitulos/gradiente}
-%\include{./capitulos/kaggle1}
-%\include{./capitulos/Capitulo2Segundo}
+\include{./capitulos/gradiente} % Calculo del gradiente
+\appendix
+\clearpage
+\addappheadtotoc
+\appendixpage
+\include{./capitulos/apendices}
 %\include{biblio_Ejemplo}
 
 
