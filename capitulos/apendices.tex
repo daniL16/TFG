@@ -183,6 +183,16 @@ $$
 \begin{prop}(Identidad de Gegenbauer.)$$
 	\sum_{n=0}^{\infty} C_{n,v}(t) = \frac{1}{(1+r^2-2rt)^v}, \qquad |r|<1, t\in[-1,1]$$
 \end{prop}
+\begin{prop}\label{propGg} Se verifican las siguientes igualdades:
+	\begin{enumerate}[(i)]
+	\item $(1-x^2) \frac{d}{dx} C_{n,v}(x) = 2\lambda C_{n,\lambda+1}(x)$
+	\item $nC_{n,\lambda}(x) = x\frac{d}{dx} C_{n,\lambda}(x) - \frac{d}{dx} C_{n-1,\lambda}(x)$
+	\item $(n+2\lambda) C_{n,\lambda}(x)  = \frac{d}{dx}C_{n,\lambda+1}(x)-x \frac{x}{dx}C_{n,\lambda}(x) \quad n\ge 0$
+	\item $\begin{aligned}
+		\frac{d}{dx} C_{n+1,\lambda}(x) - C_{n-1,\lambda}(x)  &= 2(n+\lambda)C_{n,\lambda}(x)\\ &= 2\lambda C_{n,\lambda+1}(x) - C_{n-2,\lambda+1}(x) \quad n\ge 1
+	\end{aligned}$        	
+\end{enumerate}
+\end{prop}
 \chapter{Funciones de Legendre Asociadas}\label{aped.E}
 
 Las funciones asociadas de Legendre nos permiten construir esféricos armónicos a partir de otros de menor dimensión.

@@ -1,8 +1,8 @@
 \chapter[Cálculo del Gradiente]
 		{Cálculo del Gradiente}
-\section{Cálculo Teórico.}
-Para el cálculo del gradiente usaremos una expresión de la base en términos de los polinomios de Gegenbauer. De \ref{geb_rel}, se deduce que esta base es equivalente a la calculada anteriormente.
-Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chevyschev de $1^{er}$ y 2º orden respectivamente.	Y definimos
+Para el cálculo del gradiente usaremos una expresión de la base en términos de los polinomios de Gegenbauer. De la proposición \hyperref[]{\ref{geb_rel}}, se deduce que esta base es equivalente a la calculada anteriormente.
+\\
+Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chebyschev de $1^{er}$ y 2º orden respectivamente.Y definimos
 \begin{gather*}
  g_{0,n}(x_1,x_2) = (x_1^2+x_2^2)T_n^2(x_2(x_1^2+x_2^2)^{-1/2})
 \\
@@ -13,7 +13,7 @@ entonces, si tomamos $n=(n_1,...,n_d)$ con $n_1 = \{0,1\}$ se define
 Y_n = g_{n_1,n_2}(x_1,x_2)\prod_{j=3}^{d}(x_1^2+...+x_j^2)^{n_j/2}C_{n_j,\lambda_j}(x_j(x_1^2+...+x_j^2)^{-1/2})
 \end{gather*}
 donde $\lambda_j =\lambda_j(n_1,...,n_{j-1}) = \sum_{i=1}^{j-1}n_i + \frac{j-2}{2}$
-
+\medskip
 
 Tomamos, $F_n^\lambda (x) = (x_1^2+...+x_j^2)^{n/2}C_{n,\lambda}(\frac{x_d}{\sqrt{(x_1^2+...+x_j^2)}})$.
 Si $x=(x_1,...,x_d), n=(n_1,...,n_d)$ y $x' = (x_1,...,x_{d-1}), n=(n_1,..n_{d-1})$.
@@ -25,50 +25,102 @@ $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico 
 	\end{gather*}
 \end{prop}
 \begin{proof}
-	Sea $r=\sqrt{x_1^2+...+x_d^2}$. Usando que $\frac{d}{dx}C_{n,\lambda}(x) = 2\lambda C_{n-1,\lambda+1}(x)$ entonces para $i=1,2,...,d-1$ se tiene que$$
+	Sean $r=\sqrt{x_1^2+...+x_d^2},i=1,2,...,d-1$. Usando que $\frac{d}{dx}C_{n,\lambda}(x) = 2\lambda C_{n-1,\lambda+1}(x)$ y los apartados $(i)$ y $(ii)$ de la proposición \hyperref[]{\ref{propGg}} entonces
+	$$
 	\partial_i F_{n}^{\lambda} = x_i r^{n-2} \left[ n C_{n,\lambda}(\frac{x_d}{r})-2\lambda\frac{x_d}{r}C_{n+1,\lambda+1}(\frac{x_d}{r})\right] = -2\lambda x_ir^{n-2}C_{n-2,\lambda+1}(\frac{x_d}{r})
 	$$
 	Además, $$
 	\partial_d F_{n}^{\lambda}(x) = r^{n-1}\left[n\frac{x_d}{r}C_{n,\lambda}(\frac{x_d}{r})+2\lambda(1-\frac{x_d^2}{r^2})C_{n-1,\lambda+1}(\frac{x_d}{r})\right] = (n+2\lambda-1)r^{n-1}C_{n-1,\lambda}(\frac{x_d}{r})
 	$$
 \end{proof}
-
+Ahora, tomamos la proyección del espacio de los polinomios homogéneos al espacio de los esféricos armónicos $proj_{n,\sphere}^d : H_n^d \to \spharm$ tal que para $Y_n\in\spharm$ verifica $$
+proj_{n,\sphere}^d (x_iY_{n}(x)) = x_i Y_n(x)-\frac{1}{2(n+(d-2)/2)} ||x||^2 \partial_i Y_n(x)$$
 \begin{prop}Sea $n'=|n'|=n-n_d$ e $i=1,2,...,d-1$
 	\begin{gather*}
 	\partial_i Y_n(x) = -2\lambda_d proj_{n'+1,\sphere}^{d-1}(xY_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x)+\frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d-2)}\partial_iY_{n'}(x')F_{n_d}^{\lambda_d-1}(x) \\
 	\partial_dY_n(x) = (n_d+2\lambda_d-1)Y_{n'}(x')F_{n_d-1}^{\lambda_d}(x)
 	\end{gather*}
 \end{prop}
-\begin{prop}
-	De la proposición anterior se deduce que
-	$$ \partial_i Y_n(x) = \partial_i Y_{n'}(x')F_{n_d}^{\lambda_d}(x) - 2 \lambda_dx_iY_{n'}(x')F_ {n_d-2}^{\lambda_d+1}(x) = -2\lambda_dproj_{n'+1,\sphere}^{d-1}(x_i Y_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x) + \partial_iY_{n'}(x')\left[F_{n_d}^{\lambda_d}(x)-\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x)\right]$$
-	donde hemos usado que $2n'+d-3=2\lambda_d-1$. Como $||x'||^2=r^2-x_d^2$
+\begin{proof} Usando los resultados anteriores y que $2\lambda_d-1 = 2n'+d-3$
 	$$
-	F_{n_d}^{\lambda_d}(x)-\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x) = r^{n_d}\left[C_{n_d}^{\lambda_d}(\frac{x_d}{r})-\frac{2\lambda_d}{2\lambda_d-1}(1-\frac{x_d^2}{r^2})C_{n_d-2}^{\lambda_d+1}(\frac{x_d}{r})\right] = \frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d-2)}r^{n_d}C_{n_d}^{\lambda_d-1}(\frac{x_d}{r})
+	\begin{aligned}\partial_i Y_(x) &= \partial_i Y_{n'}(x')F_{n_d}^{\lambda_d}(x)-2\lambda_d x_i Y_{n'}(x')F_{n_d-2}^{\lambda_d+1}\\ &= -2\lambda_d proj_{n'+1,\sphere}^{d-1}(x_iY_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x) + \partial_iY_{n'}(x')\left[F_{n_d}^{\lambda_d}(x)-\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x)\right]\end{aligned}$$
+	Además, como $||x'||^2 = r^2-x_d^2$ y en virtud de los apartados $(i)$ y $(iv)$ de la proposición \ref{propGg}
+	$$\begin{aligned}
+	F_{n_d}^{\lambda_d}(x) -\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x) &=   r^n_d\left[C_{n_d}^{\lambda}(\frac{x_d}{r}) - -\frac{2\lambda_d}{2\lambda_d-1}(1-\frac{x_d}{r^2})C_{n_d-2}^{\lambda_d+1}(\frac{x_d}{r})\right] \\ &=   \frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d - 2)}r^{n_d}C_{n_d}^{\lambda_d-1}(\frac{x_d}{r})
+	\end{aligned}
 	$$
+	Sustituyendo esta igualdad en la obtenida anteriormente, se prueba el resultado.
+\end{proof}
+\begin{prop}Sea $n'=|n|=n-n_d$ e $i=1,...,d-1$
+	\begin{gather*}
+	\begin{aligned}
+		proj_{n+1,\sphere}^d(x_iY_n(x)) &= \frac{\lambda_d}{n_d+\lambda_d} proj_{n'+1,\sphere}^{d+1}(x_iY_{n'}(x'))F_{n_d}^{\lambda_d +1}(x)+\\& \frac{(n_d+1)(n_d+2)}{(2\lambda_d-1)(2\lambda_d-2)2(n_d+\lambda_d)}\partial_iY_{n'}(x')F_{n_d+2}^{\lambda-1}(x)\\
+		proj_{n+1,\sphere}^d(x_dY_n(x)) &= \frac{n_d+1}{2(n_d+\lambda_d)}Y_{n'}(x')F_{n_d+1}^{\lambda_d}(x)
+	\end{aligned}
+	\end{gather*}
 \end{prop}
+\begin{proof}
+	$$proj_{n+1,\sphere}^d(x_iY_n(x)) = x_iY_{n'} F_{n_d}^{\lambda_d}(x)-\frac{r^2}{2(n_d+\lambda_d)}\partial_i(Y_{n'}(x')F_{n_d}^{\lambda_d}(x))$$
+	Usando la proposición 2.3 tenemos que
+	\begin{gather*}
+	\begin{aligned}
+	proj_{n+1,\sphere}^d(x_iY_n(x)) &= proj_{n'+1,\sphere}^{d-1}(x_iY_{n'}(x'))\left[F_{n_d}^{\lambda_d}+\frac{\lambda_d}{n_d+\lambda_d}r^2F_{n_d-2,\lambda_d+1}(x)\right]\\&+\partial_iY_{n'}(x')\left[\frac{||x'||^2}{2\lambda_d-1}F_{n_d}^{\lambda_d}(x)-\frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d)-2}{2(n_d+\lambda_d)(2\lambda_d-1)(2\lambda_d-2)}r^2F_{n_d}^{\lambda_d-1}(x)\right]
+	\end{aligned}
+	\end{gather*} 
+	
+	Ahora, aplicando el apartado $(iv)$ de la proposición \ref{propGg}
+	\begin{gather*}
+	F_{n_d}^{\lambda_d}+\frac{\lambda_d}{n_d+\lambda_d}r^2F_{n_d-2,\lambda_d+1}(x) = r^{n_d}\left[C_{n_d}^{\lambda_d}(\frac{x_d}{r})+\frac{\lambda_d}{n_d+\lambda_d}C_{n_d-2}^{\lambda_d+1}(\frac{x_d}{r})\right] = \frac{\lambda_d}{n_d+\lambda_d}r^{n_d}C_{n_d}^{\lambda_d+1}(\frac{x_d}{r})
+	\end{gather*}
+	Por otro lado, aplicando el apartado $(i)$ de la proposición \ref{propGg}
+	\begin{gather*}
+	\begin{aligned}
+	\frac{||x'||^2}{2\lambda_d-1}F_{n_d}^{\lambda_d}(x)&-\frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d)-2}{2(n_d+\lambda_d)(2\lambda_d-1)(2\lambda_d-2)}r^2F_{n_d}^{\lambda_d-1}(x) \\&= \frac{r^{n_d+2}}{2\lambda_d-1}\left[(1-\frac{x_d^2}{r^2})C_{n_d}^{\lambda_d}(\frac{x_d}{r})-\frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{2(n_d+\lambda_d)(2\lambda_d-2)}C_{n_d}^{\lambda_d - 1}(\frac{x_d}{r})\right] \\ &= \frac{(n_d+1)(n_d+2)}{2(n_d+\lambda_d)(2\lambda_d-1)(2\lambda_d-2)}r^{n_d+2}C_{n_d+2}^{\lambda_d-1}(\frac{x_d}{r})
+	\end{aligned}
+	\end{gather*}
+	Uniendo ambas igualdades se prueba la primera igualdad de la proposición.
+	\\Finalmente,
+	\begin{gather*}
+	\begin{aligned}
+	proj_{n+1,\sphere}^d(x_dY_n(x)) &= x_dY_{n'}(x')F_{n_d}^{\lambda_d}(x)-\frac{r^2}{2(n_d+\lambda_d)}\partial_d(Y_{n'}(x')F_{n_d}^{\lambda_d}(x)) \\&=Y_{n'}(x')\left[x_dF_{n_d}^{\lambda_d}(x)-\frac{r^2}{2(n_d+\lambda_d)}(n_d+2\lambda_d-1)F_{n_d-1}^{\lambda_d}(x)\right] \\&= \frac{n_d+1}{2(n_d+\lambda_d)}Y_{n'}(x')F_{n_d+1}^{\lambda_d}(x)
+	\end{aligned}
+	\end{gather*}
+\end{proof}
 \begin{thm}
 	Sea $n=(n_1,n_2,...,n_d)\in\mathds{N}_0^d$ con $n_1=\{0,1\}$ y $|n|=n$. Entonces
 	(1) $\partial_i Y_n(x)$ es un esférico armónico de grado n-1 $$
 	<\partial_i Y_n,Y_m>_{\sphere} \neq 0 \quad |m|=n-1$$
-	para al menos $2^{d-2}$ $m\in\mathds{N}_0^d$ con $m_1=\{0,1\}$
+	para s $2^{d-2}$ $m\in\mathds{N}_0^d$ con $m_1=\{0,1\}$
 \end{thm}
 \begin{proof}
-	
+La afirmación del teorema equivale a $\partial_i Y_n = \sum_{m} a_mY_m^{n-1}$ siendo $a_m$ una constante real. El resultado se prueba por inducción sobre la dimensión $d$ usando las proposiciones anteriores.
+Para $d=2$, 
+\begin{gather*}
+\begin{aligned}
+\partial_1 Y_n^{(1)}(x) &= nY_{n-1}^{(1)}(x) \qquad \partial_2 Y_n^{(1)}(x) = -nY_{n-1}^{(2)}(x)
+\\ \partial_1 Y_n^{(2)}(x) &= nY_{n-1}^{(2)}(x) \qquad \partial_2 Y_n^{(2)}(x) = nY_{n-1}^{(1)}(x)
+\end{aligned}
+\end{gather*}
+Supongamos cierto el resultado para dimensión $d-1$. Entonces $\partial_i Y_{n'}(x')$ puede escribirse como combinación lineal de a lo sumo $2^{d-3}$ esféricos $Y_m'^{n'-1}$. Como $Y_m^{n'-1}F_{n_d}^{\lambda_d-1} = Y_{m_1,...m_{d-1},n_d}^{n-1}$, el resultado se obtiene aplicando la proposición 2.2.
 \end{proof}
 \subsection{Caso particular d=3}
 El espacio de los esféricos armónicos de grado n en dimensión 3 tiene dimensión 2n+1. Tomando coordenadas esféricas,
-$$
-x_1 = r sen \theta sen \phi
-x_2 = r sen \theta sen \phi
-x_3 = r cos \theta
+\begin{gather*}
+x_1 = r sen \theta sen \phi\\
+x_2 = r sen \theta sen \phi\\
+x_3 = r cos \theta\\
 0\le \theta \le \pi,0\le\phi\le2\pi,r>0
-$$
+\end{gather*}
 una base ortogonal de $\spharm$ es
-$$
-Y^n_ {k,1} = r^n(sen \theta)^kC_{n,k}^{k+1/2}(cos \theta) cos(k\phi), 0\le k\le n \\
-Y^n_{k,2}(x) = r^{n-k}(sen\theta)^kC^{k+1/2}_{n-k}(cos\theta)sen(k\phi), 1\le k\le n
-$$ 
+\begin{equation}
+	\left\lbrace
+	\begin{array}{ll}
+	Y^n_ {k,1} = r^n(sen \theta)^kC_{n,k}^{k+1/2}(cos \theta) cos(k\phi),\quad 0\le k\le n \\
+	Y^n_{k,2}(x) = r^{n-k}(sen\theta)^kC^{k+1/2}_{n-k}(cos\theta)sen(k\phi), \quad 1\le k\le n
+	\end{array}
+	\right.
+\end{equation}
+
 \begin{prop} Para $k=0,...,n$
 	\begin{gather*} 
 		\begin{aligned}
