@@ -1,0 +1,51 @@
+\chapter[Integración Numérica]{Integración Numérica}
+%5.1,5.3,5.4,5.6%
+\section{}
+En este capítulo vamos a obtener una aproximación numérica de la integral $$ I(f) = \int_{\mathds{S}^2} f(\eta) dS^2(\eta) $$. Para ello tomaremos coordenadas esféricas $$ \eta (cos\phi sin\theta, sin\phi sin\theta,cos \theta), \quad 0\le \phi \le 2\pi, 0\le \theta \le \pi$$
+%por aqui ahi mas introduccion%
+ Luego, 
+$$
+I(f) = \int_{0}^{2\pi} \int_{0}^{\pi} f(cos\phi sin\theta, sin\phi sin\theta,cos \theta)sin\theta d\theta d\phi. 
+$$
+Ahora, una vez hemos simplificado la expresión de la integral podemos aplicar metodos de integracion numerica de una variable a cada una de las integrales.
+
+Por un lado, como el integrando es periódico en $\pi$ con periodo $2\pi$, usaremos la formula del trapecio.
+%meter formula del trapecio guapa aqui%
+%formula de la integral%
+\begin{lem} Para $m\ge 2,k\ge 0$
+	\begin{gather}
+	\int_{0}^{2\pi} cos(k\phi)d\phi = 
+	\end{gather}
+	\begin{gather}
+	\frac{2\pi}{m}\sum_{j=0}^{m-1}cos(k\frac{2j\pi}{m}) = 
+	\end{gather}
+	\begin{gather}
+		\int_{0}^{2\pi} sen(k\phi)d\phi =  \frac{2\pi}{m}\sum_{j=1}^{m-1}sen(k\frac{2j\pi}{m}) =0 
+	\end{gather}
+\end{lem}
+\begin{proof}
+	
+\end{proof}
+%convergencia%
+\begin{thm}Sean $q > \frac{1}{2}, g\in H^q(2\pi)$, entonces
+	$$
+	| I(g) - I_m(g) | \le \frac{\sqrt{4\pi\zeta(2q)}}{m^q} ||g||_q, \qquad m\ge 1
+	$$  
+	siendo $\zeta$ la función zeta,
+	$$\zeta(s) = \sum_{j=1}^{\inf} \frac{1}{j^s}$$
+\end{thm}
+
+\section{Métodos de Gauss de Orden Superior.}
+\subsection{Eficiencia.}
+\subsection{Método de los centroides}
+
+\section{title}
+
+\section{Integración sobre el disco unidad.}
+Finalmente, integraremos sobre el disco unidad $\mathds{D}={(x,y):x^2+y^2 \le 1}.$
+%relacion entre la esfera y el disco$
+$z=\sqrt{1-x^2-y^2} \qquad (x,y)\in \mathds{D}$
+$\int_{D}f(x,y,\sqrt{1-x^2-y^2})\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2} dx dy = \int_D f(x,y,\sqrt{1-x^2-y^2})\frac{dx dy}{\sqrt{1-x^2-y^2}}$
+Por tanto,
+$$ \int_{\mathds{S}^2}f(\eta) dS^2(\eta) = \int_D \left[f(x,y,\sqrt{1-x^2-y^2})+f(x,y,-\sqrt{1-x^2-y^2})\right]\frac{dx dy}{\sqrt{1-x^2-y^2}} $$
+Es decir, la integración sobre la esfera es equivalente a una integración con pesos sobre el disco unidad.
