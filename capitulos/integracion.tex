@@ -87,14 +87,13 @@ Tomamos $T_N={\triangle_1,...,\triangle_{M(N)}}$ la triangulación de $\mathds{S
 $$
 I(f) = \sum_{k=1}^{M} \int_{\triangle_k} f(n)dS^2(n) =  \sum_{k=1}^{M} \frac{1}{3}[f(n_{k,1})+f(n_{k,2})+f(n_{k,3})] area(\triangle_k)
 $$
+%error analisis%
+%bla bla bla%
+$|I(f)-I_n(f)|\le 4\pi c_f h$ siendo $h=max diam(\triangle), \quad \triangle\in T_N$
+Luego,f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
 
-\begin{thm}
-\end{thm}
-\begin{proof}
-\end{proof}
-
-f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
-¿como elegir una triangulacion buena?
+Una pregunta que se nos plantea es: ¿como debemos elegir la triangulación?.
+%triangulaciones%
 \section{Integración sobre el disco unidad.}
 Finalmente, integraremos sobre el disco unidad $\mathds{D}={(x,y):x^2+y^2 \le 1}.$
 La semiesfera superior es la imagen de 
@@ -109,7 +108,26 @@ $$I(f)=\int_{D} f(x,y) dxdy = \int_{0}^{2\pi}\int_{0}^{1} rf(rcos\theta,rsen\the
 Para integrar sobre $\theta$ usamos la regla del trapecio y para hacerlo respecto de $r$ usamos la integración de Gauss-Legendre al integrando.
 
 $$ I_n(f) = h\sum_{j=0}^{2n}\sum_{j=0}^{n} w_k r_k f(r_k cos\theta_j,r_ksen\theta_j)$$
-\begin{thm}
+\begin{thm}Sea f(x,y) un polinomio de grado menor o igual a $2n$, entonces $I(f)=I_n(f)$. Además, la fórmula anterior tiene exactitud $2n$. 
 \end{thm}
 \begin{proof}
+	Supongamos $f(x,y)=x^\alpha y^\beta$ con  $\alpha,\beta$ enteros positivos y tales que  $\alpha+\beta \le m$, entonces
+	$$
+	I(f)=\left(\int_{0}^{2\pi}(cos\theta)^{\alpha}(sen\theta)^{\beta}d\theta\right)\left(\int_{0}^{1}r^{\alpha+\beta +1}\right) \equiv J^{\alpha,\beta}K^{ \alpha+\beta+1 }
+	$$
+	$$
+	I_n(f) = \left(h\sum_{j=0}^{2n}(cos\theta_j)^{\alpha}(sen\theta_j)^{\beta}\right) \left(\sum_{j=0}^{n}w_kr_k^{\alpha+\beta+1}\right)\equiv J_n^{\alpha,\beta}K_n^{ \alpha+\beta+1 }
+	$$
+	siendo
+	$$
+	k^t = \int_{0}^{1 } r^t \qquad k_n^t=\sum_{k=0}^{n} w_k{r_k}^t
+	$$
+	
+	
+	%cositas para la J%
+	La fórmula de Gauss-Legendre para (n+1) puntos tiene exactitud 2n+1,luego $K_n^{ \alpha+\beta+1 }=K^{ \alpha+\beta+1 }, \quad \alpha+\beta \le 2n$.
+	\medskip
+	
+	Por tanto, hemos probado que $I(f) = I_n(f) \quad \forall \alpha,\beta\ge 0, 0\le\alpha+\beta \le 2n $.
+	Para comprobar que $I_n(f)$ tiene exactitud 2n basta considerar la función $f(x,y) = r(rcos\theta)^{2n+1}$. En este caso, $J^{2n+1,0}=0$ y $J_n^{2n+1,0},K_n^{2n+2}$ no se anulan.
 \end{proof}
