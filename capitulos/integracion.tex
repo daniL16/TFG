@@ -1,17 +1,23 @@
 \chapter[Integración Numérica]{Integración Numérica}
 %5.1,5.3,5.4,5.6%
+En este capítulo vamos a obtener una aproximación numérica de la integral $$ I(f) = \int_{\mathds{S}^2} f(\eta) dS^2(\eta) $$. 
 \section{}
-En este capítulo vamos a obtener una aproximación numérica de la integral $$ I(f) = \int_{\mathds{S}^2} f(\eta) dS^2(\eta) $$. Para ello tomaremos coordenadas esféricas $$ \eta (cos\phi sin\theta, sin\phi sin\theta,cos \theta), \quad 0\le \phi \le 2\pi, 0\le \theta \le \pi$$
-%por aqui ahi mas introduccion%
- Luego, 
+En primer lugar tomaremos la siguientes coordenadas esféricas
+$$ \eta (cos\phi sin\theta, sin\phi sin\theta,cos \theta), \quad 0\le \phi \le 2\pi, 0\le \theta \le \pi$$
+ 
+Ahora, 
 $$
 I(f) = \int_{0}^{2\pi} \int_{0}^{\pi} f(cos\phi sin\theta, sin\phi sin\theta,cos \theta)sin\theta d\theta d\phi. 
 $$
-Ahora, una vez hemos simplificado la expresión de la integral podemos aplicar metodos de integracion numerica de una variable a cada una de las integrales.
 
-Por un lado, como el integrando es periódico en $\pi$ con periodo $2\pi$, usaremos la formula del trapecio.
+Una vez hemos simplificado la expresión de la integral podemos aplicar métodos de integración numérica de una variable a cada una de las integrales.Comenzaremos integrando respecto a $phi$
+\medskip
+Como el integrando es periódico en $\pi$ con periodo $2\pi$, usaremos la formula del trapecio.
 %meter formula del trapecio guapa aqui%
-%formula de la integral%
+$$
+I(g)=\int_{0}^{2\pi} g = \frac{2\pi}{m} \sum_{j=1}^{m} g(j\frac{2\pi}{m})
+$$
+
 \begin{lem} Para $m\ge 2,k\ge 0$
 	\begin{gather}
 	\int_{0}^{2\pi} cos(k\phi)d\phi = 
@@ -20,13 +26,21 @@ Por un lado, como el integrando es periódico en $\pi$ con periodo $2\pi$, usare
 	\frac{2\pi}{m}\sum_{j=0}^{m-1}cos(k\frac{2j\pi}{m}) = 
 	\end{gather}
 	\begin{gather}
-		\int_{0}^{2\pi} sen(k\phi)d\phi =  \frac{2\pi}{m}\sum_{j=1}^{m-1}sen(k\frac{2j\pi}{m}) =0 
+	\int_{0}^{2\pi} sen(k\phi)d\phi =  \frac{2\pi}{m}\sum_{j=1}^{m-1}sen(k\frac{2j\pi}{m}) =0 
 	\end{gather}
 \end{lem}
 \begin{proof}
 	
 \end{proof}
-%convergencia%
+
+Finalmente estudiaremos la convergencia. Para ello introduciremos el espacio $H^q(2\pi)$ como aquel de las funciones de cuadrado integrable en $(0,2\pi)$ que verifican que 
+$$
+||f||_q = \sqrt{|a_0|^2+\sum_{}^{}|k||a_k|^2} < +\infty
+$$
+siendo $a_k$ los coeficientes de la serie de Fourier.
+El espacio $H^q(2\pi)$ es un espacio de Hilbert con el producto escalar 
+$$ (f,g)_q = a_0b_0 + \sum_{k=1}^{\infty}|k|^{2q} a_kb_k $$ siendo $a_k,b_k$ los coeficientes de la serie de Fourier para f y g respectivamente. 
+
 \begin{thm}Sean $q > \frac{1}{2}, g\in H^q(2\pi)$, entonces
 	$$
 	| I(g) - I_m(g) | \le \frac{\sqrt{4\pi\zeta(2q)}}{m^q} ||g||_q, \qquad m\ge 1
@@ -35,17 +49,67 @@ Por un lado, como el integrando es periódico en $\pi$ con periodo $2\pi$, usare
 	$$\zeta(s) = \sum_{j=1}^{\inf} \frac{1}{j^s}$$
 \end{thm}
 
+Por otro lado, estudiamos el valor de la integral $\int_{0}^{2\pi} f(cos\phi sen\theta,sen\phi sin\theta,cos\theta)sen\theta d\theta$. Hacemos el cambio de variable $z= cos\theta$, la integral queda:
+$$
+\int_{-1}^{1} f(cos\phi\sqrt{1-z^2},sen \phi\sqrt{1-z^2},z) dz 
+$$
+Aplicamos la integración de Gauss-Legendre en $-1<z<1$.
+$$
+I_n(f) = h \sum_{j=0}^{2n-1} \sum_{k=1}^{n} w_k f(cos \phi_j\sqrt{1-z^2}, sen\phi_j\sqrt{1-z^2},z) = h \sum_{j=0}^{2n-1} \sum_{k=1}^{n} w_k f(cos \phi_jsen\theta_k, sen\phi_jsen\theta_k,cos\theta_k)
+$$
+\begin{thm}
+	
+\end{thm}
+\begin{proof}
+	
+\end{proof}
 \section{Métodos de Gauss de Orden Superior.}
+En el caso de integración en una variable los métodos gaussianos se basan en pedir que la fórmula sea exacta para polinomios del mayor grado posible. Si tenemos n nodos es posible alcanzar esa exactitud para polinomios de grado $2n-1$. Este enfoque generaliza la integracion en varias variables. Sea $I(f)= \int f(\eta)dS^2(\eta) ~~ I_N(f) = \sum_{k=1}^{N} w_kf(\eta_k)$
+
+${n_k},{w_k}$ se eligen para que los esféricos armónicos sean exactos para el grado mayor posible.
+
+\begin{thm}
+	Sea G un grupo de rotaciones...
+\end{thm}
+\begin{proof}
+\end{proof}
+
 \subsection{Eficiencia.}
+
 \subsection{Método de los centroides}
 
-\section{title}
+\section{Integración scatered data}
+Supongamos que tenemos N nodos, $P={n_1,...,n_N}$ y sus valores aproximados $f_i~f(n_i)$. Queremos aproximar la integral $I(f) =  \int_{\mathds{S}^2} f(n)dS^2(n)$.
 
+\medskip
+Tomamos $T_N={\triangle_1,...,\triangle_{M(N)}}$ la triangulación de $\mathds{S}^2$, donde los vértices de la triangulación son los nodos.
+
+$$
+I(f) = \sum_{k=1}^{M} \int_{\triangle_k} f(n)dS^2(n) =  \sum_{k=1}^{M} \frac{1}{3}[f(n_{k,1})+f(n_{k,2})+f(n_{k,3})] area(\triangle_k)
+$$
+
+\begin{thm}
+\end{thm}
+\begin{proof}
+\end{proof}
+
+f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
+¿como elegir una triangulacion buena?
 \section{Integración sobre el disco unidad.}
 Finalmente, integraremos sobre el disco unidad $\mathds{D}={(x,y):x^2+y^2 \le 1}.$
-%relacion entre la esfera y el disco$
+La semiesfera superior es la imagen de 
 $z=\sqrt{1-x^2-y^2} \qquad (x,y)\in \mathds{D}$
 $\int_{D}f(x,y,\sqrt{1-x^2-y^2})\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2} dx dy = \int_D f(x,y,\sqrt{1-x^2-y^2})\frac{dx dy}{\sqrt{1-x^2-y^2}}$
 Por tanto,
 $$ \int_{\mathds{S}^2}f(\eta) dS^2(\eta) = \int_D \left[f(x,y,\sqrt{1-x^2-y^2})+f(x,y,-\sqrt{1-x^2-y^2})\right]\frac{dx dy}{\sqrt{1-x^2-y^2}} $$
 Es decir, la integración sobre la esfera es equivalente a una integración con pesos sobre el disco unidad.
+
+
+$$I(f)=\int_{D} f(x,y) dxdy = \int_{0}^{2\pi}\int_{0}^{1} rf(rcos\theta,rsen\theta)drd\theta $$
+Para integrar sobre $\theta$ usamos la regla del trapecio y para hacerlo respecto de $r$ usamos la integración de Gauss-Legendre al integrando.
+
+$$ I_n(f) = h\sum_{j=0}^{2n}\sum_{j=0}^{n} w_k r_k f(r_k cos\theta_j,r_ksen\theta_j)$$
+\begin{thm}
+\end{thm}
+\begin{proof}
+\end{proof}
