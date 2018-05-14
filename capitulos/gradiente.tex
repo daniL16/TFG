@@ -137,6 +137,57 @@ una base ortogonal de $\spharm$ es
 	\partial_3 Y_{k,2}^{n}(x) &=(n+k)Y_{k,2}^{n-1}(x)
 		\end{aligned}
 	\end{gather*}
-
-	
 \end{prop}
+Finalmente, queremos conocer el número de puntos que anulan el gradiente, para ello haremos uso de las siguientes igualdades trigonométricas
+\begin{gather}
+cos(k\phi) = sen(k\phi + \frac{\pi}{2}) \\
+sen (k\phi) = cos(k\phi - \frac{\pi}{2}) \\
+cos(k+1)\phi= cos (k\phi)cos\phi - sen k\phi sen\phi \\
+cos(k-1)\phi= cos (k\phi)cos\phi + sen k\phi sen\phi \\
+sen(k+1)\phi = sen(k\phi)cos\phi + sen(\phi)cos(k\phi)\\
+sen(k-1)\phi = sen(k\phi)cos\phi - sen(\phi)cos(k\phi)\\
+\end{gather}
+Llamaremos  $c_{n,k},d_k$ a las constantes $\frac{(n+k)(n+k-1)}{2(2k-1)},k+\frac{1}{2}$ respectivamente
+Igualando a 0 las parciales calculadas anteriormente tenemos que
+\begin{gather}
+\partial_3 Y_{k,1}^n(x) = (n+k)Y_{k,1}^{n-1}(x) = (n+k)(sen \theta)^k C_{n-k-1}^{k+1/2}(cos \theta) cos k\phi = 0 \implies
+\left\{
+\begin{array}{ll}
+sen \theta= 0 \\
+cos k\phi = 0\\
+C_{n-k-1}^{k+1/2}(cos \theta) = 0
+\end{array}
+\right.
+\end{gather}
+
+Suponemos que $cos k\phi = 0 $, entonces
+\begin{gather}
+\begin{aligned}
+ \partial_1  Y_{k,1}^n(x) &= \\ 
+ &= (sen\theta)^{k-1}[-c_{n,k}C_{n-k}^{k-1/2}(cos \theta)sen(k\phi)cos\phi + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta)sen(k\phi)cos\phi] \\ &= (sen\theta)^{k-1}sen(k\phi)cos\phi[-c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta)]
+\end{aligned}
+\end{gather}
+\begin{gather}
+\begin{aligned}
+\partial_2  Y_{k,1}^n(x) &= \\ 
+&= (sen\theta)^{k-1}[-c_{n,k}C_{n-k}^{k-1/2}(cos \theta)sen(k\phi)sen\phi + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta)sen(k\phi)sen\phi] \\ &= (sen\theta)^{k-1}sen(k\phi)sen\phi[-c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta)]
+\end{aligned}
+\end{gather}
+Ahora, igualando ambas expresiones e igualando a 0
+\begin{gather}
+\begin{aligned}
+	\partial_1  Y_{k,1}^n(x) = \partial_2  Y_{k,1}^n(x) = \\ &= (sen\theta)^{k-1}sen(k\phi)cos\phi[c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta)]  \\ &= (sen\theta)^{k-1}sen(k\phi)sen\phi[c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta)] \\ &= 0
+\end{aligned}
+\end{gather}
+Como $cos (k\phi) = 0 $ entonces $sen  (k\phi) \neq 0$. Además, $sen \phi$ y $cos\phi$ no se anulan simultáneamente, luego de la expresión anterior se verifica que
+\begin{gather}
+c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta) = 0
+\end{gather}
+Haciendo el cambio $sen^2 \theta = 1-cos^2\theta$, y tomando como variable $t=cos\theta$, se tiene que la expresión anterior es un polinomio de grado $n-k$. Por tanto, tiene a lo sumo $n-k$ raíces.
+
+\medskip
+
+En resumen, hemos encontrado $(n-k)+2k+2$ valores que anulan las 3 parciales.
+
+\medskip
+Razonando análogamente, se obtiene la misma conclusión para las parciales de segundo tipo.

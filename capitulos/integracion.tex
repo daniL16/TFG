@@ -1,19 +1,18 @@
 \chapter[Integración Numérica]{Integración Numérica}
-%5.1,5.3,5.4,5.6%
 En este capítulo vamos a obtener una aproximación numérica de la integral $$ I(f) = \int_{\mathds{S}^2} f(\eta) dS^2(\eta) $$. 
-\section{}
+\section{Fórmulas de una variable.}
 En primer lugar tomaremos la siguientes coordenadas esféricas
-$$ \eta (cos\phi sin\theta, sin\phi sin\theta,cos \theta), \quad 0\le \phi \le 2\pi, 0\le \theta \le \pi$$
+$$ \eta \mapsto (cos\phi sin\theta, sin\phi sin\theta,cos \theta), \quad 0\le \phi \le 2\pi, 0\le \theta \le \pi$$
  
 Ahora, 
 $$
 I(f) = \int_{0}^{2\pi} \int_{0}^{\pi} f(cos\phi sin\theta, sin\phi sin\theta,cos \theta)sin\theta d\theta d\phi. 
 $$
 
-Una vez hemos simplificado la expresión de la integral podemos aplicar métodos de integración numérica de una variable a cada una de las integrales.Comenzaremos integrando respecto a $phi$
+Una vez hemos simplificado la expresión de la integral podemos aplicar métodos de integración numérica de una variable a cada una de las integrales.Comenzaremos integrando respecto a $\phi$.
 \medskip
 \begin{rem}Regla del trapecio.
-	$$\int_{a}^{b} f(x)dx ~ \frac{b-a}{b}\left[f(a)+2f(a+h)+2f(a+2h)+...+f(b)\right]
+	$$\int_{a}^{b} f(x)dx \approx \frac{b-a}{n}\left[\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f(a+k\frac{b-a}{n})\right]
 	$$
 \end{rem}
 
@@ -59,7 +58,7 @@ $$ (f,g)_q = a_0b_0 + \sum_{k=1}^{\infty}|k|^{2q} a_kb_k $$ siendo $a_k,b_k$ los
 	siendo $\zeta$ la función zeta,
 	$$\zeta(s) = \sum_{j=1}^{\inf} \frac{1}{j^s}$$
 \end{thm}
-%¿demostracion?
+%¿demostracion?ref[13,p.316]
 
 Por otro lado, estudiamos el valor de la integral $\int_{0}^{2\pi} f(cos\phi sen\theta,sen\phi sin\theta,cos\theta)sen\theta d\theta$. Hacemos el cambio de variable $z= cos\theta$, la integral queda:
 $$
@@ -79,9 +78,10 @@ siendo ${z_i},{w_i}$ los nodos y los pesos de la fórmula de Gauss-Legendre resp
  	
 \end{thm}
 \begin{proof}
+	
 	Supongamos $f(x,y,z)= x^ry^sz^t, \quad r+s+t \le 2n-1$. Haciendo el cambio a coordenadas esféricas:
 	$$
-	I = \int_{\mathds{S}^2 x^ry^sz^t dS^2 = \int_{0}^{2\pi} \int_{0}^{\pi} cos^r\phi sen^{r+s+1}\theta sen^s \phi cos^t \theta d\phi d\theta
+	I = \int_{\mathds{S}^2} x^ry^sz^t dS^2 = \int_{0}^{2\pi} \int_{0}^{\pi} cos^r\phi sen^{r+s+1}\theta sen^s \phi cos^t \theta d\phi d\theta
 	$$
 	y la correspondiente aproximación numérica
 	$$
@@ -90,44 +90,67 @@ siendo ${z_i},{w_i}$ los nodos y los pesos de la fórmula de Gauss-Legendre resp
 	Analizamos el error, $ E_n = I-I_n $
 	%continua la magia%
 \end{proof}
-% error%
-
+Finalmente, obtendremos una cota del error. Para ello haremos uso de los resultados %teorema 4.5,4.49 del libro%.
+\medskip
+El error minimax para la aproximación uniforme de un polinomio esférico por un polinomio... está definida por
+$$
+E_{m,\infty}(f) = min ||f-p||_{\infty}
+$$
+Sea $p_m^*$ un polinomio xxx cuyo error minimax ??, cuya existencia conocemos.
+%desigualdades chuscas
+\begin{gather}
+|I(g)| \le 4\pi||g||_\infty \\
+|I_n(g)|\le 4\pi||g||_\infty
+\end{gather}
+\begin{gather}
+I(f) - I_n(f) = I(f-p*_{2n-1}) - I_n(f-p*_{2n-1}) \\
+|I(f) - I_n(f)| \le | I(f-p*_{2n-1}) | + |  I_n(f-p*_{2n-1}) | \ le 8\pi||f-p*_{2n-1}||_\infty
+\end{gather}
 \section{Métodos de Gauss de Orden Superior.}
-En el caso de integración en una variable los métodos gaussianos se basan en pedir que la fórmula sea exacta para polinomios del mayor grado posible. Si tenemos n nodos es posible alcanzar esa exactitud para polinomios de grado $2n-1$. Este enfoque generaliza la integracion en varias variables. Sea $I(f)= \int f(\eta)dS^2(\eta) ~~ I_N(f) = \sum_{k=1}^{N} w_kf(\eta_k)$
 
-${n_k},{w_k}$ se eligen para que los esféricos armónicos sean exactos para el grado mayor posible.
+En el caso de integración en una variable los métodos gaussianos se basan en pedir que la fórmula sea exacta para polinomios del mayor grado posible. Si tenemos n nodos es posible alcanzar esa exactitud para polinomios de grado $2n-1$. Este enfoque generaliza la integración en varias variables. \\
+Sea $$
+I(f)= \int f(\eta)dS^2(\eta) \approx I_N(f) = \sum_{k=1}^{N} w_kf(\eta_k)$$
 
-\begin{thm}
-	Sea G un grupo de rotaciones...
+Los nodos ${n_k}$, y los pesos ${w_k}$ se eligen de forma que los esféricos armónicos sean exactos para el grado mayor posible.
+
+\begin{thm}Sea $\mathcal{G}$ un grupo finito de rotaciones sobre la esfera. Y supongamos que el sistema anterior es invariante para todos los elementos de $\mathcal{G}$, es decir, $I_N(f_\gamma)=I_n(f), \quad \forall \gamma \in \mathcal{G}$. Entonces $$\{\eta_i:i=1,...,N\}=\{\gamma(\eta_i):i=1,...,N\}$$ Además ,para cada nodo $\eta_i$ sea $\mathcal{S}_i=\{\gamma(\eta_i):\gamma \in \mathcal{G}\}$.Entonces los pesos asociados a los nodos son iguales. Es condición necesaria y suficiente que f sea invariante para todo elemento de $\mathcal{G}$ para que  se verifique $I(f)=I_N(f)$. En tal caso, decimos que $I_N(f)$ tiene grado de precisión d.
+
 \end{thm}
 \begin{proof}
+Como la esfera es simétrica por rotaciones se verifica que $$I(f) = \int_{\esfera} f(\eta)dS^2(\eta) = \int_{\esfera} f_\gamma(\eta)dS^2(\eta) = I(f_\gamma)$$.
+Sea $f* = \frac{1}{|\mathcal{G}|} \sum_{\gamma \in |\mathcal{G}| } f\gamma$. $f*$ es invariante por $\mathcal{G}$ e $I(f) = I(f*)$. Por hipótesis del teorema, $$
+I(f)-I_N(f) = I(f*) - I_N(f*) $$
+%falta la conclusion%
 \end{proof}
-
+%explicacion rara aqui
+Los nodos y los pesos han de ser elegidos de forma que sean invariantes por $\mathcal{G}$
 \subsection{Eficiencia.}
 
 \subsection{Método de los centroides}
 
-\section{Integración scatered data}
-Supongamos que tenemos N nodos, $P={n_1,...,n_N}$ y sus valores aproximados $f_i~f(n_i)$. Queremos aproximar la integral $I(f) =  \int_{\mathds{S}^2} f(n)dS^2(n)$.
+\section{Integración puntos dispersos}
+Supongamos que tenemos N nodos, $P=\{\eta_1,...,\eta_N\}$ y sus valores aproximados $f_i~\approx f(\eta_i)$. Queremos aproximar la integral $I(f) =  \int_{\mathds{S}^2} f(\eta)dS^2(\eta)$.
 
 \medskip
-Tomamos $T_N={\triangle_1,...,\triangle_{M(N)}}$ la triangulación de $\mathds{S}^2$, donde los vértices de la triangulación son los nodos.
+Tomamos $T_N=\{\triangle_1,...,\triangle_{M(N)}\}$ la triangulación de $\mathds{S}^2$, donde los vértices de la triangulación son los nodos.
 
 $$
-I(f) = \sum_{k=1}^{M} \int_{\triangle_k} f(n)dS^2(n) =  \sum_{k=1}^{M} \frac{1}{3}[f(n_{k,1})+f(n_{k,2})+f(n_{k,3})] area(\triangle_k)
+I(f) = \sum_{k=1}^{M} \int_{\triangle_k} f(n)dS^2(n) \approx  \sum_{k=1}^{M} \frac{1}{3}[f(n_{k,1})+f(n_{k,2})+f(n_{k,3})] area(\triangle_k)
 $$
-%error analisis%
-%bla bla bla%
-$|I(f)-I_n(f)|\le 4\pi c_f h$ siendo $h=max diam(\triangle), \quad \triangle\in T_N$
-Luego,f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
+Realizando un análisis del error cometido similar al realizado anteriormente, obtenemos que el método tiene grado de precisión 0 y 
+$|I(f)-I_n(f)|\le 4\pi c_f h$ siendo $h=max$ $diam(\triangle), \quad \triangle\in T_N$
+Luego, f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
 
-Una pregunta que se nos plantea es: ¿como debemos elegir la triangulación?.
-%triangulaciones%
+Finalmente, se nos plantean 2 cuestiones: elegir una triangulación y un conjunto de nodos. Una de las opciones más frecuentes para la primera cuestión es la triangulación de Delaunay. En cuanto al conjunto de nodos, se cree que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
+%meter referencias a otras triangulaciones y otros nodos$
+
 \section{Integración sobre el disco unidad.}
-Finalmente, integraremos sobre el disco unidad $\mathds{D}={(x,y):x^2+y^2 \le 1}.$
+Finalmente, integraremos sobre el disco unidad $\mathds{D}=\{(x,y):x^2+y^2 \le 1\}.$
 La semiesfera superior es la imagen de 
 $z=\sqrt{1-x^2-y^2} \qquad (x,y)\in \mathds{D}$
-$\int_{D}f(x,y,\sqrt{1-x^2-y^2})\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2} dx dy = \int_D f(x,y,\sqrt{1-x^2-y^2})\frac{dx dy}{\sqrt{1-x^2-y^2}}$
+
+$$\int_{D}f(x,y,\sqrt{1-x^2-y^2})\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2} dx dy = \int_D f(x,y,\sqrt{1-x^2-y^2})\frac{dx dy}{\sqrt{1-x^2-y^2}}$$
 Por tanto,
 $$ \int_{\mathds{S}^2}f(\eta) dS^2(\eta) = \int_D \left[f(x,y,\sqrt{1-x^2-y^2})+f(x,y,-\sqrt{1-x^2-y^2})\right]\frac{dx dy}{\sqrt{1-x^2-y^2}} $$
 Es decir, la integración sobre la esfera es equivalente a una integración con pesos sobre el disco unidad.
