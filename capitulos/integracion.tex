@@ -40,10 +40,14 @@ $$
 	\end{gather}
 \end{lem}
 \begin{proof}
-	%falta demostracion
+Basta con sustituir las siguientes expresiones en la fórmula del trapecio
+\begin{gather*}
+cos(iw) = \frac{e^{iw}+e^{-iw}}{2} \\
+sen(iw) = \frac{e^{iw}-e^{-iw}}{2i}
+\end{gather*} 
 \end{proof}
 
-Finalmente estudiaremos la convergencia. Para estudiar la convergencia de funciones periódicas, introduciremos el espacio $H^q(2\pi)$ como aquel de las funciones de cuadrado integrable en $(0,2\pi)$ que verifican que 
+Finalmente estudiaremos la convergencia de $\widetilde{I}(g)$ a $I(g)$. Para estudiar la convergencia de funciones periódicas, introduciremos el espacio $H^q(2\pi)$ como aquel de las funciones de cuadrado integrable en $(0,2\pi)$ que verifican que 
 $$
 ||f||_q = \sqrt{|a_0|^2+\sum_{}^{}|k||a_k|^2} < +\infty
 $$
@@ -60,7 +64,7 @@ $$ (f,g)_q = a_0b_0 + \sum_{k=1}^{\infty}|k|^{2q} a_kb_k $$ siendo $a_k,b_k$ los
 \end{thm}
 %¿demostracion?ref[13,p.316]
 
-Por otro lado, estudiamos el valor de la integral $\int_{0}^{2\pi} f(cos\phi sen\theta,sen\phi sin\theta,cos\theta)sen\theta d\theta$. Hacemos el cambio de variable $z= cos\theta$, la integral queda:
+Por otro lado, estudiamos el valor de la integral $\int_{0}^{2\pi} f(cos\phi sen\theta,sen\phi sin\theta,cos\theta)sen\theta d\theta$. Para ello, hacemos el cambio de variable $z= cos\theta$, la integral queda:
 $$
 \int_{-1}^{1} f(cos\phi\sqrt{1-z^2},sen \phi\sqrt{1-z^2},z) dz 
 $$
@@ -70,11 +74,14 @@ $$
 	$$
 \end{rem}
 Aplicamos la integración de Gauss-Legendre en $-1<z<1$.
-$$
-I_n(f) = h \sum_{j=0}^{2n-1} \sum_{k=1}^{n} w_k f(cos \phi_j\sqrt{1-z^2}, sen\phi_j\sqrt{1-z^2},z) = h \sum_{j=0}^{2n-1} \sum_{k=1}^{n} w_k f(cos \phi_jsen\theta_k, sen\phi_jsen\theta_k,cos\theta_k)
-$$
+\begin{gather}\label{gaussian_quadrature}
+\begin{aligned}
+I_n(f) &= h \sum_{j=0}^{2n-1} \sum_{k=1}^{n} w_k f(cos \phi_j\sqrt{1-z^2}, sen\phi_j\sqrt{1-z^2},z) \\ &= h \sum_{j=0}^{2n-1} \sum_{k=1}^{n} w_k f(cos \phi_jsen\theta_k, sen\phi_jsen\theta_k,cos\theta_k)
+\end{aligned}
+\end{gather}
+
 siendo ${z_i},{w_i}$ los nodos y los pesos de la fórmula de Gauss-Legendre respectivamente.
-\begin{thm}Sea $f\in$ un polinomio esférico de grado menor o igual a $2n-1$. Entonces $I(f)=I_n(f)$. Además, para $f(x,y,z) = z^{2n}$,$I(f)\neq I_n(f)$
+\begin{thm}Sea $f$ un polinomio esférico de grado menor o igual a $2n-1$. Entonces $I(f)=I_n(f)$. Además, para $f(x,y,z) = z^{2n}$,$I(f)\neq I_n(f)$
  	
 \end{thm}
 \begin{proof}
@@ -89,22 +96,26 @@ siendo ${z_i},{w_i}$ los nodos y los pesos de la fórmula de Gauss-Legendre resp
 	$$
 	Analizamos el error, $ E_n = I-I_n $
 	%continua la magia%
+	(...)
 \end{proof}
-Finalmente, obtendremos una cota del error. Para ello haremos uso de los resultados %teorema 4.5,4.49 del libro%.
+Finalmente, obtendremos una cota del error. Para ello haremos uso del teorema 4.5 [p.142] y del corolario del teorema 4.11 [p.149].
 \medskip
-El error minimax para la aproximación uniforme de un polinomio esférico por un polinomio... está definida por
+El error minimax de la aproximación de una función $f\in C(\esfera)$ por un polinomio esférico de grado menor o igual a m, se define como 
 $$
 E_{m,\infty}(f) = min ||f-p||_{\infty}
 $$
-Sea $p_m^*$ un polinomio xxx cuyo error minimax ??, cuya existencia conocemos.
-%desigualdades chuscas
+Sea $p_m^*$ un polinomio esférico de grado menor o igual a m cuyo error minimax se alcanza. La existencia $p_m^*$ es consecuencia de los resultados citados anteriormente.
+
+De \ref{gaussian_quadrature} se deduce que $I(p_{2n-1}^*)=I_n(p_{2n-1}^*)$
+Ahora, para $g\in C(\esfera)$
 \begin{gather}
 |I(g)| \le 4\pi||g||_\infty \\
 |I_n(g)|\le 4\pi||g||_\infty
 \end{gather}
+y
 \begin{gather}
 I(f) - I_n(f) = I(f-p*_{2n-1}) - I_n(f-p*_{2n-1}) \\
-|I(f) - I_n(f)| \le | I(f-p*_{2n-1}) | + |  I_n(f-p*_{2n-1}) | \ le 8\pi||f-p*_{2n-1}||_\infty
+|I(f) - I_n(f)| \le | I(f-p*_{2n-1}) | + |  I_n(f-p*_{2n-1}) | \le 8\pi||f-p*_{2n-1}||_\infty
 \end{gather}
 \section{Métodos de Gauss de Orden Superior.}
 
@@ -119,15 +130,22 @@ Los nodos ${n_k}$, y los pesos ${w_k}$ se eligen de forma que los esféricos arm
 \end{thm}
 \begin{proof}
 Como la esfera es simétrica por rotaciones se verifica que $$I(f) = \int_{\esfera} f(\eta)dS^2(\eta) = \int_{\esfera} f_\gamma(\eta)dS^2(\eta) = I(f_\gamma)$$.
-Sea $f* = \frac{1}{|\mathcal{G}|} \sum_{\gamma \in |\mathcal{G}| } f\gamma$. $f*$ es invariante por $\mathcal{G}$ e $I(f) = I(f*)$. Por hipótesis del teorema, $$
+Sea $f^* = \frac{1}{|\mathcal{G}|} \sum_{\gamma \in |\mathcal{G}| } f\gamma$. $f*$ es invariante por $\mathcal{G}$ e $I(f) = I(f*)$. Por hipótesis del teorema, $$
 I(f)-I_N(f) = I(f*) - I_N(f*) $$
-%falta la conclusion%
+Por tanto, si queremos que $I(f)=I_N(f)$ para todo polinomio esférico $f$, basta con mostrar que el resultado es cierto para todo polinomio esférico que sea invariante por la acción de  $\mathcal{G}$.
 \end{proof}
-%explicacion rara aqui
-Los nodos y los pesos han de ser elegidos de forma que sean invariantes por $\mathcal{G}$
-\subsection{Eficiencia.}
+Razonando análogamente al apartado anterior se prueba que
+$$
+|I(f)-I_N(d)| \le 8\pi E_d(f)|
+$$
+y la velocidad con la que $I_N(d)$ converge a $I(d)$ depende de la regularidad de f.
+\medskip
 
-\subsection{Método de los centroides}
+Los nodos y los pesos han de ser elegidos de forma que sean invariantes por $\mathcal{G}$. Además, el error $I(f)-I_N(d)$ debe ser 0 para polinomios del mayor grado posible, lo que requiere la resolución de un sistema de ecuaciones no lineal. Estas condiciones hacen que la elección de los nodos y los pesos sea una tarea complicada.
+%algo mas?%
+%¿meto esto tb?
+%\subsection{Eficiencia.}
+%\subsection{Método de los centroides}
 
 \section{Integración puntos dispersos}
 Supongamos que tenemos N nodos, $P=\{\eta_1,...,\eta_N\}$ y sus valores aproximados $f_i~\approx f(\eta_i)$. Queremos aproximar la integral $I(f) =  \int_{\mathds{S}^2} f(\eta)dS^2(\eta)$.
@@ -142,7 +160,7 @@ Realizando un análisis del error cometido similar al realizado anteriormente, o
 $|I(f)-I_n(f)|\le 4\pi c_f h$ siendo $h=max$ $diam(\triangle), \quad \triangle\in T_N$
 Luego, f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
 
-Finalmente, se nos plantean 2 cuestiones: elegir una triangulación y un conjunto de nodos. Una de las opciones más frecuentes para la primera cuestión es la triangulación de Delaunay. En cuanto al conjunto de nodos, se cree que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
+Finalmente, se nos plantean 2 cuestiones: elegir una triangulación y un conjunto de nodos. Una de las opciones más frecuentes para la primera cuestión es la triangulación de Delaunay. En cuanto al conjunto de nodos, es conocido que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
 %meter referencias a otras triangulaciones y otros nodos$
 
 \section{Integración sobre el disco unidad.}
@@ -150,7 +168,7 @@ Finalmente, integraremos sobre el disco unidad $\mathds{D}=\{(x,y):x^2+y^2 \le 1
 La semiesfera superior es la imagen de 
 $z=\sqrt{1-x^2-y^2} \qquad (x,y)\in \mathds{D}$
 
-$$\int_{D}f(x,y,\sqrt{1-x^2-y^2})\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2} dx dy = \int_D f(x,y,\sqrt{1-x^2-y^2})\frac{dx dy}{\sqrt{1-x^2-y^2}}$$
+$$\int_{D}f(x,y,\sqrt{1-x^2-y^2})\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2} dx dy = \int_D f(x,y,\sqrt{1-x^2-y^2})\frac{dx dy}{\sqrt{1-x^2-y^2}}$$	
 Por tanto,
 $$ \int_{\mathds{S}^2}f(\eta) dS^2(\eta) = \int_D \left[f(x,y,\sqrt{1-x^2-y^2})+f(x,y,-\sqrt{1-x^2-y^2})\right]\frac{dx dy}{\sqrt{1-x^2-y^2}} $$
 Es decir, la integración sobre la esfera es equivalente a una integración con pesos sobre el disco unidad.
@@ -175,8 +193,8 @@ $$ I_n(f) = h\sum_{j=0}^{2n}\sum_{j=0}^{n} w_k r_k f(r_k cos\theta_j,r_ksen\thet
 	k^t = \int_{0}^{1 } r^t \qquad k_n^t=\sum_{k=0}^{n} w_k{r_k}^t
 	$$
 	
-	
-	%cositas para la J%
+	Por otro lado,si $\beta$ es impar las integrales $J^{\alpha,\beta},J_n^{\alpha,\beta}=0$ (visto en la demostración del teorema 3.5). Si $\beta$ es par podemos transformar el integrando $(cos \theta)^\alpha(sen\theta)^\beta$ en un polinomio de potencias de $cos \theta$ con grado $\alpha+\beta$.Usando el lema 3.2 se tiene que $J_n^{\alpha,\beta} = J^{\alpha,\beta}, \alpha+\beta\le 2n$. 
+	\medskip
 	La fórmula de Gauss-Legendre para (n+1) puntos tiene exactitud 2n+1,luego $K_n^{ \alpha+\beta+1 }=K^{ \alpha+\beta+1 }, \quad \alpha+\beta \le 2n$.
 	\medskip
 	
