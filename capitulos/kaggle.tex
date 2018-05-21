@@ -1,6 +1,16 @@
 \chapter[Kaggle]{Kaggle}
 \section{Introducción.}
 \subsection{Descripción del problema.}
+Los atributos son los siguientes
+\begin{itemize}
+	\item ip
+	\item app
+	\item device
+	\item so
+	\item click\_time
+	\item attributed\_time
+	\item is\_attributed
+\end{itemize}
 \subsection{Limitaciones encontradas.}
 La principal limitación hardware que he encontrado es el uso de memoria RAM debido al gran tamaño del conjunto de entrenamiento (7.7 GB).
 \subsection{Herramientas utilizadas}
@@ -15,26 +25,95 @@ que nos permite usar Boosting con árboles de forma paralela, eficiente y
 flexible. Este ha sido el algoritmo usado en el resultado final debido a su
 capacidad para obtener valores significativamente superiores a Random
 Forest, aunque sacrificando velocidad en el entrenamiento.
+He usado los siguientes bibliotecas
+\begin{itemize}
+	\item xgboost
+	\item matplotlib
+	\item pandas
+	\item numpy
+\end{itemize}
 \section{Objetivos.}
 \section{Estudio de los datos.}
-Para poder elegir una estrategia para el preprocesamiento es necesario realizar una visualización de los datos. De esta forma, podremos obtener cómo están distribuidos los valores de cada uno de los atributos o si existe alguna relación de correlación entre ellos. Para poder realizar este estudio correctamente separaremos los atributos de tipo fecha en dia,mes y año. 
-\begin{figure}
-\includegraphics[scale=0.5]{img/app_distribution.png}
-\includegraphics[scale=0.5]{img/channel_distribution.png}
+Para poder elegir una estrategia para el preprocesamiento es necesario realizar una visualización de los datos. De esta forma, podremos obtener cómo están distribuidos los valores de cada uno de los atributos o si existe alguna relación de correlación entre ellos. Para poder realizar este estudio correctamente separaremos los atributos de tipo fecha en dia,mes y año.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{img/app_distribution.png}
+		\caption{A subfigure}
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{img/ip_distribution.png}
+		\caption{A subfigure}
+		\label{fig:sub2}
+	\end{subfigure}
+	\caption{A figure with two subfigures}
+	\label{fig:test}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+	\includegraphics[scale=0.5]{img/channel_distribution.png}
+		\caption{A subfigure}
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
 \includegraphics[scale=0.5]{img/device_distribution.png}
-\includegraphics[scale=0.5]{img/ip_distribution.png}
-\includegraphics[scale=0.5]{img/os_distribution.png}	
+		\caption{A subfigure}
+		\label{fig:sub2}
+	\end{subfigure}
+	\caption{A figure with two subfigures}
+	\label{fig:test}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+\includegraphics[scale=0.5]{img/os_distribution.png}
+\caption{A figure with two subfigures}
+\label{fig:test}	
+\end{figure}
 En las gráficas anteriores podemos observar que las variables app,channel,device,ip y os se d
 \medskip
 Ahora, estudiaremos la variable click\_time. Al tratarse de una variable que representa una hora y fecha, la dividiremos en día,mes,año y valor timestamp(segundos transcurridos desde una fecha fijada por el sistema operativo).
-\begin{figure}
-\includegraphics[scale=0.5]{img/click_time_day_distribution.png}
-\includegraphics[scale=0.5]{img/click_time_month_distribution.png}
-\includegraphics[scale=0.5]{img/click_time_year_distribution.png}
-\includegraphics[scale=0.5]{img/normalDistclick_time_timestamp.png}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+\includegraphics[scale=0.45]{img/click_time_day_distribution.png}
+		\caption{A subfigure}
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+\includegraphics[scale=0.45]{img/click_time_month_distribution.png}
+		\caption{A subfigure}
+		\label{fig:sub2}
+	\end{subfigure}
+	\caption{A figure with two subfigures}
+	\label{fig:test}
 \end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+\includegraphics[scale=0.5]{img/click_time_year_distribution.png}
+		\caption{A subfigure}
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+\includegraphics[scale=0.5]{img/normalDistclick_time_timestamp.png}
+		\caption{A subfigure}
+		\label{fig:sub2}
+	\end{subfigure}
+	\caption{A figure with two subfigures}
+	\label{fig:test}
+\end{figure}
+
 En esta ocasión si podemos establecer valores fijos para algunos campos:
 \begin{enumerate}
 	\item Los días son el 6,7 y 11
@@ -43,11 +122,13 @@ En esta ocasión si podemos establecer valores fijos para algunos campos:
 \end{enumerate}
 
 Finalmente, estudiaremos el balanceo de clases de la variable a clasificar. Cabe recordar que un desbalanceo de clases provocará que el modelo de aprendizaje que construiremos no clasifica bien para las clases minoritarias.
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[scale=0.75]{img/imbalacing.png}
+\label{}
+\caption{Balanceo de clases}
 \end{figure}
 Por otro lado, estudiaremos el número de valores desconocidos de cada columna ya que un atributo con un gran número de valores desconocidos no nos proporciona información valiosa. Los resultados obtenidos son los siguientes.
-\begin{table}[]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{lllll}
 	Atributo& Total & \%    \\
