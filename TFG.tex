@@ -1,12 +1,14 @@
 
 \documentclass[11pt,twoside,a4paper]{book}
 
+%comandos para agilizar la escritura de simbolos frecuentes
 \newcommand{\sphere}{\mathds{S}^{d-1}}
 \newcommand{\esfera}{\mathds{S}^{2}}
 \newcommand{\orto}{\mathds{O}^d}
 \newcommand{\R}{\mathds{R}^d}
 \newcommand{\spharm}{\mathds{Y}^d_n}
 \newcommand{\sphint}{\int_{\sphere}}
+
 \usepackage[spanish,activeacute]{babel} % Para poner acentos y ñ en español
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -24,7 +26,6 @@
 \usepackage{float}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\usepackage[demo]{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
 %Numeracion de teoremas, proposiciones, etc.
@@ -68,7 +69,12 @@
 
 \renewcommand{\contentsname}{Índice}
 \tableofcontents
-
+\newpage
+\listoffigures
+\begingroup
+\let\clearpage\relax
+\listoftables
+\endgroup
 \newpage
 \phantom{o}
 \newpage
@@ -89,11 +95,16 @@
 
 %Cuerpo del trabajo, se incluye por cap´itulos
 
+\part{Distribución de puntos en la esfera.}
 %\include{introduccion}
 \include{./capitulos/esfericos_armonicos} % Polinomios esfericos
 \include{./capitulos/gradiente} % Calculo del gradiente
 \include{./capitulos/integracion} %integracion numerica
-\include{./capitulos/kaggle}
+\part{Competición en Kaggle}
+\include{./capitulos/kaggleintro}
+\include{./capitulos/visualizacion}
+\include{./capitulos/preprocesamiento}
+%\part{Apéndices}
 \appendix
 \include{./capitulos/apendices}
 %\include{biblio_Ejemplo}

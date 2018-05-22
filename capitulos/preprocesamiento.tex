@@ -1,0 +1,33 @@
+\chapter{Preprocesamiento.}
+Durante esta sección nos centraremos en tratar el conjunto de datos de proporcionado, con el objetivo de extraer la máxima información posible que nos permita la construcción de un buen modelo de aprendizaje.
+En este tipo de competiciones la fase de preprocesamiento suele ser la que marca más la diferencia. Esto es debido a que a igualdad de capacidad de procesamiento, se puede obtener la configuración de parámetros óptima para los algoritmos usados, siendo los algoritmos usados similares entre los participantes.
+\medskip
+Para evaluar la bondad de las decisiones tomadas haremos uso de la clasificación mediante boosting usando la libreria xgboost, debido a que nos permite ver la importancia de cada atributo a la hora de construir el modelo de aprendizaje. Esto nos permitirá discriminar que cambios nos proporcionan mejoras.
+\medskip
+A partir de los resultados obtenidos en la sección anterior concluimos que:
+\begin{itemize}
+	\item La columna $attributed\_time$ puede ser eliminada ya que la mayoría de sus valores son vacíos.
+	\item A priori, de la variable $click\_time$ podemos obviar los datos relativos al mes y al año.
+	\item La variable $app$ concentra sus valores en torno al intervalo $[0,100]$, por lo que podemos realizar agrupaciones sobre dicha variable, añadiendo una columna que contabilize el número de instancias coincidentes.
+\end{itemize}
+Ahora, vamos a  seguir trabajando con la variable click\_time los siguientes cambios a probar son introducir el día de la semana y la hora.
+%Finalmente, realizaremos algunas agrupaciones añadiendo una columna que contabilize el número de instancias coincidentes:
+%\begin{itemize}
+%	\item ip-day-hour
+%	\item ip-app
+%	\item ip-app-os	
+%\end{itemize}
+Los resultados obtenidos en las distintas fases de preprocesamiento se muestran en la siguiente tabla.
+\begin{table}[]
+	\centering
+	
+	\begin{tabular}{lll}
+		Cambio realizado& Resultado & Importancia del cambio introducido  \\
+		Configuración inicial&  &   \\
+		Eliminar mes,año y click\_time&  & \\
+		Añadir día de la semana y hora&  & \\
+		Agrupar ip-app & & \\
+		Agrupar ip-app-os & & \\  
+	\end{tabular}
+\caption{Pruebas realizadas durante el preprocesamiento.}
+\end{table}

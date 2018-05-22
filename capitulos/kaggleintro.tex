@@ -1,0 +1,34 @@
+\chapter[Introducción]{Introdución.}
+\section{Introducción.}
+\subsection{Descripción del problema.}
+Los atributos son los siguientes
+\begin{itemize}
+	\item ip
+	\item app
+	\item device
+	\item so : El sistema operativo desde el 
+	\item click\_time: La hora 
+	\item attributed\_time : La hora 
+	\item is\_attributed : La variable a clasificar, toma valores 1 o 0.
+\end{itemize}
+\subsection{Limitaciones encontradas.}
+La principal limitación hardware que he encontrado es el uso de memoria RAM debido al gran tamaño del conjunto de entrenamiento (7.7 GB).
+\subsection{Herramientas utilizadas}
+Boosting es un enfoque donde el resultado se da usando la media
+ponderada de varios árboles y combina las ventajas de cada árbol al darle
+a éste un peso en la decisión final. En este enfoque, los árboles tienen
+que ir construyéndose de manera lineal para intentar añadir árboles que
+mejoren aquello en lo que el resto ha fallado. El objetivo final es eliminar el
+sesgo. [9]
+Para la competición en particular, se ha usado la librería XGBoost,
+que nos permite usar Boosting con árboles de forma paralela, eficiente y
+flexible. Este ha sido el algoritmo usado en el resultado final debido a su
+capacidad para obtener valores significativamente superiores a Random
+Forest, aunque sacrificando velocidad en el entrenamiento.
+He usado los siguientes bibliotecas
+\begin{itemize}
+	\item xgboost
+	\item matplotlib
+	\item pandas
+	\item numpy
+\end{itemize}
