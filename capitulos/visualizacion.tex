@@ -68,12 +68,13 @@ En esta ocasión si podemos establecer valores fijos para algunos campos:
 	\item Todos los registros son del año 2017.
 \end{itemize}
 
-Finalmente, estudiaremos el balanceo de clases de la variable a clasificar. Cabe recordar que un desbalanceo de clases provocará que el modelo de aprendizaje que vamos a construir tienda a obviar la clase minoritaria.
+Finalmente, estudiaremos el balanceo de clases de la variable a clasificar. Cabe recordar que los clasificadores estándar tienden a sobreaprender la clase mayoritaria, ignorando la minoritaria. En el siguiente gráfico podemos observar que el desbalanceo de clases es más que evidente. Por tanto, los algoritmos a desarrollar deberán tener en cuenta esta característica del conjunto de datos.
 \begin{figure}[H]
-\includegraphics[scale=0.75]{img/imbalacing.png}
+\includegraphics[scale=0.65]{img/imbalacing.png}
 \label{}
 \caption{Balanceo de clases}
 \end{figure}
+
 Una vez hemos visto cómo se distribuyen los datos, a continuación calcularemos el número de valores desconocidos de cada columna. Esta información nos será de ayuda para detectar si una variable no aporta información. Los resultados obtenidos se muestran en la siguiente tabla.
 \begin{table}[H]
 	\centering
@@ -90,6 +91,13 @@ Una vez hemos visto cómo se distribuyen los datos, a continuación calcularemos
 	\caption{Valores perdidos.}
 \label{}
 \end{table}
+A la vista de los resultados obtenidos, podemos afirmar que la variable attributed\_time no nos aporta información debido a que el número de instancias para las que existen valores, es ínfimo. En consecuencia, una de las decisiones a tomar durante la fase de preprocesamiento será no tener en cuenta estos datos en nuestro conjunto de entrenamiento.
+\medskip
 
-Finalmente, obtenemos la matriz de correlación entre las variables categóricas.
- 
+Finalmente, obtenemos la matriz de correlación entre las variables categóricas. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{img/correlation.png}
+	\caption{Matriz de correlación.}
+\end{figure}
+Observando el gráfico podemos concluir que el grado de correlación entre las distintas variables es bajo. Por tanto, podemos suponer que son variables independientes.
