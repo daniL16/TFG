@@ -1,0 +1,85 @@
+\chapter{Soluciones planteadas}.
+\section{Boosting}
+Como punto de partida usaremos el algoritmo Boosting.
+\subsection{Optimización de parámetros}
+Para obtener los parámetros óptimos del algoritmo aplicaremos el concepto Grid Search. Esto significa que ejecutaremos todas las combinaciones posibles de clasificadores a partir de los valores posibles introducidos. Este método es el ideal para obtener la configuración óptima para cada problema, sin embargo es una proceso computacionalmente costoso. Por ello, sólo llevaremos a cabo este proceso para algunos parámetros(n\_estimators, max\_depth, subsample, scale\_pos\_weight).
+\medskip
+
+A continuación se detalla el significado de cada uno de ellos.
+\begin{itemize}
+	\item n\_estimators: número de clasificadores a usar.
+	\item max\_depth: la profundidad máxima de un árbol, aumentar este valor hará que el modelo sea más complejo.
+	\item subsample: ratio de instancias usadas del conjunto de entrenamiento.
+	\item  scale\_pos\_weight: controla el balanceo de clases.
+\end{itemize}
+
+Además de los mencionados anteriormente, se han establecido los parámetros que controlan el tipo de clasificación y la métrica para evaluar.
+
+Tras obtener los mejores parámetros hemos mejorado la puntuación en xxxx . 
+\section{RUSBoosting.}
+RUSBoost es un algoritmo que combina boosting con muestreo aleatorio.A partir de un desequilibrio de datos aleatorio bajo muestreo
+elimina instancias de la clase principal en cada iteración. 
+\begin{algorithm}[H]
+	Sea S un conjunto de ejemplos con clase minoritaria y$\in$Y, un T un clasificador, k el número de iteraciones y N el porcentaje de instancias a ser representadas por la clase minoritaria.
+	\begin{enumerate}
+		\item Inicializar $D_1(i) = \frac{1}{m}\quad \forall i$
+		\item Para $t=1,2,...,N$
+		\begin{enumerate}
+			\item Crear un conjunto de entrenamiento $S'_t$ con distribución $D'_t$.
+			\item Construir un modelo con T usando los ejemplos $S'_t$ y sus pesos $D'_t$ 
+			\item Obtener una hipótesis $h_t : X$ x$ Y \to [0,1]$
+			\item Calcular la pérdida para $S y D_t$:
+			$$
+			\epsilon_t = \sum_{(i,y):y_i\neq y} D_t(i)(1-h_t(x_i,y_i)+h_t(x_i,y))
+			$$
+			\item Calcular el nuevo valor del peso
+			$$\alpha_t = \frac{\epsilon_t}{1-\epsilon_t}$$
+			\item Actualizar $D_t$:
+			$$
+			D_{t+1} (i) = D_t(i) \alpha_t^{\frac{1}{2}(1+h_t(x_i,y_i)-h_t(x_i,y:y\neq y_i))}
+			$$		
+			\item Normalizar $D_{t+1}$:
+			$$
+			 D_{t+1}(i) = \frac{D_{t+1}(i)}{\sum_{i}D_{t+1}(i)}
+			$$
+			\item Devolver la hipótesis final:
+			$$
+			H(x) = argmax \sum_{t=1}^{N}h_t(x,y)log\frac{1}{\alpha_t}
+			$$
+		\end{enumerate}
+	\end{enumerate} 
+  \caption{RUSBoosting}
+\end{algorithm}
+\section{CUSBoosting}
+\begin{algorithm}[H]
+	\begin{enumerate}
+		\item inicializar los pesos $x_i \in D$ a $1/d$
+		\item para $i=1,...,k$
+		\begin{enumerate}
+			\item Crear un conjunto de datos balanceado con distribución D usando undersampling basado en clusters.
+			\item Obtener Mi de $D_i$
+			\item Calcular el error 
+			\item si $error\geq 0.5$ entonces volver a $a)$
+			\item para cada $x_i\in D_i$ multiplicar el error asociado a $x_i$ por ($\frac{error(M_i)}{1-error(M_i)})$ y actualizar los pesos.
+			\item Normalizar el peso de cada instancia.  
+		\end{enumerate}
+	\end{enumerate}
+	\caption{CUSBoosting}
+\end{algorithm}
+\section{Enfoque Mixto.}
+
+\section{Resultados obtenidos.}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ll}
+		\textbf{Algoritmo}& \textbf{Resultado} \\
+		\hline
+		\\
+		Boosting base&      \\
+		Boosting con parámetros optimizados& \\
+		CUSBoosting &   \\
+		RUSBoosting &  \\
+		Enfoque mixto &  \\
+	\end{tabular}
+	\caption{Resultados obtenidos con los diferentes algoritmos.}
+\end{table}

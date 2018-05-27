@@ -227,3 +227,17 @@ El siguiente resultado nos proporciona una relación entre las funciones asociad
 	\tilde{P}_{n,d,j}(t) =\frac{(n+d-3)!}{n!\Gamma(\frac{d-1}{2})} \frac{[(2n+d-2)(n-j)!]^{1/2}}{2^{d-2}(n+d+j-3)!}(1-t^2)^{j/2}P^{(j)}_{n,d}(t), \quad t\in[-1,1]
 	\end{gather*}
 \end{rem}
+\chapter{El problema de clasificación}\label{aped.F}
+
+El problema de clasificación consiste en predecir la clase a la que pertenece una instancia basándonos en una serie de características disponibles. Es un tipo de aprendizaje supervisado, es decir, se conoce de antemano la clases a las que pertenecen los ejemplos usados para construir el clasificador.
+%meter grafikito%
+El proceso de clasificación consta de las siguientes etapas:
+
+\begin{enumerate}
+	\item \textbf{Construir el clasificador}. A partir de un conjunto de ejemplos ya clasificados. El modelo resultante establece 
+	\item \textbf{Validación}. Se usa un conjunto distinto al de entrenamiento ya clasificado. Para cada instancia de este conjunto se compara el valor devuelto con el valor real.
+\end{enumerate}
+
+Una de las técnicas para realizar la evaluación del modelo es la conocida como validación cruzada. Esta técnica consiste en dividir el conjunto de entrenamiento en k partes, usando k-1 partes para construir el clasificador y usar la restante para validar. Este proceso se repite durante k iteraciones de forma que cada parte es usada como conjunto de prueba. Finalmente, se ponderan los resultados de cada iteración para obtener el resultado final.
+
+%meter grafikito%

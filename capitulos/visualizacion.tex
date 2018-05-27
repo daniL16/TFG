@@ -61,7 +61,7 @@ Ahora, estudiaremos la variable $click\_time$. Al tratarse de una variable que r
 
 \end{figure}
 
-En esta ocasión si podemos establecer valores fijos para algunos campos:
+En esta ocasión sí podemos establecer valores fijos para algunos campos:
 \begin{itemize}
 	\item Los datos corresponden a los días 6,7 y 8.
 	\item Todos los valores corresponden al mes 11.
@@ -86,7 +86,7 @@ Una vez hemos visto cómo se distribuyen los datos, a continuación calcularemos
 	chanel &0 & 0 \\
 	device & 0 & 0  \\
 	click\_time& 0& 0 \\
-	attributed\_time &184447044& 0.997529
+	attributed\_time &184447044& 99.7529
 	\end{tabular}
 	\caption{Valores perdidos.}
 \label{}
@@ -94,10 +94,10 @@ Una vez hemos visto cómo se distribuyen los datos, a continuación calcularemos
 A la vista de los resultados obtenidos, podemos afirmar que la variable attributed\_time no nos aporta información debido a que el número de instancias para las que existen valores, es ínfimo. En consecuencia, una de las decisiones a tomar durante la fase de preprocesamiento será no tener en cuenta estos datos en nuestro conjunto de entrenamiento.
 \medskip
 
-Finalmente, obtenemos la matriz de correlación entre las variables categóricas. 
+Finalmente, obtenemos la matriz de correlación entre las variables categóricas usando el coeficiente de correlación de Spearman. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{img/correlation.png}
+	\includegraphics[scale=0.5]{img/correlation.png}
 	\caption{Matriz de correlación.}
 \end{figure}
-Observando el gráfico podemos concluir que el grado de correlación entre las distintas variables es bajo. Por tanto, podemos suponer que son variables independientes.
+Observando el gráfico y teniendo en cuenta que el grado de correlación varía desde 0 hasta 1. Para este estudio, sólo vamos a tener en cuenta aquellas variables con una relación fuerte(valores cercanos a 1). Por tanto, podemos concluir que las variables device y os están relacionadas, mientras que no existen relación entre las demás variables.

@@ -1,5 +1,5 @@
 \chapter{Preprocesamiento.}
-Durante esta sección nos centraremos en tratar el conjunto de datos de proporcionado, con el objetivo de extraer la máxima información posible que nos permita la construcción de un buen modelo de aprendizaje.
+Durante esta sección nos centraremos en tratar el conjunto de datos proporcionado, con el objetivo de extraer la máxima información posible que nos permita la construcción de un buen modelo de aprendizaje.
 En este tipo de competiciones la fase de preprocesamiento suele ser la que marca más la diferencia. Esto es debido a que a igualdad de capacidad de procesamiento, se puede obtener la configuración de parámetros óptima para los algoritmos usados, siendo los algoritmos usados similares entre los participantes.
 \bigskip
 
@@ -7,7 +7,7 @@ La primera medida a tomar es asignar a cada columna el tipo de dato correcto, de
 Una de las mayores limitaciones con las que he tenido que lidiar durante la competición es la dificultad para tratar el conjunto de datos debido a su gran tamaño(7.7 GB en su versión inicial). Esto unido a que el uso de un lenguaje como Python genera un proceso pesado, ha provocado que en la mayoría de los casos la memoria RAM de mi ordenador fuera insuficiente para poder procesar todo el conjunto de datos. Por ello, en todas las decisiones tomadas he optado por elegir el enfoque más simple.
 \medskip
 
-A continuación, vamos a obtener la máxima información posible de los datos proporcionados. Para ello vamos a realizar un proceso iterativo de preprocesamiento, manteniendo los cambios que proporcionen una mejora significativa y descartando aquellos cuya mejora no compense añadir una columna más. Para evaluar la bondad de las decisiones tomadas haremos uso de la clasificación mediante boosting usando la librería xgboost. Gracias a esto podremos obtener la importancia de cada atributo a la hora de construir el modelo de aprendizaje. Este dato nos permitirá discriminar que cambios nos proporcionan mejoras.
+A continuación, vamos a obtener la máxima información posible de los datos proporcionados. Para ello vamos a realizar un proceso iterativo de preprocesamiento, manteniendo los cambios que proporcionen una mejora significativa y descartando aquellos cuya mejora no compense añadir una columna más. Para evaluar la bondad de las decisiones tomadas haremos uso de la clasificación mediante boosting usando la librería xgboost. Gracias a esto podremos obtener la importancia de cada atributo a la hora de construir el modelo de aprendizaje. Este dato nos permitirá discriminar qué cambios nos proporcionan mejoras.
 \bigskip
 
 A partir de los resultados obtenidos en la sección anterior concluimos que:
@@ -61,8 +61,8 @@ La siguiente tabla recoge los resultados obtenidos en las distintas fases del pr
 		Añadir día (y día de la semana)& .0.949995  \\
 		Añadir hora &  0.948143\\
 		Agrupar ip-app &  0.954513\\
-		Agrupar ip-app-os  0.961855& \\
-		Agrupar ip-day-hour 0.96212 &\\
+		Agrupar ip-app-os  &0.961855 \\
+		Agrupar ip-day-hour &0.96212 \\
 	\end{tabular}
 \caption{Pruebas realizadas durante el preprocesamiento.}
 \end{table}
