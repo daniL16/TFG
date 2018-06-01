@@ -3,50 +3,45 @@ Durante esta sección nos centraremos en tratar el conjunto de datos proporciona
 En este tipo de competiciones la fase de preprocesamiento suele ser la que marca más la diferencia. Esto es debido a que a igualdad de capacidad de procesamiento, se puede obtener la configuración de parámetros óptima para los algoritmos usados, siendo los algoritmos usados similares entre los participantes.
 \bigskip
 
+El preprocesamiento de datos consiste en aplicar técnicas para manipular y transformar el conjunto de datos con el objetivo de mejorar la calidad de los datos. La mejora de dicho conjunto nos permitirá obtener mayor y mejor información de nuestro modelo de datos. 
+
+%exolicar mas el prepro?
+\section{Proceso llevado a cabo.}
 La primera medida a tomar es asignar a cada columna el tipo de dato correcto, de esta forma conseguimos reducir notablemente la memoria ocupada por el conjunto de datos. 
 Una de las mayores limitaciones con las que he tenido que lidiar durante la competición es la dificultad para tratar el conjunto de datos debido a su gran tamaño(7.7 GB en su versión inicial). Esto unido a que el uso de un lenguaje como Python genera un proceso pesado, ha provocado que en la mayoría de los casos la memoria RAM de mi ordenador fuera insuficiente para poder procesar todo el conjunto de datos. Por ello, en todas las decisiones tomadas he optado por elegir el enfoque más simple.
 \medskip
+
 
 A continuación, vamos a obtener la máxima información posible de los datos proporcionados. Para ello vamos a realizar un proceso iterativo de preprocesamiento, manteniendo los cambios que proporcionen una mejora significativa y descartando aquellos cuya mejora no compense añadir una columna más. Para evaluar la bondad de las decisiones tomadas haremos uso de la clasificación mediante boosting usando la librería xgboost. Gracias a esto podremos obtener la importancia de cada atributo a la hora de construir el modelo de aprendizaje. Este dato nos permitirá discriminar qué cambios nos proporcionan mejoras.
 \bigskip
 
 A partir de los resultados obtenidos en la sección anterior concluimos que:
+
 \begin{itemize}
 	\item La columna $attributed\_time$ puede ser eliminada ya que la mayoría de sus valores son vacíos.
 	\item De la variable $click\_time$ podemos obviar los datos relativos al mes y al año.
 	\item La variable $app$ concentra sus valores en torno al intervalo $[0,100]$, por lo que podemos realizar agrupaciones sobre dicha variable, añadiendo una columna que contabilice el número de instancias coincidentes.
+	\item Las variables $os$ y $device$ representan la misma información.
 \end{itemize}
-Tras efectuar los primeros cambios obtenemos que
-\begin{verbatim}
-{'device': 1524, 'channel': 2117, 'ip': 2895,
-'app': 1848, 'os': 1777, 'click_time_timestamp': 2494, 'day': 21}
-\end{verbatim}
-Vemos que la variable $day$ no aporta mucha información, luego es un atributo candidato a ser eliminado.Del mismo modo si añadimos el campo día de la semana, obtenemos unos resultados similares
-\begin{verbatim}
-{'device': 1524, 'channel': 2117, 'ip': 2895,
- 'app': 1848, 'os': 1777, 'click_time_timestamp': 2494, 'wday': 6}
-\end{verbatim}
 
-Una vez hemos extraído toda la información posible de $click\_time$, vamos a agrupar en torno a la variable app.
+El primer cambio que vamos a realizar es eliminar la columna $attributed\_time$, y obtener los datos $timestamp$ y día de la variable $click\_time$. Al efectuar este cambio hemos obtenido una mejora. A continuación, probaremos a considerar el día de la semana en vez del día. Tras comparar los resultados obtenidos en la construcción de ambos clasificadores podemos concluir que no existen diferencias entre ambos atributos.
+
 \medskip
-En primer lugar, agruparemos las variables ip-app y añadiremos una variable que contabilice el número de veces que se repite la variable channel. Esta nueva variable representa los clicks que provienen de un mismo canal para cada pareja ip-app.
-\begin{verbatim}
-{'device': 568, 'ip_app_count': 669, 'ip': 797, 
-'app': 879, 'channel': 1020, 'os': 653, 'click_time_timestamp': 634}
 
-\end{verbatim}
-La siguiente prueba que haremos, será introducir la variable os a la agrupación anterior.
-\begin{verbatim}
-{'device': 568, 'ip_app_count': 669, 'ip': 797, 'app': 879, 
-'channel': 1020, 'os': 653, 'ip_app_os_count': 224, 'click_time_timestamp': 634}
-\end{verbatim}
-Finalmente, probaremos a agrupar usando las variable de tiempo significativas extraídas de $click\_time$.
-\begin{verbatim}
-{'device': 581, 'ip_day_hour_count': 895, 'ip': 589, 
-'click_time_timestamp': 950, 'channel': 963, 'app': 903, 'os': 660}
+Ahora, vamos a realizar agrupaciones en torno a las variables cuyos valores se repiten frecuentemente. Comenzaremos, añadiendo una columna para contar el número de veces que se repiten las combinaciones ip-app y ip-app-os. En esta ocasión hemos obtenido peor resultado que en las pruebas anteriores. Haremos lo mismo para las combinaciones ip-hora y ip-día-hora. A diferencia de la prueba anterior, este cambio si conlleva una mejora del resultado.
 
+Finalmente, realizaremos los cambios anteriores añadiendo el valor medio de la variable channel. Al igual que en el apartado anterior se obtienen mejores resultados cuando se manipulan las variables día y hora. Además, en general, considerar el valor medio conlleva mejores resultados que la simple cuenta de los valores repetidos.
+\bigskip
 
-\end{verbatim}
+Para obtener el mejor conjunto de entrenamiento posible, vamos a combinar aquellas variables creadas que más influyen a la hora de construir el modelo. Esta valiosa información la podemos obtener del clasificador construido por la librería xgboost. 
+El conjunto de datos resultante nos lleva a mejorar el resultado final.
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[]{imagefile}
+%	\caption{Importancia de las variables introducidas.}
+%\end{figure}   
+
 \medskip
 La siguiente tabla recoge los resultados obtenidos en las distintas fases del preprocesamiento.
 \begin{table}[H]
@@ -56,13 +51,17 @@ La siguiente tabla recoge los resultados obtenidos en las distintas fases del pr
 		\textbf{Cambio realizado}& \textbf{Resultado} \\
 		\hline
 		\\
-		Configuración inicial& 0.9432615     \\
-		Eliminar mes,año y click\_time& 0.9442307   \\
-		Añadir día (y día de la semana)& .0.949995  \\
-		Añadir hora &  0.948143\\
-		Agrupar ip-app &  0.954513\\
-		Agrupar ip-app-os  &0.961855 \\
-		Agrupar ip-day-hour &0.96212 \\
+		Conjunto inicial& 0.8385028     \\
+		Eliminar mes,año y click\_time& 0.8471159  \\
+		Añadir día y hora&  0.8471159 \\
+		Cambiar día por día de la semana & 0.8471159\\
+		count(channel) tras agrupar ip-app e ip-app-os & 0.8289424 \\
+		count(channel) tras agrupar ip-day e ip-day-hour & 0.8569927 \\
+		media(channel) tras agrupar ip-app e ip-app-os & 0.8559159 \\
+		media(channel) tras agrupar ip-day e ip-day-hour & 0.8628768 \\
+		Conjunto final & 0.8649459
 	\end{tabular}
 \caption{Pruebas realizadas durante el preprocesamiento.}
 \end{table}
+
+Como podemos observar, durante esta fase hemos mejorado el rendimiento de nuestro clasificador un 3\% aproximadamente.

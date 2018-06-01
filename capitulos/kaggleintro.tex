@@ -2,10 +2,10 @@
 \section{Descripción del problema.}
 En este trabajo se abordará la resolución de un problema planteado en la plataforma web Kaggle. Esta plataforma ofrece a sus usuarios la posibilidad de participar en distintas competiciones relacionadas con la Ciencia de Datos. Muchas de estas competiciones son problemas reales planteados por empresas, esto hace que el nivel de los participantes sea muy elevado ya que las primeras plazas de estos retos suelen estar recompensados con cuantiosas sumas de dinero o con la posibilidad de obtener un puesto de trabajo en dichas empresas.
 
-El objetivo de este trabajo fin de grado es obtener la mejor clasificación posible, teniendo en cuenta las limitaciones de procesamiento y de tiempo. De esta forma se pretende observar cómo de importante es disponer de una máquina que permita manejar un conjunto de datos tan extenso, así como ejecutar algoritmos complejos, frente a realizar un buen enfoque del problema y realizar un buen preprocesamiento para obtener toda la información de los datos proporcionados.
+Debido a las limitaciones temporales y de preprocesamiento, el objetivo de este trabajo no es sólo obtener la mejor clasificación posible sino estudiar cómo de importante es realizar un buen preprocesamiento y una buena elección del algoritmo a usar, frente a la capacidad de procesamiento de una máquina más potente.
 
-En nuestro caso, he participado en la competición TalkingData AdTracking Fraud Detection Challenge que estuvo activa desde el 5 de marzo de 2018 hasta el 7 de mayo de 2018. El problema fue planteado por la empresa china TalkingData, siendo su objetivo reducir el fraude en los anuncios de apps. Este fraude se produce cuando se registran clics en los anuncios y estos no conllevan la instalación de la app. Por tanto, se produce una facturación de los canales publicitarios que no concuerda con la realidad.
-TalkingData	cubre más del 70\% de los dispositivos móviles activos en China. Manejan 3 mil millones de clics por día, de los cuales el 90\% son potencialmente fraudulentos.  El desafío propuesto consiste en obtener un modelo para predecir si un usuario descargará una aplicación después de hacer clic en un anuncio de aplicación móvil.
+En nuestro caso, he participado en la competición TalkingData AdTracking Fraud Detection Challenge que estuvo activa desde el 5 de marzo de 2018 hasta el 7 de mayo de 2018. El problema fue planteado por la empresa china TalkingData, siendo su objetivo reducir el fraude en los anuncios de apps. Este fraude se produce cuando se registran clicks en los anuncios y estos no conllevan la instalación de la app. Por tanto, se produce una facturación de los canales publicitarios que no concuerda con la realidad.
+TalkingData	cubre más del 70\% de los dispositivos móviles activos en China. Manejan 3 mil millones de clics por día, de los cuales el 90\% son potencialmente fraudulentos. El desafío propuesto consiste en obtener un modelo para predecir si un usuario descargará una aplicación después de hacer clic en un anuncio de aplicación móvil.
 
 Para llevar a cabo esta tarea han proporcionado un conjunto de datos que cubre aproximadamente 200 millones de clics. Estos datos contienen los siguientes atributos.
 
@@ -24,8 +24,7 @@ Para llevar a cabo esta tarea han proporcionado un conjunto de datos que cubre a
 Las soluciones obtenidas se evalúan usando la métrica área bajo la curva ROC.
 \medskip
 La curva ROC representa la tasa de verdaderos positivos frente a la tasa de falsos positivos. Por tanto, cuanto mayor sea el área bajo dicha curva mejor será nuestro clasificador.
-%imagencilla de la curva y te la sacas
-%\subsection{El problema de clasificación.}
+
 
 \subsection{Herramientas utilizadas}
 La primera decisión a tomar, es el lenguaje de programación en el que vamos a programar. Esta decisión debe ser tomada teniendo en cuenta los datos que necesitamos leer de los archivos proporcionados, los algoritmos que vamos a usar y la facilidad para generar los resultados que subiremos a la plataforma. Me he decantado por usar Python debido a que es un lenguaje en el que me siento cómodo, cuya sintaxis permite un código legible y que posee numerosas librerías de código abierto que satisfacen las necesidades del problema.

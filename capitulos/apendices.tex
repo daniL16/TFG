@@ -228,7 +228,6 @@ El siguiente resultado nos proporciona una relación entre las funciones asociad
 	\end{gather*}
 \end{rem}
 \chapter{El problema de clasificación}\label{aped.F}
-
 El problema de clasificación consiste en predecir la clase a la que pertenece una instancia basándonos en una serie de características disponibles. Es un tipo de aprendizaje supervisado, es decir, se conoce de antemano la clases a las que pertenecen los ejemplos usados para construir el clasificador.
 %meter grafikito%
 El proceso de clasificación consta de las siguientes etapas:
@@ -239,5 +238,9 @@ El proceso de clasificación consta de las siguientes etapas:
 \end{enumerate}
 
 Una de las técnicas para realizar la evaluación del modelo es la conocida como validación cruzada. Esta técnica consiste en dividir el conjunto de entrenamiento en k partes, usando k-1 partes para construir el clasificador y usar la restante para validar. Este proceso se repite durante k iteraciones de forma que cada parte es usada como conjunto de prueba. Finalmente, se ponderan los resultados de cada iteración para obtener el resultado final.
-
-%meter grafikito%
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{img/K-fold_cross_validation.jpg}
+	\caption{Ejemplo validación cruzada.}
+\end{figure}
+%referencia https://es.wikipedia.org/wiki/Validaci%C3%B3n_cruzada#/media/File:K-fold_cross_validation.jpg

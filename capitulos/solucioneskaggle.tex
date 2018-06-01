@@ -1,32 +1,95 @@
 \chapter{Soluciones planteadas}.
+Como hemos visto en la sección de visualización nos encontramos ante un problema
+en el que el existe un gran desbalanceo de clases. Por ello, las soluciones
+buscadas trataran de mitigar esta situación. Los algoritmos clásicos, no tienen
+un buen comportamiento en estos casos ya que tienden a clasificar como clase mayoritaria todos los ejemplos. Por tanto, durante esta fase vamos a enfocar nuestros esfuerzos en aplicar técnicas que tratan problemas de este tipo.
+
+Dos de las técnicas más usadas para aliviar el
+problema de desequilibrio de clase son undersampling y oversampling. En el primer caso, se eliminan instancias de la clase mayoritaria siguiendo un criterio. Por otro lado, el oversampling consiste en generar nuevos ejemplos de la clase minoritaria hasta conseguir un número de instancias que generen un conjunto de datos balanceado. El principal inconveniente de undersampling es la pérdida
+de información asociada con la supresión de ejemplos. Sin embargo, tiene el beneficio de disminuir el conjunto de datos y en consecuencia, el tiempo necesario para construir el modelo. El sobremuestreo puede producir un sobreentrenamiento (el modelo se ajusta demasiado a los datos de entrenamiento) y conlleva un aumento del tiempo de entrenamiento.
+
+A continuación, explicaremos los diferentes algoritmos que han sido usados en las distintas pruebas y los resultados proporcionados por cada uno de ellos.
+
+
 \section{Boosting}
 Como punto de partida usaremos el algoritmo Boosting.
+
+\medskip
+
+Boosting es una técnica que combina varios clasificadores de forma que cada clasificador complementa a los demás.El proceso de construcción de los modelos es iterativo, cada modelo tiene en cuenta los errores de los modelos construidos anteriormente. Finalmente, la clase a la que pertenece una instancia sin clasificar se obtiene mediante un voto ponderando entre los clasificadores construidos. 
+\medskip
+
+A continuación se detalla el proceso de entrenamiento y el de clasificación.
+
+\begin{algorithm}
+	\begin{enumerate}
+		\item Se inicializan los pesos, asignándole a cada instancia el mismo valor.
+		\item Para cada iteración
+		\begin{enumerate}
+			\item Aplicar el clasificador 
+			\item Obtener el error
+			\item Si el error es 0 o mayor que 0.5, finalizar.
+			\item Para cada instancia del conjunto de entrenamiento
+			\begin{itemize}
+				\item Si la instancia es clasificada correctamente, multiplicar el peso de dicha instancia por error/(1-error)
+				
+			\end{itemize}
+			\item Normalizar los pesos de las instancias
+		\end{enumerate}
+	\end{enumerate}
+	\caption{Algoritmo boosting. Construcción del modelo.}
+\end{algorithm} 
+
+Una vez obtenido el modelo de datos, para clasificar una nueva instancia se sigue el siguiente proceso:
+\begin{algorithm}
+	\begin{enumerate}
+		\item Asignar peso 0 a todas las clases.
+		\item Para cada clasificador:
+		\begin{itemize}
+			\item Sumar -log(error / (1 – error)) al peso de la clase que devuelve el clasificador.
+		\end{itemize}
+	\end{enumerate}
+	\caption{Algoritmo boosting.Clasificación}
+\end{algorithm}
+
 \subsection{Optimización de parámetros}
-Para obtener los parámetros óptimos del algoritmo aplicaremos el concepto Grid Search. Esto significa que ejecutaremos todas las combinaciones posibles de clasificadores a partir de los valores posibles introducidos. Este método es el ideal para obtener la configuración óptima para cada problema, sin embargo es una proceso computacionalmente costoso. Por ello, sólo llevaremos a cabo este proceso para algunos parámetros(n\_estimators, max\_depth, subsample, scale\_pos\_weight).
+Para obtener los parámetros óptimos del algoritmo aplicaremos el concepto Grid
+Search. Esto significa que ejecutaremos todas las combinaciones posibles de
+clasificadores a partir de los valores posibles introducidos. Este método es el
+ideal para obtener la configuración óptima para cada problema, sin embargo es
+una proceso computacionalmente costoso. Por ello, sólo llevaremos a cabo este
+proceso para algunos parámetros(n\_estimators, max\_depth, subsample,
+scale\_pos\_weight).
 \medskip
 
 A continuación se detalla el significado de cada uno de ellos.
 \begin{itemize}
 	\item n\_estimators: número de clasificadores a usar.
-	\item max\_depth: la profundidad máxima de un árbol, aumentar este valor hará que el modelo sea más complejo.
+	\item max\_depth: la profundidad máxima de un árbol, aumentar este valor hará
+	que el modelo sea más complejo.
 	\item subsample: ratio de instancias usadas del conjunto de entrenamiento.
 	\item  scale\_pos\_weight: controla el balanceo de clases.
 \end{itemize}
 
-Además de los mencionados anteriormente, se han establecido los parámetros que controlan el tipo de clasificación y la métrica para evaluar.
-
-Tras obtener los mejores parámetros hemos mejorado la puntuación en xxxx . 
+Además de los mencionados anteriormente, se han establecido los parámetros que
+controlan el tipo de clasificación y la métrica para evaluar.
+%sin param 0.9509598  "con params" 0.9769301
+Tras obtener los mejores parámetros hemos mejorado la puntuación un 2,73\% .
+ 
 \section{RUSBoosting.}
-RUSBoost es un algoritmo que combina boosting con muestreo aleatorio.A partir de un desequilibrio de datos aleatorio bajo muestreo
-elimina instancias de la clase principal en cada iteración. 
+RUSBoost es un algoritmo que combina boosting con muestreo aleatorio. De esta forma el conjunto con el que se construye cada clasificador es un conjunto de datos balanceado. Además, para cada clasificador las instancias de la clase mayoritaria son diferentes. El algoritmo RUSBoosting se detalla a continuación.
 \begin{algorithm}[H]
-	Sea S un conjunto de ejemplos con clase minoritaria y$\in$Y, un T un clasificador, k el número de iteraciones y N el porcentaje de instancias a ser representadas por la clase minoritaria.
+	
+	Sea S un conjunto de ejemplos con clase minoritaria y$\in$Y, un T un
+	clasificador, k el número de iteraciones y N el porcentaje de instancias a ser
+	representadas por la clase minoritaria.
 	\begin{enumerate}
 		\item Inicializar $D_1(i) = \frac{1}{m}\quad \forall i$
 		\item Para $t=1,2,...,N$
 		\begin{enumerate}
 			\item Crear un conjunto de entrenamiento $S'_t$ con distribución $D'_t$.
-			\item Construir un modelo con T usando los ejemplos $S'_t$ y sus pesos $D'_t$ 
+			\item Construir un modelo con T usando los ejemplos $S'_t$ y sus pesos $D'_t$
+			
 			\item Obtener una hipótesis $h_t : X$ x$ Y \to [0,1]$
 			\item Calcular la pérdida para $S y D_t$:
 			$$
@@ -36,11 +99,12 @@ elimina instancias de la clase principal en cada iteración.
 			$$\alpha_t = \frac{\epsilon_t}{1-\epsilon_t}$$
 			\item Actualizar $D_t$:
 			$$
-			D_{t+1} (i) = D_t(i) \alpha_t^{\frac{1}{2}(1+h_t(x_i,y_i)-h_t(x_i,y:y\neq y_i))}
+			D_{t+1} (i) = D_t(i) \alpha_t^{\frac{1}{2}(1+h_t(x_i,y_i)-h_t(x_i,y:y\neq
+				y_i))}
 			$$		
 			\item Normalizar $D_{t+1}$:
 			$$
-			 D_{t+1}(i) = \frac{D_{t+1}(i)}{\sum_{i}D_{t+1}(i)}
+			D_{t+1}(i) = \frac{D_{t+1}(i)}{\sum_{i}D_{t+1}(i)}
 			$$
 			\item Devolver la hipótesis final:
 			$$
@@ -48,38 +112,52 @@ elimina instancias de la clase principal en cada iteración.
 			$$
 		\end{enumerate}
 	\end{enumerate} 
-  \caption{RUSBoosting}
+	\caption{RUSBoosting}
 \end{algorithm}
+
+La aplicación de este algoritmo no ha mejorado los resultados obtenidos anteriormente.
+
 \section{CUSBoosting}
+El algoritmo CUSBoosting sigue la misma filosofía que RUSBoosting. La diferencia entre ambos es la obtención del conjunto de datos balanceados. En este caso, dicho conjunto se obtiene usando el método de los centroides.
+\medskip
+
+A continuación se detalla el algoritmo:
+
 \begin{algorithm}[H]
 	\begin{enumerate}
 		\item inicializar los pesos $x_i \in D$ a $1/d$
 		\item para $i=1,...,k$
 		\begin{enumerate}
-			\item Crear un conjunto de datos balanceado con distribución D usando undersampling basado en clusters.
+			\item Crear un conjunto de datos balanceado con distribución D usando
+			undersampling basado en clusters.
 			\item Obtener Mi de $D_i$
 			\item Calcular el error 
 			\item si $error\geq 0.5$ entonces volver a $a)$
-			\item para cada $x_i\in D_i$ multiplicar el error asociado a $x_i$ por ($\frac{error(M_i)}{1-error(M_i)})$ y actualizar los pesos.
+			\item para cada $x_i\in D_i$ multiplicar el error asociado a $x_i$ por
+			($\frac{error(M_i)}{1-error(M_i)})$ y actualizar los pesos.
 			\item Normalizar el peso de cada instancia.  
 		\end{enumerate}
 	\end{enumerate}
 	\caption{CUSBoosting}
 \end{algorithm}
-\section{Enfoque Mixto.}
 
+Este algoritmo no ha sido de utilidad durante la competición, debido a cuestiones de capacidad de procesamiento.
+
+
+ 
 \section{Resultados obtenidos.}
+La siguiente tabla recoge los resultados obtenidos.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{ll}
 		\textbf{Algoritmo}& \textbf{Resultado} \\
 		\hline
 		\\
-		Boosting base&      \\
-		Boosting con parámetros optimizados& \\
-		CUSBoosting &   \\
-		RUSBoosting &  \\
-		Enfoque mixto &  \\
+		Boosting base&    0.9509598  \\
+		Boosting con parámetros optimizados& 0.9769301 \\
+		RUSBoosting & 0.8763027 \\
+		CUSBoosting &  -  \\
+		Boosting con conjunto balanceado & 0.9441415  \\
 	\end{tabular}
 	\caption{Resultados obtenidos con los diferentes algoritmos.}
 \end{table}
