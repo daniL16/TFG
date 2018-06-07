@@ -4,10 +4,11 @@
 %comandos para agilizar la escritura de simbolos frecuentes
 \newcommand{\sphere}{\mathds{S}^{d-1}}
 \newcommand{\esfera}{\mathds{S}^{2}}
-\newcommand{\orto}{\mathds{O}^d}
+\newcommand{\orto}{\mathbb{O}^d}
 \newcommand{\R}{\mathds{R}^d}
 \newcommand{\spharm}{\mathds{Y}^d_n}
 \newcommand{\sphint}{\int_{\sphere}}
+
 
 \usepackage[spanish,activeacute]{babel} % Para poner acentos y ñ en español
 \usepackage[T1]{fontenc}
@@ -17,6 +18,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{latexsym}
+\usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{enumerate}   
 \usepackage[hidelinks=true]{hyperref}
@@ -52,7 +54,7 @@
 \setlength{\evensidemargin}{1cm}
 
 \DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png}
-
+\DeclareMathOperator{\spn}{span}
 \pagestyle{empty}
 
 \begin{document}
@@ -95,8 +97,8 @@
 
 %Cuerpo del trabajo, se incluye por cap´itulos
 
+\include{introduccion}
 \part{Distribución de puntos en la esfera.}
-%\include{introduccion}
 \include{./capitulos/esfericos_armonicos} % Polinomios esfericos
 \include{./capitulos/gradiente} % Calculo del gradiente
 \include{./capitulos/integracion} %integracion numerica

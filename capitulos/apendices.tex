@@ -1,26 +1,19 @@
 
 \chapter{La Función Gamma}\label{aped.A}
-\begin{defn} Dado $x\in\mathds{(R)^+}$ definimos la función gamma como
+\begin{defn} Dado $x\in\mathds{R}^+$ definimos la función gamma\cite[sec. 1.2]{libro_esfarm} como
 	$$
 	\Gamma(x) := \int_{0}^{\infty} t^{x-1}e^{-t}dt		
 	$$
 \end{defn}
 \begin{prop}Se verifican las siguientes formulas:
-	$$
-	\int_{0}^{\infty}  t^{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+
-	$$
-	
-	$$
-	\int_{0}^{1} |ln t|^{x-1}dt = \Gamma(x),   x \in \mathds{R}^+
-	$$
-	
-	$$
-	\Gamma(x+1) = x \Gamma(x) ,		x\in \mathds{R}^+
-	$$
-	
-	$$
-	\Gamma^{(k)}(x) = \int_{0}^{\infty} (ln t)^k t^{x-1} e^{-t} dt,   k\in\mathds{N}_0,x\in\mathds{R}^+
-	$$
+	\begin{gather}
+	\begin{aligned}
+	&\int_{0}^{\infty}  t^{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+ \\
+	&\int_{0}^{1} |\ln{t}|^{x-1}dt = \Gamma(x),   x \in \mathds{R}^+  \\
+	&\Gamma(x+1) = x \Gamma(x) ,		x\in \mathds{R}^+ \\
+	&\Gamma^{(k)}(x) = \int_{0}^{\infty} (\ln{t})^k t^{x-1} e^{-t} dt,   k\in\mathds{N}_0,x\in\mathds{R}^+ \\
+	\end{aligned}
+	\end{gather}
 \end{prop}
 \begin{rem}
 	$\Gamma(1)=1$ y de la tercera fórmula se deduce que $\Gamma(n+1)=n!, n\in\mathds{N}_0$. Es decir, la función $\Gamma$ extiende el operador factorial de los números naturales a los reales positivos.
@@ -33,7 +26,7 @@
 	\Gamma(n+\frac{1}{2})=\frac{(2n)!}{2^{2n}n!} \sqrt{\pi}
 	$$
 \end{lem}
-\begin{defn}Sea $x\in\mathds{R}$ y $n\in\mathds{N}$,el símbolo de Pochhammer se define como
+\begin{defn}Sea $x\in\mathds{R}$ y $n\in\mathds{N}$, el símbolo de Pochhammer se define como
 	$$
 	(x)_0 = 1, (x)_n=x(x+1)(x+2)...(x+n-1)
 	$$
@@ -44,8 +37,36 @@
 	$$
 \end{prop}
 \chapter{Resultados básicos de la esfera.}\label{aped.B}
-Usaremos $dV^d$ para elemento diferencial de volumen y $dS^{d-1}$ para elemento diferencial de superficie de la esfera.  $\mathds{S^{d-1}}$
+En esta sección presentaremos algunos resultados referentes a la esfera que nos serán de utilidad \cite[sec 1.3]{libro_esfarm}.
+\bigskip
 
+En $\mathds{R}^d$ usaremos la base canónica 
+
+$$ e_1 =(1,0,0,...,0)^T ,...,e_d=(0,...,0,1)^T $$
+
+Usaremos $dV^d$ para elemento diferencial de volumen y $dS^{d-1}$ para elemento diferencial de superficie de la esfera $\mathds{S}^{d-1}$.
+
+\begin{prop}(Coordenadas polares)
+\begin{gather}
+\begin{aligned}
+x_1 &= r \cos \theta \\
+x_2 &= r \sen \theta \\
+\end{aligned}
+0 \le \theta \le 2\pi, r\le 0
+\end{gather}
+\end{prop}
+
+\begin{prop}(Coordenadas esféricas)
+\begin{gather*}
+\begin{aligned}
+x_1 &= r \sen \theta \sen \phi\\
+x_2 &= r \sen \theta \sen \phi\\
+x_3 &= r \cos \theta\\
+\end{aligned}
+\\
+0\le \theta \le \pi,0\le\phi\le2\pi,r>0
+\end{gather*} 
+\end{prop}
 \begin{prop}Para $d \ge 3$ y $\xi \in \mathds{S}^{d-1}$,con $\xi_{(d)} = te_d+\sqrt{1-t^2}\xi_{(d-1)},  t\in[-1,1]$ , se tiene que
 	$$
 	dS^{d-1}(te_d+\sqrt{1-t^2}\xi_{(d-1)}) = (1-t^2)^{\frac{d-3}{2}}dt  dS^{d-2}(\xi_{(d-1)})
@@ -57,17 +78,17 @@ Usaremos $dV^d$ para elemento diferencial de volumen y $dS^{d-1}$ para elemento 
 \end{prop}
 \begin{example}Sea d=3 y $\xi$ un punto genérico de la esfera. Usando coordenadas esféricas $$
 	\xi_{(3)}=\begin{pmatrix}
-	cos\phi sen\theta\\
-	sen\phi sen\theta\\
-	cos\theta\\
+	\cos\phi \sen\theta\\
+	\sen\phi \sen\theta\\
+	\cos\theta\\
 	\end{pmatrix}
 	0 \le \phi \le 2\pi , 0 \le \theta \le \pi
 	$$
-	Sea $t=cos\theta$ entonces
+	Sea $t=\cos\theta$ entonces
 	$$
 	\xi_{(2)} = \begin{pmatrix}
-	cos\phi\\
-	sen\phi\\
+	\cos\phi\\
+	\sen\phi\\
 	0\\
 	\end{pmatrix}
 	$$
@@ -82,12 +103,12 @@ Podemos usar la anterior proposición para el cálculo del área de la superfici
 \end{prop} 
 
 \begin{prop}
-	Sea $A\in\mathds{R}^{dxd}$ ortogonal entonces
+	Sea $A\in\mathds{R}^{d\times d}$ ortogonal entonces
 	$$ dS^{d-1}(A\xi) =  dS^{d-1}(\xi)$$
 	$$ dV^{d}(A\xi) =  dV^{d}(\xi)$$
 \end{prop}
 
-Llamamos $C(S^{d-1})$ al espacio de funciones continuas sobre  $S^{d-1}$. Este espacio es un espacio de Banach con la norma $ ||f||_\infty = sup \{ |f(\xi) : \xi\in \mathds{S}^{d-1}\}$. Llamaremos $L^2(S^{d-1})$ al espacio de funciones con cuadrado integrable en $S^{d-1}$. Dicho espacio es un Hilbert con el producto escalar$$ (f,g) = \int_{S^{d-1}} f\overline{g} dS^{d-1}
+Llamamos $C(S^{d-1})$ al espacio de funciones continuas sobre  $S^{d-1}$. Este espacio es un espacio de Banach con la norma $ ||f||_\infty = \sup \{ |f(\xi) : \xi\in \mathds{S}^{d-1}\}$. Llamaremos $L^2(S^{d-1})$ al espacio de funciones con cuadrado integrable en $S^{d-1}$. Dicho espacio es un espacio de Hilbert con el producto escalar$$ (f,g) = \int_{S^{d-1}} f\overline{g} dS^{d-1}
 $$
 Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escalar de $L^2(S^{d-1})$. Este espacio no es completo. Además, el cierre de $C(S^{d-1})$ respecto a dicha norma es $L^2(S^{d-1})$. Es decir, dado una función $f\in L^2(S^{d-1})$ existe una sucesión $\{f_n\} \subset C(S^{d-1})$ tal que ${f_n}\to f$
 
@@ -113,9 +134,12 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 \begin{rem}\label{cte_Rod}
 	A la constante $R_{n,d} = \frac{\Gamma(\frac{d-1}{2})}{2^n\Gamma(n+\frac{d-1}{2})}$ se le llama constante de Rodrigues
 \end{rem}
+\begin{rem}
+	Estos polinomios verifican $P_{n,d}(1)=1$ y $\int_{-1}^{1} P_{n,d}(t)P_{m,d}(t)(1-t^2) dt= 0$ para $m\le n$
+\end{rem}
 \begin{example}
 	\begin{itemize}
-		\item Si d = 2, $$P_{n,2}(t) = (-1)^n \frac{2^n n!} {(2n)!}(1-t^2)^{\frac{1}{2}}(\frac{d}{dt})^n (1-t^2)^{n-\frac{1}{2}}, \quad n\in \mathds{N}_0$$ Una forma reducida se obtiene usando el polinomio de Chebyshev obteniendo que $P_{n,2}(t) = cos(n \quad arccos t), t\in[-1,1]$
+		\item Si d = 2, $$P_{n,2}(t) = (-1)^n \frac{2^n n!} {(2n)!}(1-t^2)^{\frac{1}{2}}(\frac{d}{dt})^n (1-t^2)^{n-\frac{1}{2}}, \quad n\in \mathds{N}_0$$ Una forma reducida se obtiene usando el polinomio de Chebyshev obteniendo que $P_{n,2}(t) = \cos(n \quad \arccos{t}), t\in[-1,1]$
 		\item Si d=3, $$P_{n,3}(t) = \frac{1} {2^n n!}(\frac{d}{dt})^n (t^2-1)^{n}, \quad n\in \mathds{N}_0$$
 	\end{itemize}
 \end{example}
@@ -126,11 +150,11 @@ Consideramos el espacio $C(S^{d-1})$ con la norma inducida por el producto escal
 \end{thm}
 \begin{rem}Como consecuencia de la fórmula anterior se tiene que $P_{n,d}(-t) = (-1)^n P_{n,d}(t), t\in[-1,1]$, es decir $P_{n,d}(t)$ tiene la misma paridad que $n$.
 \end{rem}
-Podemos obtener otra fórmula de representación integral, usando funciones trigonométricas mediante el cambio de variable $s = tanh(u), u\in\mathds{R}$
-\begin{thm}Sea $n\in\mathds{N}_0$ y $d\ge3$, $$
-		P_{n,d}(t) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}\int_{-1}^{1}\frac{(1-s^2)^{\frac{d-4}{2}}}{[t\pm i(1-t^2)^{\frac{1}{2}}s]^{n+d-2}} ds, \quad t\in(0,1]
-	$$
-\end{thm}
+%Podemos obtener otra fórmula de representación integral, usando funciones trigonométricas mediante el cambio de variable $s = tanh(u), u\in\mathds{R}$
+%\begin{thm}Sea $n\in\mathds{N}_0$ y $d\ge3$, $$
+%		P_{n,d}(t) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}\int_{-1}^{1}\frac{(1-s^2)^{\frac{d-4}{2}}}{[t\pm i(1-t^2)^{\frac{1}{2}}s]^{n+d-2}} ds, \quad t\in(0,1]
+%	$$
+%\end{thm}
 \section{Propiedades}
 \begin{prop}
 Si $f\in C^n([-1,1])$ entonces 
@@ -138,6 +162,12 @@ $$
 \int_{-1}^{1} f(t)P_{n,d}(t)(1-t^2)^{\frac{d-3}{2}} dt = R_{n,d}\int_{-1}^{1} f^{(n)}(t)(1-t^2)^{n+\frac{d-3}{2}} dt
 $$
 siendo $R_{n,d}$ la constante de Rodrigues \hyperref[]{(Nota \ref{cte_Rod})}
+\end{prop}
+\begin{prop}(Norma)
+	$$ \int_{-1}^{1} \left[P_{n,d}(t)\right]^2(1-t^2)^{\frac{d-3}{2}} dt = \frac{\sqrt{\pi} \Gamma(\frac{d-1}{2})}{\frac{(2n+d-2)(n+d-3)!}{n!(d-2!)}\Gamma(\frac{d}{2})}$$
+\end{prop}
+\begin{prop}(Ecuación diferencial)
+	$$(1-t^2)P_{n,d}''(t) - (d-1)tP_{n,d}(t)'+n(n+d-2)P_{n,d}(t) = 0 $$
 \end{prop}
 \begin{prop}$P_{n,d}(t)$ tiene n raíces distintas en (-1,1)
 \end{prop}
@@ -153,7 +183,7 @@ siendo $R_{n,d}$ la constante de Rodrigues \hyperref[]{(Nota \ref{cte_Rod})}
 	\end{gather*}
 \end{prop}
 \begin{prop}Para $d\ge 2$
-$$\sum_{n=0}^{\infty} N_{n,d}r^nP_{n,d}(t) = \frac{1-r^2}{(1+r^2-2rt)^\frac{d}{2}},\quad |r| < 1, t\in[-1,1] 
+$$\sum_{n=0}^{\infty} \frac{(2n+d-2)(n+d-3)!}{n!(d-2!)}r^nP_{n,d}(t) = \frac{1-r^2}{(1+r^2-2rt)^\frac{d}{2}},\quad |r| < 1, t\in[-1,1] 
 $$
 \end{prop}
 \begin{prop}
@@ -168,34 +198,40 @@ $$
 \end{prop}
 
 \chapter{Polinomios de Gegenbauer}\label{aped.D}
-
-\begin{defn}Sean $v\ge 0,n\in\mathds{N}_0$ se define el polinomio de Gegenbauer de grado n e índice v, como:
+En esta sección estudiaremos los polinomios de Gegenbauer \cite[sec. 2.9]{libro_esfarm}
+\begin{defn}Sean $v\ge 0,n\in\mathds{N}_0$ se define el polinomio de Gegenbauer de grado $n$ e índice $v$, como:
 	$$C_{n,v}(t) = \binom{n+2v-1}{n}\frac{\Gamma(v+\frac{1}{2})}{\sqrt{\pi}\Gamma(v)}\int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n (1-s^2)^{v-1} ds$$ 
 \end{defn}
-
+Los polinomios de Gegenbauer coinciden con los polinomios de Legendre salvo una constante de normalización.
 \begin{prop}\label{geb_rel}Se verifica la siguiente relación
 	$$C_{n,\frac{d-2}{2}}(t) = \begin{pmatrix}
 	n+d-3 \\
-	b
+	d
 	\end{pmatrix} P_{n,d}(t)
 	$$
 \end{prop}
-\begin{prop}(Identidad de Gegenbauer.)$$
+\begin{prop}(Función generatriz)$$
 	\sum_{n=0}^{\infty} C_{n,v}(t) = \frac{1}{(1+r^2-2rt)^v}, \qquad |r|<1, t\in[-1,1]$$
+\end{prop}
+%ec. diferencial%
+\begin{prop}\label{Ggdif}(Ecuación diferencial, \cite[sec 4.7]{libro_gegen})
+	$$
+	(1-x^2)C_{n,v}''(x)-(2v+1)xC_{n,v}'+n(n+2v)C_{n,v} = 0
+	$$
 \end{prop}
 \begin{prop}\label{propGg} Se verifican las siguientes igualdades:
 	\begin{enumerate}[(i)]
-	\item $(1-x^2) \frac{d}{dx} C_{n,v}(x) = 2\lambda C_{n,\lambda+1}(x)$
-	\item $nC_{n,\lambda}(x) = x\frac{d}{dx} C_{n,\lambda}(x) - \frac{d}{dx} C_{n-1,\lambda}(x)$
-	\item $(n+2\lambda) C_{n,\lambda}(x)  = \frac{d}{dx}C_{n,\lambda+1}(x)-x \frac{x}{dx}C_{n,\lambda}(x) \quad n\ge 0$
+	\item $\frac{d}{dx} C_{n,v}(x) = 2v C_{n-1,v+1}(x)$
+	\item $nC_{n,v}(x) = x\frac{d}{dx} C_{n,v}(x) - \frac{d}{dx} C_{n-1,v}(x)$
+	\item $(n+2v) C_{n,v}(x)  = \frac{d}{dx}C_{n-1,v}(x)-x \frac{x}{dx}C_{n,v}(x) \quad n\ge 0$
 	\item $\begin{aligned}
-		\frac{d}{dx} C_{n+1,\lambda}(x) - C_{n-1,\lambda}(x)  &= 2(n+\lambda)C_{n,\lambda}(x)\\ &= 2\lambda C_{n,\lambda+1}(x) - C_{n-2,\lambda+1}(x) \quad n\ge 1
+		\frac{d}{dx} \left[C_{n+1,v}(x) - C_{n-1,v}(x)\right]  &= 2(n+v)C_{n,v}(x)\\ &= 2v \left[C_{n,v+1}(x) - C_{n-2,v+1}(x)\right] \quad n\ge 1
 	\end{aligned}$        	
 \end{enumerate}
 \end{prop}
 \chapter{Funciones de Legendre Asociadas}\label{aped.E}
 
-Las funciones asociadas de Legendre nos permiten construir esféricos armónicos a partir de otros de menor dimensión.
+Las funciones asociadas de Legendre \cite[sec. 2.10]{libro_esfarm} nos permiten construir armónicos esféricos a partir de otros de menor dimensión.
 \begin{defn}Sea $d\ge3$ y $n,j \in \mathds{N}_0$ se define la función asociada de Legendre de grado n y orden j en dimensión d, como
 	$$
 	P_{n,d,j}(t) = \frac{|\mathds{S}^{d-3}|}{|\mathds{S}^{d-2}|}i^{-j} \int_{-1}^{1}\left[t+i(1-t^2)^{1/2}s\right]^n P_{j,d-1}(s)(1-s^2)^{\frac{d-4}{2}}, \quad t\in[-1,1]
