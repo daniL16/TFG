@@ -1,32 +1,46 @@
 \chapter*{Introducción}
 
-In this work, we consider systems of points on the unit sphere related problems of approximation and numerical integration. Starting with the construction of the armonic spherical space. Following we get an expression for critical points of gradient. Finally, we get some results about numeric quadrature.
+\section*{}
+\emph{In this work, we consider systems of points on the unit sphere related problems of approximation and numerical integration. Starting with the construction of the armonic spherical space. Following we get an expression for critical points of gradient. Finally, we get some results about numeric quadrature.
+On the second part, we explain the process followed in the participation in a data mining competition. This process consist in data visualization and preprocessing, choose the right algorithm and analysing the results achieved.}
 
-On the second part, we explain the process followed in the participation in a data mining competition. 
 
 \bigskip 
 
-El propósito de este trabajo es determinar buenos conjuntos de puntos para aproximación, interpolación e integración sobre la esfera y sus propiedades geométricas. Las distribuciones de puntos en la esfera unidad tienen aplicaciones que van desde modelos climáticos globales para la  Tierra, mapeado de los campos gravitacionales y magnéticos de la Tierra, cristalografía, cúpulas geodésicas, modelado de virus, geometría computacional, etc.
+Uno de los propósitos de este trabajo es determinar buenos conjuntos de puntos para aproximación, interpolación e integración sobre la esfera y sus propiedades geométricas. Las distribuciones de puntos en la esfera unidad tienen aplicaciones que van desde modelos climáticos globales para la  Tierra, mapeado de los campos estacionales y magnéticos de la Tierra, cristalografía, cúpulas geodésicas, modelado de virus, geometría computacional, etc.
  
 \medskip
+Para ello, en primer lugar, introduciremos de forma constructiva el espacio de los armónicos esféricos sobre el que trabajaremos. Una vez construido dicho espacio, trataremos el teorema de adicción y sus consecuencias. Estos ingredientes nos permitirán generar una bases ortonormales del espacio de esféricos armónicos.
 
-En primer lugar, introduciremos de forma constructiva los armónicos esféricos. Una vez construido el espacio, trataremos el teorema de adicción y sus consecuencias. 
-
-Una vez asentadas las bases, estudiaremos el gradiente de los dichos polinomios y calcularemos sus puntos críticos.
+Una vez asentadas las bases, estudiaremos el gradiente de los dichos polinomios y calcularemos sus puntos críticos. Como caso particular, estudiaremos los puntos críticos de dichos polinomios sobre la esfera de dimensión tres y obtendremos una visualización de los resultados obtenidos.
 
 Finalmente, trataremos varios resultados sobre integración numérica.
-\medskip
+\bigskip
 
+En la segunda parte del trabajo, explicaremos el proceso seguido durante la participación en una competición de data mining. Dicho proceso consta de las partes relativas a la comprensión del problema, la visualización de los datos con los que vamos a trabajar, la aplicación de técnicas de preprocesamiento para mejorar el conjunto de datos y la elección del algoritmo a usar para construir un modelo de datos. Finalmente, estudiaremos los resultados obtenidos y realizaremos un análisis sobre los mismos. 
+
+\subsection{Objetivos.}
 Los objetivos propuestos al inicio del trabajo fueron los siguientes:
 \begin{itemize}
 	\item Simulación y visualización de distribuciones de puntos sobre la esfera
 	\item Estimación numérica de la calidad de las aproximaciones obtenidas mediante estas distribuciones de puntos. 
+	\item Enfrentarse a un problema real de data mining, estudiando las posibles soluciones y los resultados obtenidos.
 \end{itemize}
 
-El primer objetivo se ha logrado satisfactoriamente, siendo desarrollado en el Capítulo 2.
+El primer objetivo se ha logrado satisfactoriamente, siendo desarrollado en el Capítulo 2. El segundo objetivo (?). 
+Por otro lado, el tercer objetivo se ha cumplido, siendo desarrollado en la segunda parte del trabajo.
 
+\subsection{Organización de la memoria.}
 \medskip
+
 El Capítulo 1 contiene todo lo referente a la definición y construcción del espacio de polinomios armónicos esféricos.
 En el Capítulo 2 se calculará el gradiente de dichos polinomios y se estudiaran sus puntos críticos. Se estudiará el caso particular de dimensión 3, obteniendo una visualización de los puntos obtenidos sobre la esfera.
 Finalmente, en el capítulo 3 se estudiaran diferentes resultados de integración numérica.
-Para la redacción de los Capítulos 1 y 3 se ha tomado como referencia \cite{libro_esfarm}, mientras que en el Capítulo 2 se ha tomado como referencia \cite{art_grad}.
+En cuanto a la segunda parte del trabajo, en el Capítulo 4 se realiza una introducción al problema a tratar. 
+En los Capítulos 5 y 6 se describe el proceso de visualización y posterior preprocesamiento del conjunto de datos.
+En el Capítulo 7 se describen los algoritmos usados para resolver el problema.
+Finalmente, en el Capítulo 8 se resumen los resultados obtenidos y se describen las conclusiones obtenidas.
+
+\medskip 
+
+Para la redacción de los Capítulos 1 y 3 se ha tomado como referencia \cite{libro_esfarm}, mientras que en el Capítulo 2 se ha tomado como referencia \cite{art_grad}. Para la segunda parte del trabajo se han tomado como referencia los libros \cite{data_mining} y \cite[]{}. Además, para desarrollar el Capítulo 7 se ha tomado como referencia \cite{boosting}, \cite{rusboost} y \cite{cusboost}. 

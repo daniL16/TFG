@@ -51,7 +51,7 @@ Una vez obtenido el modelo de datos, para clasificar una nueva instancia se sigu
 	\end{enumerate}
 	\caption{Algoritmo boosting.Clasificación}
 \end{algorithm}
-
+\newpage
 \subsection{Optimización de parámetros}
 Para obtener los parámetros óptimos del algoritmo aplicaremos el concepto Grid
 Search. Esto significa que ejecutaremos todas las combinaciones posibles de
@@ -75,7 +75,7 @@ Además de los mencionados anteriormente, se han establecido los parámetros que
 controlan el tipo de clasificación y la métrica para evaluar.
 %sin param 0.9509598  "con params" 0.9769301
 Tras obtener los mejores parámetros hemos mejorado la puntuación un 2,73\% .
- 
+ \newpage
 \section{RUSBoosting.}
 RUSBoost es un algoritmo que combina boosting con muestreo aleatorio. De esta forma el conjunto con el que se construye cada clasificador es un conjunto de datos balanceado. Además, para cada clasificador las instancias de la clase mayoritaria son diferentes. El algoritmo RUSBoosting se detalla a continuación.
 \begin{algorithm}[H]
@@ -123,7 +123,7 @@ El algoritmo CUSBoosting sigue la misma filosofía que RUSBoosting. La diferenci
 
 A continuación se detalla el algoritmo:
 
-\begin{algorithm}[H]
+\begin{algorithm}
 	\begin{enumerate}
 		\item inicializar los pesos $x_i \in D$ a $1/d$
 		\item para $i=1,...,k$
