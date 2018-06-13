@@ -1,5 +1,5 @@
-\chapter[Esféricos Armónicos]
-        {Esféricos Armónicos}
+\chapter[Armónicos Esféricos]
+        {Armónicos Esféricos}
 \section{Preliminares}
 \subsection{Notación}
 Para empezar fijaremos la notación que seguiremos durante el capítulo. Usaremos $d\in\mathds{N}$ para representar la dimensión de un conjunto; en particular, el conjunto $\mathds{R}^d = \{x=(x_1,...,x_d)^T : x_j\in\mathds{R},1 \le j \le d\}$ es el espacio euclídeo de dimensión d con el producto escalar y la norma definidos por
@@ -38,7 +38,7 @@ $$
 $$
 Y finalmente definimos el operador laplaciano como
 $$ 
-	\triangle = \nabla.\nabla = \sum_{j=1}^{d}(\frac{\partial}{\partial x_j})^2
+	\triangle = \nabla.\nabla = \sum_{j=1}^{d}(\frac{\partial}{\partial x_j})^2 .
 $$
 
 
@@ -86,7 +86,7 @@ $$
 %	$$
 %\end{prop}
 
-\section{Esféricos Armónicos y Espacios Primitivos.}
+\section{Armónicos Esféricos y Espacios Primitivos.}
 Consideramos $\mathds{O}^d$ el conjunto de matrices ortogonales de orden d. Para cualquier $\eta \in \mathds{O}^d$ vector no nulo, $\mathds{O}^d (\eta)= \{ A \in \mathds{O}^d : A\eta = \eta \} $ es el subconjunto de matrices ortogonales que deja el subespacio $\spn\{\eta\} = \{\alpha \eta : \alpha \in \mathds{R}\}$ invariante.
 
 \begin{defn}
@@ -96,9 +96,9 @@ Consideramos $\mathds{O}^d$ el conjunto de matrices ortogonales de orden d. Para
 	$$
 \end{defn}
 
-Consideremos un subespacio $\mathds{V}$ de funciones definidas de $\mathds{R}^d$ en un subconjunto de $\mathds{R}^d$.
+Consideremos un subespacio $\mathcal{V}$ de funciones definidas de $\mathds{R}^d$ en un subconjunto de $\mathds{R}^d$.
 \begin{defn}
-	Sea $\mathcal{V}$ un subespacio de funciones definidas de $\mathds{R}^d$ en\\ $A \subseteqq \mathds{R}^d$. Se dice que $\mathcal{V}$ es invariante si para  $f \in \mathcal{V}$ y  $A\in\mathds{O}^d$, entonces  $f_A \in \mathcal{V}$.
+	Sea $\mathcal{V}$ un subespacio de funciones definidas de $\mathds{R}^d$ en\\ $K \subseteqq \mathds{R}^d$. Se dice que $\mathcal{V}$ es invariante si para  $f \in \mathcal{V}$ y  $A\in\mathds{O}^d$, entonces  $f_A \in \mathcal{V}$.
 	Considerando $\mathcal{V}$ un subespacio invariante de un espacio proveniente de un producto escalar se define:
 	\begin{itemize}
 		\item $\mathcal{V}$ es reducible si  $\mathcal{V} = \mathcal{V}_1 + \mathcal{V}_2$ con $\mathcal{V}_1 \not= \emptyset$, $\mathcal{V}_2 \not= \emptyset$ verificando $\mathcal{V}_1,\mathcal{V}_2$ irreducibles y $\mathcal{V}_1 \perp \mathcal{V}_2$.
@@ -127,11 +127,12 @@ $$
 \sum_{|\alpha|=n}a_\alpha x^\alpha, a_\alpha \in \mathds{C}
 $$
 \begin{example}
-	$$
-		\mathds{H}^2_2 = \{ a_1x_1^2 + a_2x_1x_2 + a_3x_2^2\} 
-   $$
-$$		\mathds{H}^2_3 = \{ a_1x_1^3 + a_2x_2^3 + a_3x_1^2x_2 + a_4x_1x_2^2 \}
-	$$
+	\begin{gather*}
+	\begin{aligned}
+		\mathds{H}^2_2 &= \{ a_1x_1^2 + a_2x_1x_2 + a_3x_2^2\} \\
+		\mathds{H}^2_3 &= \{ a_1x_1^3 + a_2x_2^3 + a_3x_1^2x_2 + a_4x_1x_2^2 \}
+	\end{aligned}
+	\end{gather*}
 \end{example}
 \medskip
 A continuación vamos a estudiar la dimensión de  $\mathcal{H}^d_n$, llegando a la conclusión de que es un espacio invariante finito dimensional.
@@ -221,7 +222,7 @@ Ahora, nos centraremos en unos armónicos homogéneos especiales, los armónicos
 \end{defn}
 \begin{rem}
 	
-La segunda condición implica que $h_{n-j}(A_1x_{d-1})=h_{n-j}(x_{d-1}), \\\forall A_1\in \mathbb{O}^{(d-1)},\quad x_{(d-1)}\in\mathds{R}^{d-1}, \quad 0\le j\le n$
+La segunda condición implica que $h_{n-j}(A_1x_{(d-1)})=h_{n-j}(x_{(d-1)}), \\\forall A_1\in \mathbb{O}^{(d-1)},\quad x_{(d-1)}\in\mathds{R}^{d-1}, \quad 0\le j\le n$
 \end{rem}
 De la Proposición \ref{prop:1}
 se deduce que por ser $h_{n-j}$ polinomio homogéneo,\\$(n-j)$ es par y 
@@ -246,7 +247,7 @@ c_k = (-1)^k \frac{n!\Gamma(\frac{d-1}{2})}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}
 $$
 Finalmente, obtenemos la siguiente expresión 
 $$
-L_{n,d}(x) = n!\Gamma(\frac{d-1}{2})\sum_{k=0}^{[n/2]}(-1)^k\frac{|x_{(d-1)|^{2k}}(x_d)^{n-2k}}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}
+L_{n,d}(x) = n!\Gamma(\frac{d-1}{2})\sum_{k=0}^{[n/2]}(-1)^k\frac{|x_{(d-1)}|^{2k}(x_d)^{n-2k}}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}
 $$
 Usando coordenadas polares (véase apéndice \ref{aped.B}) $x_{(d)}=r\xi_{(d)},\xi_{(d)} = te_d+\sqrt{1-t^2}\xi_{(d-1)}$, definimos el polinomio de Legendre de grado n en d dimensiones, $P_{n,d}(t) = L_{n,d}(\xi_{(d)})$ como la restricción a la esfera unidad del armónico de Legendre. Por tanto $$
 P_{n,d}(t)=n!\Gamma(\frac{d-1}{2})\sum_{k=0}^{[n/2]}(-1)^k\frac{(1-t^2)^{k}t^{n-2k}}{4^kk!(n-2k)!\Gamma(k+\frac{d-1}{2})}
@@ -254,11 +255,11 @@ $$
 \begin{rem}
 $P_{n,d}(1)=1$ y $L_{n,d}(x) = L_{n,d}(r\xi_{(d)}) = r^nP_{n,d}(t)$
 \end{rem}
-\subsection{Esféricos Armónicos}
+\subsection{Armónicos Esféricos}
 \begin{defn}
-Se llama espacio de esféricos armónicos de orden n en d dimensiones a	$\mathds{Y}^d_n = \mathds{Y}_n(\mathds{R}^d)_{|\mathds{S}^{d-1}}$ 
+Se llama espacio de armónicos esféricos de orden $n$ en $d$ dimensiones a	$\mathds{Y}^d_n = \mathds{Y}_n(\mathds{R}^d)_{|\mathds{S}^{d-1}}$ 
 \end{defn}
-De la definición se deduce que un esférico armónico $\mathds{Y}_n \in \mathds{Y}^d_n$ está asociado a un armónico homogéneo $\mathds{H}_n \in \mathds{Y}^d_n$ de la siguiente forma:
+De la definición se deduce que un armónico esférico $\mathds{Y}_n \in \mathds{Y}^d_n$ está asociado a un armónico homogéneo $\mathds{H}_n \in \mathds{Y}^d_n$ de la siguiente forma:
 $$
 \mathds{H}_n(r\xi) = r^n\mathds{Y}_n(\xi)
 $$
@@ -303,7 +304,7 @@ Como $$
 $$
 tenemos que 
 $$
-\delta_{jk} = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,m}}(Y_{n,l},Y_{n,m}) = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,l}}
+\delta_{jk} = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,m}}(Y_{n,l},Y_{n,m}) = \sum_{l,m = 1}^{N_{n,d}} c_{j,l}\overline{c_{k,m}}
 $$
 Sea $C=(c_{j,l})$ y $C^H$ su matriz conjugada transpuesta. Se verifica que $CC^H=I$ y $C^HC=I$ luego C es unitaria y
 $$
@@ -319,9 +320,7 @@ Para $A\in\orto$, se tiene que
 Y(A\xi,A\eta) &= \sum_{j=1}^{N_{n,d}} Y_{n,j}(A\xi)\overline{ Y_{n,j}(A\eta)} = \sum_{j,k,l=1}^{N_{n,d}} c_{jk}\overline{c_{jl}} Y_{n,k}(\xi)\overline{ Y_{n,l}(\eta)} \\&= \sum_{j=1}^{N_{n,d}} Y_{n,k}(\xi)\overline{ Y_{n,k}(\eta)} = Y(\xi,\eta)
 \end{aligned}
 \end{gather*}
-
-
-luego,y fijado $\xi$, $Y(\xi,.)\in\spharm$ es invariante respecto a $\orto(\xi)$. Por el Teorema \ref{thm:1} $Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta)$. Análogamente, $Y(\xi,\eta)=Y(\eta,\eta)P_{n,d}(\xi.\eta)$. En consecuencia, $Y(\xi,\xi) = Y(\eta,\eta)$ y es una constante en $\sphere$. Para determinar dicha constante, integramos la igualdad  $Y(\xi,\xi) =  \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 $ sobre la esfera, obteniendo que
+luego, fijado $\xi$, $Y(\xi,.)\in\spharm$ es invariante respecto a $\orto(\xi)$. Por el Teorema \ref{thm:1} $Y(\xi,\eta)=Y(\xi,\xi)P_{n,d}(\xi.\eta)$. Análogamente, $Y(\xi,\eta)=Y(\eta,\eta)P_{n,d}(\xi.\eta)$. En consecuencia, $Y(\xi,\xi) = Y(\eta,\eta)$ y es constante en $\sphere$. Para determinar dicha constante, integramos la igualdad  $Y(\xi,\xi) =  \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 $ sobre la esfera, obteniendo que
 $$
 Y(\xi,\xi)|\sphere| =  \sum_{j=1}^{N_{n,d}}\int_{\sphere} |Y_{n,j}(\xi)|^2 d\sphere = N_{n,d}
 $$
@@ -350,17 +349,22 @@ Veamos ahora algunas aplicaciones del teorema de adición. En primer lugar, apli
 Cada $Y_n \in \spharm$ puede escribirse de la forma
 $$Y_n(\xi) = \sum_{j=1}^{N_{n,d}} (Y_n,Y_{n,j})_{\sphere} Y_{n,j}(\xi)$$
 Aplicando el Teorema \ref{thm_adicion},
-$$Y_n(\xi)=\int_{\sphere} Y_n(\eta)\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}d\sphere(\eta) = \frac{N_{n,d}}{|\sphere|}\int_{\sphere}P_{n,d}(\xi.\eta)Y_n(\eta)d\sphere(\eta)$$
+\begin{gather*}
+\begin{aligned}
+Y_n(\xi)&=\int_{\sphere} Y_n(\eta)\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}d\sphere(\eta) \\&=   \frac{N_{n,d}}{|\sphere|}\int_{\sphere}P_{n,d}(\xi.\eta)Y_n(\eta)d\sphere(\eta)
+\end{aligned}
+\end{gather*}
+
 Por tanto, $$
 K_{n,d}(\xi.\eta)= \frac{N_{n,d}}{|\sphere|}P_{n,d}(\xi.\eta)
 $$
 es el núcleo reproductor de $\spharm$, es decir, $$
 Y_n(\xi) = (Y_n,K_{n,d}(\xi,\cdot))_{\sphere} \qquad \forall Y_n \in \spharm, \xi \in \sphere$$
-Definimos $\mathds{Y}_{0:m}^d = \underset{n=0}{\overset{m}{\oplus}} \spharm$ como el espacio de todos los esféricos armónicos de orden menor o igual a m. Entonces 
+Definimos $\mathds{Y}_{0:m}^d = \underset{n=0}{\overset{m}{\oplus}} \spharm$ como el espacio de todos los armónicos esféricos de orden menor o igual a m. Entonces 
 $${K}_{0:m,d}(\xi,\eta) = \frac{1}{|\sphere|}\sum_{n=0}^{m}N_{n,d}P_{n,d}(\xi.\eta)$$ es el núcleo reproductor de  $\mathds{Y}_{0:m}^d$.
 \medskip
 
-A continuación, obtendremos cotas para los esféricos armónicos y los polinomios de Legendre.
+A continuación, obtendremos cotas para los armónicos esféricos y los polinomios de Legendre.
 \begin{prop}Se verifican las siguientes desigualdades:
 	\begin{gather}
 		||Y_n||_\infty \le \left(\frac{N_{n,d}}{|\sphere|}\right)^{\frac{1}{2}}||Y_n||_{L^2(\sphere)} \\
@@ -377,7 +381,9 @@ Por tanto, $\max\{|Y_{n,j}(\xi)|\}\le \left(\frac{N_{n,d}}{|\sphere|}\right)^{1/
 
 Por otro lado, 
 \begin{gather*}
-\sphint |Y_n(\xi)|^2 dS^{d-1}(\xi) = \sphint \sum_{j=1}^{N_{n,d}} \sum_{k=1}^{N_{n,d}}(Y_n,Y_{n,j})_{\sphere}(Y_n,Y_{n,j})_{\sphere}Y_{n,j}Y_{n,k}dS^{d-1} \\=\sum_{j=1}^{N_{n,d}}|(Y_n,Y_{n,j})_{\sphere}|^2
+\begin{aligned}
+\sphint |Y_n(\xi)|^2 dS^{d-1}(\xi) \\&= \sphint \sum_{j=1}^{N_{n,d}} \sum_{k=1}^{N_{n,d}}(Y_n,Y_{n,j})_{\sphere}(Y_n,Y_{n,k})_{\sphere}Y_{n,j}Y_{n,k}dS^{d-1} \\&=\sum_{j=1}^{N_{n,d}}|(Y_n,Y_{n,j})_{\sphere}|^2
+\end{aligned}
 \end{gather*}
 
 Finalmente uniendo lo anterior se tiene que 
@@ -408,7 +414,7 @@ $$
 
 	\begin{gather*}
 		\begin{aligned}
-	\sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) &=  (\frac{|\sphere|}{N_{n,d}})^2 \sphint |\sum_{j=1}^{N_{n,d}} Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}|^2 dS^{d-1}(\eta) \\ &=  (\frac{|\sphere|}{N_{n,d}})^2 \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 = \frac{|\sphere|}{N_{n,d}}
+	\sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) &=  \left(\frac{|\sphere|}{N_{n,d}}\right)^2 \sphint |\sum_{j=1}^{N_{n,d}} Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}|^2 dS^{d-1}(\eta) \\ &=  \left(\frac{|\sphere|}{N_{n,d}}\right)^2 \sum_{j=1}^{N_{n,d}} |Y_{n,j}(\xi)|^2 = \frac{|\sphere|}{N_{n,d}}
 	\end{aligned}
 	\end{gather*}	
 	
@@ -429,7 +435,7 @@ Como $V_1 \perp V_2$
 Fijamos $\xi\in\sphere$ y sea $\phi$ una función tal que $\phi(\eta) = P_{n,d,1}(\xi.\eta)$. Tomamos $A\in\orto(\xi)$ y se cumple que $A^T\xi= \xi$. Entonces
 $$P_{n,d,1}(\xi.A\eta) = P_{n,d,1}(A^T\xi.\eta)=P_{n,d,1}(\xi.\eta)
 $$
-es decir, $\phi$ es invariante respecto a $\orto(\xi)$. Por el teorema \hyperref[]{\ref{thm:1}}
+es decir, $\phi$ es invariante respecto a $\orto(\xi)$. Por el Teorema \ref{thm:1}
 $$
 P_{n,d,1}(\xi.\eta) = P_{n,d,1}(\xi.\xi).P_{n,d}(\xi.\eta) = P_{n,d}(\xi.\eta)
 $$
@@ -462,14 +468,14 @@ Como $|\mathcal{P}_{n,d}(t)|\le 1$ entonces dado $\xi \in \sphere$
 \end{gather*}
 Por tanto, $$ ||\mathcal{P}_{n,d}f||_{L^1(\sphere)} \le N_{n,d}||f||_{L^1(\sphere)}$$
 \end{proof}
-\begin{prop}Sea $f \in L^2(\sphere)$ entonces $||	\mathcal{P}_{n,d}f||_{L^2(\sphere)} \le (N_{n,d})^{1/2}||f||_{L^2(\sphere)}$
+\begin{prop}Sea $f \in L^2(\sphere)$ entonces $$||	\mathcal{P}_{n,d}f||_{L^2(\sphere)} \le (N_{n,d})^{1/2}||f||_{L^2(\sphere)}$$
 \end{prop}
 \begin{proof}
 Sea $\xi \in \sphere$
 \begin{gather*}
 |(\mathcal{P}_{n,d}f)(\xi)|^2 \le \left(\frac{N_{n,d}}{|\sphere|}\right)^2 \sphint |P_{n,d}(\xi.\eta)|^2 dS^{d-1}(\eta) \sphint |f(\eta)|^2 dS^{d-1}(\eta)
 \end{gather*}
-Usando la proposición  \ref*{prop:2} tenemos que 
+Usando la Proposición \ref{prop:2} tenemos que 
 \begin{gather*}
  |(\mathcal{P}_{n,d}f)(\xi)|^2 \le \left(\frac{N_{n,d}}{|\sphere|}\right)^2  \frac{|\sphere|}{N_{n,d}}  \sphint |f(\eta)|^2 dS^{d-1}(\eta)=\frac{N_{n,d}}{|\sphere|}||f||^2_{L^2(\sphere)}
 \end{gather*}
@@ -498,7 +504,7 @@ Veamos que si $\mathcal{P}_{n,d}:\mathds{V} \to \spharm$ es una biyección enton
 \medskip
 
 Ambos espacios son de dimensión finita y tienen la misma dimensión, $N_{n,d}=dim(\spharm)$. Sea $\{V_j : 1 \le j \le N_{n,d} \}$ una base ortonormal de  $\mathds{V}$. Por ser $\mathds{V}$ primitivo, para cada $A\in\orto$ $$
-V_j(A\xi) = \sum_{k=1}^{N_{n,d}}c_{jk}V_k(\xi), \quad c_{jk}\in\mathds{C}$$ siendo la matriz $(c_{jk})$ unitaria. Definimos la función $V(\xi,\eta) = \sum_{k=1}^{N_{n,d}}V_j(\xi)\overline{V_j(\eta)}$
+V_j(A\xi) = \sum_{k=1}^{N_{n,d}}c_{jk}V_k(\xi), \quad c_{jk}\in\mathds{C}$$ siendo la matriz $(c_{jk})$ unitaria. Definimos la función \\$V(\xi,\eta) = \sum_{k=1}^{N_{n,d}}V_j(\xi)\overline{V_j(\eta)}$
 y $V(A\xi,A\eta) = V(\xi,\eta), \quad \forall A \in \orto$.
 Dados $\xi,\eta \in \sphere$ podemos encontrar $A\in\orto$ tal que, $A\xi=e_d, A\eta = te_d + (1-t^2)^{\frac{1}{2}}e_{d-1}$ para $t=\xi\cdot\eta$. Entonces $V(\xi,\eta) = V(e_d, te_d + (1-t^2)^{\frac{1}{2}}e_{d-1})$ es una función de $t=\xi\cdot\eta$. Llamaremos a esta función $P_d(t)$. Fijado $\xi$, la aplicación $\eta \to \overline{P_d(\xi.\eta)}$ es una función en $\mathds{V}$, del mismo modo, fijado $\zeta$ la aplicación $\eta \to P_{n,d}(\zeta.\eta)$ es una función en $\spharm$.Consideramos la función $\phi(\xi,\zeta) = \sphint \overline{P_d(\xi.\eta)}P_{n,d}(\zeta.\eta)dS^{d-1}(\eta)$ con $\phi(A\xi,A\zeta)= \phi(\xi,\zeta), \forall A\in\orto$. Es decir, $\phi(\xi,\zeta)$ depende sólo de $\xi.\zeta$. $\phi$ pertenece a $\mathds{V}$ y a $\spharm$, luego o $\mathds{V} = \spharm$ o $\phi \equiv 0$. En el último caso tenemos que $$
 \sum_{j,k=1}^{N_{n,d}} \overline{V_j(\xi)}Y_{n,k}(\zeta)(V_j,Y_{n,k})_{L^2(\sphere)}=0 \qquad \forall\xi,\zeta \in \sphere
@@ -526,7 +532,7 @@ Finalmente, como $m\neq n$, $$
 \sphint Y_m(\xi)Y_n(\xi)dS^{d-1}(\xi) = 0
 $$
 \end{proof}
-\section{Generando Bases Ortonormales para Espacios de Armónicos Esféricos.}
+\section[Generando Bases Ortonormales.]{Generando Bases Ortonormales para Espacios de Armónicos Esféricos.}
 A continuación, generaremos una base ortonormal de $\spharm$ a partir de bases ortonormales de dimensión d-1. Para ello, haremos uso de las funciones de Legendre asociadas (Apéndice \ref{aped.E}).
 
 \medskip

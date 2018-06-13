@@ -2,10 +2,10 @@
 \chapter[Cálculo del Gradiente]
 		{Cálculo del Gradiente}
 \section{El gradiente de los armónicos esféricos.}
-Para el cálculo del gradiente usaremos una expresión de la base en términos de los polinomios de Gegenbauer. De la proposición \hyperref[]{\ref{geb_rel}}, se deduce que esta base es equivalente a la calculada anteriormente.
+Para el cálculo del gradiente usaremos una expresión de la base en términos de los polinomios de Gegenbauer. De la Proposición \ref{geb_rel}, se deduce que esta base es equivalente a la calculada anteriormente.
 \\
 \begin{thm}
-Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chebyshev de $1^{er}$ y 2º clase respectivamente.Y definimos
+Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chebyshev de 1ª y 2ª clase respectivamente.Y definimos
 \begin{gather*}
  g_{0,n}(x_1,x_2) = (x_1^2+x_2^2)T_n^2(x_2(x_1^2+x_2^2)^{-1/2})
 \\
@@ -19,7 +19,7 @@ donde $\lambda_j =\lambda_j(n_1,...,n_{j-1}) = \sum_{i=1}^{j-1}n_i + \frac{j-2}{
 \end{thm}
 \medskip
 
-Tomamos, $F_n^\lambda (x) = (x_1^2+...+x_j^2)^{n/2}C_{n,\lambda}(\frac{x_d}{\sqrt{(x_1^2+...+x_j^2)}})$.
+Tomamos, $$F_n^\lambda (x) = (x_1^2+...+x_d^2)^{\frac{n}{2}}C_{n,\lambda}\left(\frac{x_d}{\sqrt{(x_1^2+...+x_d^2)}}\right)$$.
 Si $x=(x_1,...,x_d), n=(n_1,...,n_d)$ y $x' = (x_1,...,x_{d-1}), n=(n_1,..n_{d-1})$.
 $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico armónico de dimensión $d-1$ y grado $n-n_d$.
 \begin{prop}Para $i=1,...,d-1$
@@ -44,7 +44,7 @@ $Y_n(x) = Y_{n'}(x') F_{n_d}^{\lambda_d} (x)$ siendo $ Y_{n'}(x')$ un esférico 
 	
 	
 \end{proof}
-Ahora, tomamos la proyección del espacio de los polinomios homogéneos al espacio de los armónicos esféricos $proj_{n,\sphere}^d : \mathds{H}_n^d \to \spharm$ tal que para $P_n\in \mathds{H}_n^d$ verifica 
+Ahora, tomamos la proyección del espacio de los polinomios homogéneos al espacio de los armónicos esféricos $proj_{n,\sphere}^d : \mathds{H}_n^d \to \spharm$ tal que para $P\in \mathds{H}_n^d$ está definida por 
 $$ proj_{n}^d P = \sum_{j=0}^{\lfloor \frac{n}{2} \rfloor}\frac{1}{4^j j! (-n+2-\frac{d}{2})} ||x||^{2j} \triangle^jP
 $$
 lo que implica que para $Y_\textbf{n}$ se tiene
@@ -61,9 +61,9 @@ proj_{n,\sphere}^d (x_iY_{n}(x)) = x_i Y_n(x)-\frac{1}{2(n+(d-2)/2)} ||x||^2 \pa
 \begin{proof} Usando los resultados anteriores y que $2\lambda_d-1 = 2n'+d-3$
 	$$
 	\begin{aligned}\partial_i Y_(x) &= \partial_i Y_{n'}(x')F_{n_d}^{\lambda_d}(x)-2\lambda_d x_i Y_{n'}(x')F_{n_d-2}^{\lambda_d+1}\\ &= -2\lambda_d proj_{n'+1,\sphere}^{d-1}(x_iY_{n'}(x'))F_{n_d-2}^{\lambda_d+1}(x)\\ &+ \partial_iY_{n'}(x')\left[F_{n_d}^{\lambda_d}(x)-\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x)\right]\end{aligned}$$
-	Además, como $||x'||^2 = r^2-x_d^2$ y en virtud de los apartados $(I)$ y $(IV)$ de la proposición \ref{propGg}
+	Además, como $||x'||^2 = r^2-x_d^2$ y en virtud de los apartados $(I)$ y $(IV)$ de la Proposición \ref{propGg}
 	$$\begin{aligned}
-	F_{n_d}^{\lambda_d}(x) -\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x) &=   r^n_d\left[C_{n_d}^{\lambda}(\frac{x_d}{r}) - -\frac{2\lambda_d}{2\lambda_d-1}(1-\frac{x_d}{r^2})C_{n_d-2}^{\lambda_d+1}(\frac{x_d}{r})\right] \\ &=   \frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d - 2)}r^{n_d}C_{n_d}^{\lambda_d-1}(\frac{x_d}{r})
+	&F_{n_d}^{\lambda_d}(x) -\frac{2\lambda_d}{2\lambda_d-1}||x'||^2F_{n_d-2}^{\lambda_d+1}(x) \\&=  r^n_d\left[C_{n_d}^{\lambda}(\frac{x_d}{r}) - -\frac{2\lambda_d}{2\lambda_d-1}(1-\frac{x_d}{r^2})C_{n_d-2}^{\lambda_d+1}(\frac{x_d}{r})\right] \\ &=   \frac{(n_d+2\lambda_d-1)(n_d+2\lambda_d-2)}{(2\lambda_d-1)(2\lambda_d - 2)}r^{n_d}C_{n_d}^{\lambda_d-1}(\frac{x_d}{r})
 	\end{aligned}
 	$$
 	Sustituyendo esta igualdad en la obtenida anteriormente, se prueba el resultado.
@@ -71,7 +71,7 @@ proj_{n,\sphere}^d (x_iY_{n}(x)) = x_i Y_n(x)-\frac{1}{2(n+(d-2)/2)} ||x||^2 \pa
 \begin{prop}Sea $n'=|\textbf{n}'|=n-n_d$ e $i=1,...,d-1$
 	\begin{gather*}
 	\begin{aligned}
-		proj_{n+1,\sphere}^d(x_iY_n(x)) &= \frac{\lambda_d}{n_d+\lambda_d} proj_{n'+1,\sphere}^{d+1}(x_iY_{n'}(x'))F_{n_d}^{\lambda_d +1}(x)+\\& \frac{(n_d+1)(n_d+2)}{(2\lambda_d-1)(2\lambda_d-2)2(n_d+\lambda_d)}\partial_iY_{n'}(x')F_{n_d+2}^{\lambda-1}(x)\\
+		proj_{n+1,\sphere}^d(x_iY_n(x)) &= \frac{\lambda_d}{n_d+\lambda_d} proj_{n'+1,\sphere}^{d+1}(x_iY_{n'}(x'))F_{n_d}^{\lambda_d +1}(x)\\&+ \frac{(n_d+1)(n_d+2)}{(2\lambda_d-1)(2\lambda_d-2)2(n_d+\lambda_d)}\partial_iY_{n'}(x')F_{n_d+2}^{\lambda-1}(x)\\
 		proj_{n+1,\sphere}^d(x_dY_n(x)) &= \frac{n_d+1}{2(n_d+\lambda_d)}Y_{n'}(x')F_{n_d+1}^{\lambda_d}(x)
 	\end{aligned}
 	\end{gather*}
@@ -107,8 +107,8 @@ proj_{n,\sphere}^d (x_iY_{n}(x)) = x_i Y_n(x)-\frac{1}{2(n+(d-2)/2)} ||x||^2 \pa
 \end{proof}
 \begin{thm}
 	Sea $n=(n_1,n_2,...,n_d)\in\mathds{N}_0^d$ con $n_1=\{0,1\}$ y $|n|=n$. Entonces
-	$\partial_i Y_n(x)$ es un esférico armónico de grado n-1 $$
-	<\partial_i Y_n,Y_m>_{\sphere} \neq 0 \quad |m|=n-1$$
+	$\partial_i Y_n(x)$ es un armónico esférico de grado n-1 $$
+	(\partial_i Y_n,Y_m)_{L^2} \neq 0 \quad |m|=n-1$$
 	para sólo $2^{d-2}$ índices, $m\in\mathds{N}_0^d$ con $m_1=\{0,1\}$
 \end{thm}
 \begin{proof}
@@ -123,7 +123,7 @@ Para $d=2$,
 Supongamos cierto el resultado para dimensión $d-1$. Entonces $\partial_i Y_{n'}(x')$ puede escribirse como combinación lineal de a lo sumo $2^{d-3}$ esféricos $Y_m'^{n'-1}$. Como $Y_m^{n'-1}F_{n_d}^{\lambda_d-1} = Y_{m_1,...m_{d-1},n_d}^{n-1}$, el resultado se obtiene aplicando la Proposición 2.2.
 \end{proof}
 \subsection{Caso particular d=3}
-El espacio de los esféricos armónicos de grado n en dimensión 3 tiene dimensión 2n+1. Tomando coordenadas esféricas,
+El espacio de los armónicos esféricos de grado n en dimensión 3 tiene dimensión 2n+1. Tomando coordenadas esféricas,
 \begin{gather*}
 \begin{aligned}
 x_1 &= r \sen \theta \sen \phi\\
@@ -164,8 +164,8 @@ una base ortogonal de $\spharm$ viene dada por
 Finalmente, queremos conocer el número de puntos que anulan el gradiente, para ello haremos uso de las siguientes igualdades trigonométricas
 \begin{gather*}
 \begin{aligned}
-\cos(k\phi) &= \sen(k\phi + \frac{\pi}{2}) \\
-\sen (k\phi) &= \cos(k\phi - \frac{\pi}{2}) \\
+\cos(k\phi) &= \sen\left(k\phi + \frac{\pi}{2}\right) \\
+\sen (k\phi) &= \cos\left(k\phi - \frac{\pi}{2}\right) \\
 \cos(k+1)\phi &= \cos (k\phi)\cos\phi - \sen k\phi \sen\phi \\
 \cos(k-1)\phi &= \cos (k\phi)\cos\phi + \sen k\phi \sen\phi \\
 \sen(k+1)\phi &= \sen(k\phi)\cos\phi + \sen(\phi)\cos(k\phi)\\
@@ -205,14 +205,14 @@ Ahora, suponemos que $\cos k\phi = 0 $, entonces
 Ahora, igualando ambas expresiones a 0
 \begin{gather}
 \begin{aligned}
-	\partial_1  Y_{k,1}^n(x) &= \partial_2  Y_{k,1}^n(x)  \\ &= (\sen\theta)^{k-1}\sen(k\phi)\cos\phi[c_{n,k}C_{n-k,k-1/2}(\cos \theta) + d_k \sen^2\theta C_{n-k-2,k+3/2}(cos \theta)]  \\ &= (\sen\theta)^{k-1}sen(k\phi)\sen\phi[c_{n,k}C_{n-k,k-1/2}(\cos \theta) + d_k \sen^2\theta C_{n-k-2,k+3/2}(\cos \theta)] \\ &= 0
+	\partial_1  Y_{k,1}^n(x) &= \partial_2  Y_{k,1}^n(x)  \\ &= (\sen\theta)^{k-1}\sen(k\phi)\cos\phi[c_{n,k}C_{n-k,k-1/2}(\cos \theta) \\&+ d_k \sen^2\theta C_{n-k-2,k+3/2}(cos \theta)]  \\ &= (\sen\theta)^{k-1}sen(k\phi)\sen\phi[c_{n,k}C_{n-k,k-1/2}(\cos \theta) \\&+ d_k \sen^2\theta C_{n-k-2,k+3/2}(\cos \theta)] \\ &= 0
 \end{aligned}
 \end{gather}
-Como $cos (k	\phi) = 0 $ entonces $sen  (k\phi) \neq 0$. Además, $sen \phi$ y $cos\phi$ no se anulan simultáneamente, luego de la expresión anterior se verifica que
+Como $\cos (k	\phi) = 0 $ entonces $\sen  (k\phi) \neq 0$. Además, $\sen \phi$ y $\cos\phi$ no se anulan simultáneamente, luego de la expresión anterior se verifica que
 \begin{gather*}
 c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta) = 0
 \end{gather*}
-Haciendo el cambio $sen^2 \theta = 1-cos^2\theta$, y tomando como variable $t=cos\theta$, se tiene que la expresión anterior es un polinomio de grado a lo sumo $n-k$. Por tanto, tiene a lo sumo $n-k$ raíces.
+Haciendo el cambio $\sen^2 \theta = 1-\cos^2\theta$, y tomando como variable $t=\cos\theta$, se tiene que la expresión anterior es un polinomio de grado a lo sumo $n-k$. Por tanto, tiene a lo sumo $n-k$ raíces.
 
 \medskip
 
@@ -239,7 +239,7 @@ Q_{n,k}(t) &= \left[(n+k)(n+k-1)-(n-k)(n+k-1)\right] C_{n-k,k-\frac{1}{2}}(t) \\
 \end{gather*}
 y usando de (III) en la Proposición \ref{propGg} queda
 \begin{gather*}
-Q_{n-k}(t) = 2k\left(C_{n-k+1,k-\frac{1}{2}}\right)'(t)
+Q_{n-k}(t) = 2k\left(C_{n-k+1,k-\frac{1}{2}}\right)'(t)=2k(2k-1)\left(C_{n-k,k+\frac{1}{2}}\right)
 \end{gather*}
 que tiene exactamente $n-k$ raíces reales y distintas contenidas en el intervalo $[1,-1]$.
 
@@ -248,23 +248,23 @@ En resumen, hemos encontrado $2k(n-k)+2$ valores que anulan las 3 parciales.
 \medskip
 Razonando análogamente, se obtiene la misma conclusión para las parciales de los armónicos esféricos del segundo tipo.
 
-\bigskip
+\medskip
 
 A continuación, se muestran algunos ejemplos de los puntos críticos obtenidos para distintos valores de $n$ y $k$.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{img/gradient_20_9.png}
-	\caption{Puntos críticos del gradiente para n=20 y k=9.}
+	\includegraphics[scale=0.4]{img/gradient_20_9.png}
+	\caption{Puntos críticos del gradiente para $n$=20 y $k$=9.}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{img/gradient_25_5.png}
-	\caption{Puntos críticos del gradiente para n=25 y k=20.}
+	\caption{Puntos críticos del gradiente para $n$=25 y $k$=20.}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{img/gradient_30_5.png}
-	\caption{Puntos críticos del gradiente para n=30 y k=5.}
+	\caption{Puntos críticos del gradiente para $n$=30 y $k$=5.}
 \end{figure}

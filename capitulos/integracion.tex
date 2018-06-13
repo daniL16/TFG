@@ -1,5 +1,5 @@
 \chapter[Integración Numérica]{Integración Numérica}
-En este capítulo vamos a obtener una aproximación numérica de la integral $$ I(f) = \int_{\mathds{S}^2} f(\eta) dS^2(\eta) $$. 
+En este capítulo vamos a obtener una aproximación numérica de la integral $$ I(f) = \int_{\mathds{S}^2} f(\eta) dS^2(\eta). $$. 
 \section{Fórmulas de una variable.}
 En primer lugar tomaremos la siguientes coordenadas esféricas
 $$ \eta \mapsto (\cos\phi \sin\theta, \sin\phi \sin\theta,\cos \theta), \quad 0\le \phi \le 2\pi, 0\le \theta \le \pi$$
@@ -12,7 +12,7 @@ $$
 Una vez hemos simplificado la expresión de la integral podemos aplicar métodos de integración numérica de una variable a cada una de las integrales. Comenzaremos integrando respecto a $\phi$.
 \medskip
 \begin{rem}Regla del trapecio compuesta.
-	$$\int_{a}^{b} f(x)dx \approx \frac{b-a}{n}\left[\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f(a+k\frac{b-a}{n})\right]
+	$$\int_{a}^{b} f(x)dx \approx \frac{b-a}{n}\left[\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f(a+k\frac{b-a}{n})\right].
 	$$
 \end{rem}
 
@@ -136,7 +136,7 @@ Razonando análogamente se obtiene la misma igualdad cuando $r$ es par y $s$ imp
 
 En \cite[p.170]{libro_esfarm} se demuestra que si  $f(x,y,z) = z^{2n}$ entonces $I(f)\neq I_n(f)$.
 \end{proof} 
-Finalmente, obtendremos una cota del error. Para ello haremos uso del teorema 4.5 \cite[p.142]{libro_esfarm} y del corolario del teorema 4.11 \cite[p.149]{libro_esfarm}.
+Finalmente, obtendremos una cota del error. Para ello haremos uso del Teorema 4.5 \cite[p.142]{libro_esfarm} y del corolario del Teorema 4.11 \cite[p.149]{libro_esfarm}.
 \medskip
 
 El error minimax de la aproximación de una función $f\in C(\esfera)$ por un polinomio esférico de grado menor o igual a m, se define como 
@@ -146,7 +146,7 @@ $$
 Sea $p_m^*$ un polinomio esférico de grado menor o igual a m cuyo error minimax se alcanza. La existencia de $p_m^*$ es consecuencia de los resultados citados anteriormente.
 \medskip
 
-De \ref{gaussian_quadrature} se deduce que $I(p_{2n-1}^*)=I_n(p_{2n-1}^*)$
+De (\ref{gaussian_quadrature}) se deduce que $I(p_{2n-1}^*)=I_n(p_{2n-1}^*)$
 Ahora, para $g\in C(\esfera)$
 \begin{gather}
 |I(g)| \le 4\pi||g||_\infty \\
@@ -163,15 +163,15 @@ En el caso de integración en una variable los métodos gaussianos se basan en p
 Sea $$
 I(f)= \int f(\eta)dS^2(\eta) \approx I_N(f) = \sum_{k=1}^{N} w_kf(\eta_k)$$
 
-Los nodos ${n_k}$, y los pesos ${w_k}$ se eligen de forma que los esféricos armónicos sean exactos para el grado mayor posible.
+Los nodos ${n_k}$, y los pesos ${w_k}$ se eligen de forma que la fórmula sea exacta para los armónicos esféricos de mayor grado posible.
 
 \begin{thm}Sea $\mathcal{G}$ un grupo finito de rotaciones sobre la esfera. Y supongamos que el sistema anterior es invariante para todos los elementos de $\mathcal{G}$, es decir, $I_N(f_\gamma)=I_N(f), \quad \forall \gamma \in \mathcal{G}$. Entonces $$\{\eta_i:i=1,...,N\}=\{\gamma(\eta_i):i=1,...,N\}$$ Además ,para cada nodo $\eta_i$ sea $\mathcal{S}_i=\{\gamma(\eta_i):\gamma \in \mathcal{G}\}$.Entonces los pesos asociados a los nodos son iguales. Es condición necesaria y suficiente que f sea invariante para todo elemento de $\mathcal{G}$ para que  se verifique $I(f)=I_N(f)$. En tal caso, decimos que $I_N(f)$ tiene grado de precisión $d$, siendo $d$ la dimensión de f .
 
 \end{thm}
 \begin{proof}
 Como la esfera es simétrica por rotaciones se verifica que $$I(f) = \int_{\esfera} f(\eta)dS^2(\eta) = \int_{\esfera} f_\gamma(\eta)dS^2(\eta) = I(f_\gamma)$$.
-Sea $f^* = \frac{1}{|\mathcal{G}|} \sum_{\gamma \in |\mathcal{G}| } f\gamma$. $f^*$ es invariante por $\mathcal{G}$ e $I(f) = I(f*)$. Por hipótesis del teorema, $$
-I(f)-I_N(f) = I(f^*) - I_N(f^*) $$
+Sea $f^* = \frac{1}{|\mathcal{G}|} \sum_{\gamma \in |\mathcal{G}| } f\gamma$. $f^*$ es invariante por $\mathcal{G}$ e $I(f) = I(f^*)$. Por hipótesis del teorema, 
+$$I(f)-I_N(f) = I(f^*) - I_N(f^*) $$
 Por tanto, si queremos que $I(f)=I_N(f)$ para todo polinomio esférico $f$, basta con mostrar que el resultado es cierto para todo polinomio esférico que sea invariante por la acción de  $\mathcal{G}$.
 \end{proof}
 Razonando análogamente al apartado anterior se prueba que
@@ -197,10 +197,10 @@ $$
 I(f) = \sum_{k=1}^{M} \int_{\triangle_k} f(n)dS^2(n) \approx  \sum_{k=1}^{M} \frac{1}{3}[f(n_{k,1})+f(n_{k,2})+f(n_{k,3})] area(\triangle_k)
 $$
 Realizando un análisis del error cometido similar al realizado anteriormente, obtenemos que el método tiene grado de precisión 0 y 
-$|I(f)-I_n(f)|\le 4\pi c_f h$ siendo $h=max$ $diam(\triangle), \quad \triangle\in T_N$
+$|I(f)-I_n(f)|\le 4\pi c_f h$ siendo $h=\max$ diam$(\triangle), \quad \triangle\in T_N$
 Luego, f es lipschitziana en $\mathds{S}^2$ con constante $ c_f$
 
-Finalmente, se nos plantean 2 cuestiones: elegir una triangulación y un conjunto de nodos. Una de las opciones más frecuentes para la primera cuestión es la triangulación de Delaunay. En cuanto al conjunto de nodos, es conocido que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
+Finalmente, se nos plantean dos cuestiones: elegir una triangulación y un conjunto de nodos. Una de las opciones más frecuentes para la primera cuestión es la triangulación de Delaunay. En cuanto al conjunto de nodos, es conocido que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
 %meter referencias a otras triangulaciones y otros nodos$
 
 \section{Integración sobre el disco unidad.}
@@ -231,7 +231,7 @@ $$ I_n(f) = h\sum_{j=0}^{2n}\sum_{j=0}^{n} w_k r_k f(r_k \cos\theta_j,r_k\sen\th
 \begin{thm}Sea f(x,y) un polinomio de grado menor o igual a $2n$, entonces $I(f)=I_n(f)$. Además, la fórmula anterior tiene exactitud $2n$. 
 \end{thm}
 \begin{proof}
-	Supongamos $f(x,y)=x^\alpha y^\beta$ con  $\alpha,\beta$ enteros positivos y tales que  $\alpha+\beta \le m$, entonces
+	Supongamos $f(x,y)=x^\alpha y^\beta$ con  $\alpha,\beta$ enteros positivos y tales que  $\alpha+\beta \le n$, entonces
 	$$
 	I(f)=\left(\int_{0}^{2\pi}(\cos\theta)^{\alpha}(\sen\theta)^{\beta}d\theta\right)\left(\int_{0}^{1}r^{\alpha+\beta +1}\right) \equiv J^{\alpha,\beta}K^{ \alpha+\beta+1 }
 	$$
@@ -243,7 +243,7 @@ $$ I_n(f) = h\sum_{j=0}^{2n}\sum_{j=0}^{n} w_k r_k f(r_k \cos\theta_j,r_k\sen\th
 	K^t = \int_{0}^{1 } r^t \qquad K_n^t=\sum_{k=0}^{n} w_k{r_k}^t
 	$$
 	
-	Por otro lado, si $\beta$ es impar las integrales $J^{\alpha,\beta},J_n^{\alpha,\beta}=0$ (visto en la demostración del teorema 3.5). Si $\beta$ es par podemos transformar el integrando $(\cos \theta)^\alpha(\sen\theta)^\beta$ en un polinomio de potencias de $\cos \theta$ con grado $\alpha+\beta$.Usando el lema 3.2 se tiene que $J_n^{\alpha,\beta} = J^{\alpha,\beta}, \alpha+\beta\le 2n$. 
+	Por otro lado, si $\beta$ es impar las integrales $J^{\alpha,\beta},J_n^{\alpha,\beta}=0$ (visto en la demostración del Teorema 3.5). Si $\beta$ es par podemos transformar el integrando $(\cos \theta)^\alpha(\sen\theta)^\beta$ en un polinomio de potencias de $\cos \theta$ con grado $\alpha+\beta$. Usando el Lema 3.2 se tiene que $J_n^{\alpha,\beta} = J^{\alpha,\beta}, \alpha+\beta\le 2n$. 
 	\medskip
 	La fórmula de Gauss-Legendre para (n+1) puntos tiene exactitud 2n+1,luego $K_n^{ \alpha+\beta+1 }=K^{ \alpha+\beta+1 }, \quad \alpha+\beta \le 2n$.
 	\medskip
