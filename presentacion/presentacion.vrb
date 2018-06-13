@@ -1,0 +1,14 @@
+\frametitle{Axiomas}
+  \begin{enumerate}
+    \conti
+    \item Conmutatividad: si consideramos $f \colon (\X, \A) \to (\Y, \B)$ y $g \colon \A \to \B$ la restricción de $f$ en $\A$,
+          entonces $\Delta \circ f_* = g_* \circ \Delta$.
+    \seti
+    \end{enumerate}
+    \begin{center}
+      $ \begin{tikzcd}
+        H_p(\X, \A) \arrow{r}{f_*} \arrow{d}{\Delta} & H_p(\Y, \B) \arrow{d}{\Delta} \\
+        H_{p-1}(\A) \arrow{r}{g_*} & H_{p-1}(\B)
+      \end{tikzcd} $
+    \end{center}
+

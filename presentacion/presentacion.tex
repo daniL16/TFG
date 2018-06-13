@@ -1,0 +1,208 @@
+\documentclass{beamer}
+
+%% Configuración de la presentación
+\mode<presentation> {
+  %%% Selección de estilo
+  % The Beamer class comes with a number of default slide themes
+  % which change the colors and layouts of slides. Below this is a list
+  % of all the themes, uncomment each in turn to see what they look like.
+
+  %\usetheme{default}
+  %\usetheme{AnnArbor}
+  %\usetheme{Antibes}
+  %\usetheme{Bergen}
+  %\usetheme{Berkeley}
+  %\usetheme{Berlin}
+  %\usetheme{Boadilla}
+  %\usetheme{CambridgeUS}
+  %\usetheme{Copenhagen}
+  %\usetheme{Darmstadt}
+  %\usetheme{Dresden}
+  %\usetheme{Frankfurt}
+  %\usetheme{Goettingen}
+  %\usetheme{Hannover}
+  %\usetheme{Ilmenau}
+  %\usetheme{JuanLesPins}
+  %\usetheme{Luebeck}
+  %\usetheme{Madrid}
+  %\usetheme{Malmoe}
+  %\usetheme{Marburg}
+  %\usetheme{Montpellier}
+  %\usetheme{PaloAlto}
+  %\usetheme{Pittsburgh}
+  %\usetheme{Rochester}
+  %\usetheme{Singapore}
+  %\usetheme{Szeged}
+  \usetheme{Warsaw}
+
+  %% Selección de color
+  % As well as themes, the Beamer class has a number of color themes
+  % for any slide theme. Uncomment each of these in turn to see how it
+  % changes the colors of your current slide theme.
+
+  %\usecolortheme{albatross}
+  %\usecolortheme{beaver}
+  %\usecolortheme{beetle}
+  %\usecolortheme{crane}
+  %\usecolortheme{dolphin}
+  %\usecolortheme{dove}
+  %\usecolortheme{fly}
+  %\usecolortheme{lily}
+  %\usecolortheme{orchid}
+  %\usecolortheme{rose}
+  %\usecolortheme{seagull}
+  %\usecolortheme{seahorse}
+  \usecolortheme{whale}
+  %\usecolortheme{wolverine}
+
+  %% Configuración del pie de línea
+  %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+  %\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+  %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+%% Fuentes de tamaño arbitrario
+\usepackage{lmodern}
+
+%% Gráficos
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%%% Castellano.
+% noquoting: Permite uso de comillas no españolas.
+% lcroman: Permite la enumeración con numerales romanos en minúscula.
+% fontenc: Usa la fuente completa para que pueda copiarse correctamente del pdf.
+\usepackage[english,spanish,es-noquoting,es-lcroman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\selectlanguage{spanish}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes}
+\usepackage{amsthm}
+\usepackage{accents}
+
+% Definitions
+
+
+\theoremstyle{theorem}
+\newtheorem{mytheorem}{Teorema}
+\newtheorem{mycorollary}{Corolario}
+\newtheorem{myproposition}{Proposición}
+\newtheorem{mylemma}{Lema}
+\newtheorem{mydefinition}{Definición}
+
+% Counter
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+% Sections
+\AtBeginSection{\frame{\sectionpage}}
+\newtranslation[to=spanish]{Section}{Sección}
+
+\defbeamertemplate{section page}{mine}[1][]{%
+  \begin{centering}
+    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}#1}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=12pt,center]{part title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO
+%----------------------------------------------------------------------------------------
+
+\title[Distribución de puntos en la esfera.]{Distribución de puntos en la esfera.Competición en Kaggle.} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Daniel López García} % Your name
+\institute[UGR] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+  Universidad de Granada \\ % Your institution for the title page
+  % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+
+\begin{document}
+% Spanish
+\selectlanguage{spanish}
+% Para tikz
+\pgfdeclarelayer{background}\theoremstyle{definition}
+\pgfsetlayers{background,main}
+% Secciones
+\setbeamertemplate{section page}[mine]
+
+%% Diapositiva de título.
+\frame{\titlepage}
+
+%% Diapositiva de contenidos.
+% Throughout your presentation, if you choose to use \section{} and \subsection{} commands,
+% these will automatically be printed on this slide as an overview of your presentation
+\begin{frame}
+  \frametitle{Contenidos} % Table of contents slide, comment this block out to remove it
+  \tableofcontents
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTACIÓN
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Distribución de puntos en la esfera.} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+\subsection{Introducción}
+\begin{frame}
+	\frametitle{Armónicos esféricos.}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\subsection{Cálculo del gradiente.}
+\begin{frame}
+\end{frame}
+\begin{frame}
+	\frametitle{Caso particular. Esfera de dimensión 3.}
+\end{frame}
+
+\subsection{Integración numérica.}
+\begin{frame}
+	\frametitle{Integración numérica}
+\end{frame}
+
+\section{Competición en Kaggle.}
+\subsection{Introducción.}
+\begin{frame}
+	\frametitle{Descripción del problema.}
+	
+\end{frame}
+\subsection{Preprocesamiento}
+\begin{frame}
+	\frametitle{Visualización de los datos.}
+	\begin{enumerate}
+		\item Valores vacíos.
+		\item Distribución de los valores.
+		\item Balanceo de clases.
+	\end{enumerate}
+\end{frame}
+\begin{frame}
+	\begin{enumerate}
+		\item Visualizar
+		\item Agrupar
+\end{enumerate}
+\end{frame}
+\subsection{Algoritmos}
+	\begin{frame}
+	
+	\end{frame}
+\end{document}
