@@ -1,16 +1,25 @@
 \chapter*{Introducción}
+\subsection*{Summary}
 
-\section*{}
-\emph{In this work, we consider systems of points on the unit sphere related to problems of approximation and numerical integration. Starting with the construction of the spherical armonic space. Next, we get an expression for critical points of the gradient of a sherical armonic. Finally, we get some results about numeric quadrature.
-On the second part, we explain the process followed in the participation in a data mining competition. This process consist in data visualization and preprocessing, choose the right algorithm and analysing the results achieved.}
-
-
-\bigskip 
-
-Uno de los propósitos de este trabajo es determinar conjuntos de puntos para aproximación, interpolación e integración sobre la esfera y sus propiedades geométricas. Las distribuciones de puntos en la esfera unidad tienen aplicaciones que van desde modelos climáticos globales para la  Tierra, mapeado de los campos estacionales y magnéticos de la Tierra, cristalografía, cúpulas geodésicas, modelado de virus, geometría computacional, etc.
- 
+In this work, we consider systems of points on the unit sphere related to problems of approximation and numerical integration. This sistems are useful in various fields ranging from global climate models for the Earth, mapping of the stationary and magnetic fields of the Earth, crystallography, geodesic domes, virus modeling, computational geometry, etc.
 \medskip
-Para ello, en primer lugar, introduciremos de forma constructiva el espacio de los armónicos esféricos sobre el que trabajaremos. Una vez construido dicho espacio, trataremos el Teorema de adicción y sus consecuencias. Estos ingredientes nos permitirán generar una bases ortonormales del espacio de esféricos armónicos.
+
+Starting with the construction of the spherical armonic space. Next, we study the Addition Theorem and its consequences. This result will allow us to generate an	 orthonormal basis of the space of spherical harmonics. 
+Later, we get an expression for critical points of the gradient of a sherical armonic. In particular, we get critical points of the 3-dimensional sphere. 
+
+Finally, we get some results about numeric quadrature.
+
+\medskip
+In the second part of the work, we explain the process followed for participation in a data mining competition. This process consists of the parts related to the understanding of the problem, the visualization of the data with which we will work, the application of preprocessing techniques to improve the data set and the choice of the algorithm to use to build a data model . Finally, we discuss the results obtained.
+
+\bigskip
+\emph{keywords:} sphere, spherical armonic, gradient, preprocessing, machine learning.
+\newpage
+\subsection*{Resumen}
+Uno de los propósitos de este trabajo es determinar conjuntos de puntos para aproximación, interpolación e integración sobre la esfera y sus propiedades geométricas. Las distribuciones de puntos en la esfera unidad tienen aplicaciones que van desde modelos climáticos globales para la  Tierra, mapeado de los campos estacionales y magnéticos de la Tierra, cristalografía, cúpulas geodésicas, modelado de virus, geometría computacional, etc.
+
+\medskip
+Para ello, en primer lugar, introduciremos de forma constructiva el espacio de los armónicos esféricos sobre el que trabajaremos. Una vez construido dicho espacio, trataremos el Teorema de adición y sus consecuencias. Estos ingredientes nos permitirán generar una base ortonormal del espacio de esféricos armónicos.
 
 Una vez asentadas las bases, estudiaremos el gradiente de dichos polinomios y calcularemos sus puntos críticos. Como caso particular, estudiaremos los puntos críticos de dichos polinomios sobre la esfera de dimensión tres y obtendremos una visualización de los resultados obtenidos.
 
@@ -18,19 +27,23 @@ Finalmente, trataremos varios resultados sobre integración numérica.
 \bigskip
 
 En la segunda parte del trabajo, explicaremos el proceso seguido durante la participación en una competición de data mining. Dicho proceso consta de las partes relativas a la comprensión del problema, la visualización de los datos con los que vamos a trabajar, la aplicación de técnicas de preprocesamiento para mejorar el conjunto de datos y la elección del algoritmo a usar para construir un modelo de datos. Finalmente, estudiaremos los resultados obtenidos y realizaremos un análisis sobre los mismos. 
+	
+\bigskip
+\emph{Palabras clave:} esfera, armónicos, gradiente, preprocesamiento, clasificación.
+\newpage
 
-\subsection{Objetivos.}
+
+\subsection*{Objetivos.}
 Los objetivos propuestos al inicio del trabajo fueron los siguientes:
 \begin{itemize}
 	\item Simulación y visualización de distribuciones de puntos sobre la esfera
 	\item Estimación numérica de la calidad de las aproximaciones obtenidas mediante estas distribuciones de puntos. 
-	\item Enfrentarse a un problema real de data mining, estudiando las posibles soluciones y los resultados obtenidos.
+	\item Enfrentarse a un problema real de machine learning, estudiando las posibles soluciones y los resultados obtenidos.
 \end{itemize}
 
-El primer objetivo se ha logrado satisfactoriamente, siendo desarrollado en el Capítulo 2. El segundo objetivo (?). 
-Por otro lado, el tercer objetivo se ha cumplido, siendo desarrollado en la segunda parte del trabajo.
+El primer objetivo se ha logrado satisfactoriamente, siendo desarrollado en el Capítulo 2. Por otro lado, el tercer objetivo se ha cumplido, siendo desarrollado en la segunda parte del trabajo.
 
-\subsection{Organización de la memoria.}
+\subsection*{Organización de la memoria.}
 \medskip
 
 El Capítulo 1 contiene todo lo referente a la definición y construcción del espacio de polinomios armónicos esféricos.
@@ -43,4 +56,4 @@ Finalmente, en el Capítulo 8 se resumen los resultados obtenidos y se describen
 
 \medskip 
 
-Para la redacción de los Capítulos 1 y 3 se ha tomado como referencia \cite{libro_esfarm}, mientras que en el Capítulo 2 se ha tomado como referencia \cite{art_grad}. Para la segunda parte del trabajo se han tomado como referencia los libros \cite{data_mining} y \cite[]{}. Además, para desarrollar el Capítulo 7 se ha tomado como referencia \cite{boosting}, \cite{rusboost} y \cite{cusboost}. 
+Para la redacción de los Capítulos 1 y 3 se ha tomado como referencia \cite{libro_esfarm}, mientras que en el Capítulo 2 se ha tomado como referencia \cite{art_grad}. Para la segunda parte del trabajo se han tomado como referencia los libros \cite{data_mining} y \cite{clasification}. Además, para desarrollar el Capítulo 7 se ha tomado como referencia \cite{boosting}, \cite{rusboost} y \cite{cusboost}. 

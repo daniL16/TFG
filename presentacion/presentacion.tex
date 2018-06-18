@@ -41,7 +41,7 @@
   % changes the colors of your current slide theme.
 
   %\usecolortheme{albatross}
-  %\usecolortheme{beaver}
+  \usecolortheme{beaver}
   %\usecolortheme{beetle}
   %\usecolortheme{crane}
   %\usecolortheme{dolphin}
@@ -52,7 +52,7 @@
   %\usecolortheme{rose}
   %\usecolortheme{seagull}
   %\usecolortheme{seahorse}
-  \usecolortheme{whale}
+  %\usecolortheme{whale}
   %\usecolortheme{wolverine}
 
   %% Configuración del pie de línea
@@ -89,12 +89,22 @@
 % Definitions
 
 
-\theoremstyle{theorem}
-\newtheorem{mytheorem}{Teorema}
-\newtheorem{mycorollary}{Corolario}
-\newtheorem{myproposition}{Proposición}
-\newtheorem{mylemma}{Lema}
-\newtheorem{mydefinition}{Definición}
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definici\'{o}n}
+\theoremstyle{plain}
+\newtheorem{prop}[thm]{Proposici\'{o}n}
+\theoremstyle{definition}
+%\newtheorem{example}[thm]{Ejemplo}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Nota}
+\theoremstyle{definition}
+\theoremstyle{lem}
+\newtheorem{lem}[thm]{Lema}
+\theoremstyle{cor}
+\newtheorem{cor}[thm]{Corolario}
+
 
 % Counter
 
@@ -120,7 +130,7 @@
 %	TÍTULO
 %----------------------------------------------------------------------------------------
 
-\title[Distribución de puntos en la esfera.]{Distribución de puntos en la esfera.Competición en Kaggle.} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Distribución de puntos en la esfera.Competición en Kaggle.]{Distribución de puntos en la esfera.\\ Competición en Kaggle.} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{Daniel López García} % Your name
 \institute[UGR] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
@@ -162,19 +172,62 @@
 %------------------------------------------------
 \subsection{Introducción}
 \begin{frame}
+	\frametitle{Motivación}
+	\begin{itemize}
+		\item Determinar conjuntos de puntos
+		para aproximación, interpolación e integración sobre la esfera y sus propiedades geométricas.
+		\item Simulación y visualización de distribuciones de puntos sobre la esfera.
+	\end{itemize}
+	
+\end{frame}
+\subsection{Esféricos Armónicos.}
+
+\begin{frame}
 	\frametitle{Armónicos esféricos.}
 \end{frame}
 
-\begin{frame}
-\end{frame}
 
 \subsection{Cálculo del gradiente.}
 \begin{frame}
 \end{frame}
 \begin{frame}
 	\frametitle{Caso particular. Esfera de dimensión 3.}
+	\begin{prop} Para $k=0,...,n$
+		\begin{gather*} 
+		\begin{aligned}
+		\partial_1Y^{n}_{k,1}(x) &= -\frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,2}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,2}(x) \\
+		\partial_2Y^{n}_{k,1}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,1}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,1}(x) \\
+		\partial_3 Y_{k,1}^{n}(x) &=(n+k)Y_{k,1}^{n-1}(x)
+		\end{aligned}
+		\end{gather*}
+%		Para $k=1,...,n$
+%		\begin{gather*}
+%		\begin{aligned}
+%		\partial_1Y^{n}_{k,2}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,1}(x)+(k+\frac{1}{2})Y^{n-1}_ {k+1,1}(x)\\
+%		\partial_2Y^{n}_{k,2}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,2}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,2}(x)\\
+%		\partial_3 Y_{k,2}^{n}(x) &=(n+k)Y_{k,2}^{n-1}(x)
+%		\end{aligned}
+%		\end{gather*}
+	\end{prop}
 \end{frame}
-
+\begin{frame}
+	\frametitle{Puntos críticos del gradiente.}
+	Igualando las expresiones de las parciales a 0, tenemos que ha de verificarse una de las siguientes igualdades
+	\begin{gather*}
+	\left\{
+	\begin{array}{ll}
+	\sen \theta= 0 \\
+	\cos k\phi = 0 &\\
+	C_{n-k-1,k+1/2}(\cos \theta) = 0
+	\end{array}
+	\right.
+	\end{gather*}
+	De aquí se deduce que,
+	Si $\sen \theta = 0$ tendremos que $\theta=0$ o $\theta=\pi$.
+\end{frame}
+\begin{frame}
+	\frametitle{Visualización}
+\end{frame}
 \subsection{Integración numérica.}
 \begin{frame}
 	\frametitle{Integración numérica}
@@ -184,9 +237,23 @@
 \subsection{Introducción.}
 \begin{frame}
 	\frametitle{Descripción del problema.}
+	Queremos clasificar ... a partir de los siguientes datos.
+\begin{itemize}
 	
+	\item ip: dirección IP de click.
+	\item app: id de la aplicación
+	\item device: identificación del tipo de dispositivo del teléfono móvil del usuario
+	\item channel: id del canal del editor publicitario móvil
+	\item so: id de la versión del OS del teléfono móvil del usuario
+	\item click\_time: marca de tiempo del click 
+	\item attributed\_time : momento de la descarga de la aplicación 
+	\item is\_attributed : el objetivo que se va a pronosticar, indica si la aplicación se descargó
+\end{itemize}
 \end{frame}
 \subsection{Preprocesamiento}
+\begin{frame}
+	\frametitle{Visualización de los datos.}
+\end{frame}
 \begin{frame}
 	\frametitle{Visualización de los datos.}
 	\begin{enumerate}
@@ -196,13 +263,22 @@
 	\end{enumerate}
 \end{frame}
 \begin{frame}
+	\frametitle{Preprocesamiento.}
 	\begin{enumerate}
-		\item Visualizar
-		\item Agrupar
+		\item Eliminar las columnas que no ofrecen información.
+		\item Agrupar las variable categóricas.
+		\begin{itemize}
+			\item Teniendo en cuenta el número de apariciones.
+			\item Usando el valor medio.
+		\end{itemize}
 \end{enumerate}
 \end{frame}
 \subsection{Algoritmos}
 	\begin{frame}
 	
 	\end{frame}
+\subsection{Resultados obtenidos.}
+\begin{frame}
+	\frametitle{Resultados obtenidos.}
+\end{frame}
 \end{document}
