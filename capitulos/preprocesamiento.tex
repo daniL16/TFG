@@ -5,7 +5,6 @@ En este tipo de competiciones la fase de preprocesamiento suele ser la que marca
 
 El preprocesamiento de datos consiste en aplicar técnicas para manipular y transformar el conjunto de datos con el objetivo de mejorar la calidad de los datos. La mejora de dicho conjunto nos permitirá obtener mayor y mejor información de nuestro modelo de datos. 
 
-%exolicar mas el prepro?
 \section{Proceso llevado a cabo.}
 La primera medida a tomar es asignar a cada columna el tipo de dato correcto, de esta forma conseguimos reducir notablemente la memoria ocupada por el conjunto de datos. 
 Una de las mayores limitaciones con las que he tenido que lidiar durante la competición es la dificultad para tratar el conjunto de datos debido a su gran tamaño(7.7 GB en su versión inicial). Esto unido a que el uso de un lenguaje como Python genera un proceso pesado, ha provocado que en la mayoría de los casos la memoria RAM de mi ordenador fuera insuficiente para poder procesar todo el conjunto de datos. Por ello, en todas las decisiones tomadas he optado por elegir el enfoque más simple.
@@ -35,12 +34,7 @@ Finalmente, realizaremos los cambios anteriores añadiendo el valor medio de la 
 
 Para obtener el mejor conjunto de entrenamiento posible, vamos a combinar aquellas variables creadas que más influyen a la hora de construir el modelo. Esta valiosa información la podemos obtener del clasificador construido por la librería xgboost. 
 El conjunto de datos resultante nos lleva a mejorar el resultado final.
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[]{imagefile}
-%	\caption{Importancia de las variables introducidas.}
-%\end{figure}   
+ 
 
 \medskip
 La siguiente tabla recoge los resultados obtenidos en las distintas fases del preprocesamiento.

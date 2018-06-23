@@ -125,9 +125,9 @@
 %------------------------------------------------
 \section{Distribución de puntos en la esfera.} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
-\subsection{Introducción}
 \begin{frame}
-	\frametitle{Motivación}
+	
+	\frametitle{Objetivos}
 	\begin{itemize}
 		\item Determinar conjuntos de puntos
 		para aproximación, interpolación e integración sobre la esfera y sus propiedades geométricas.
@@ -135,8 +135,11 @@
 	\end{itemize}
 	
 \end{frame}
+
 \subsection{Armónicos Esféricos.}
-	
+\begin{frame}
+	\tableofcontents[currentsubsection]
+\end{frame}
 \begin{frame}
 	\frametitle{Espacios de Polinomios Homogéneos.}
 	Consideramos $\mathcal{H}^d_n$ el espacio de polinomios homogéneos de grado n en d dimensiones.
@@ -174,6 +177,14 @@
 	$$
 \end{frame}
 \subsection{Cálculo del gradiente.}
+\begin{frame}
+	\tableofcontents[currentsubsection]
+\end{frame}
+\begin{frame}
+	\frametitle{Cálculo del gradiente.}
+	Una base ortogonal del espacio de armónicos esféricos es 
+	
+\end{frame}
 \begin{frame}
 		\frametitle{Caso particular. Esfera de dimensión 3.}
 		Tomando coordenadas esféricas,
@@ -227,6 +238,9 @@ La expresión de las parciales es la siguiente:
 %% falta meter la base del espacio entero y guardarse las espaldas en esta ultima
 \subsection{Integración numérica.}
 \begin{frame}
+	\tableofcontents[currentsubsection]
+\end{frame}
+\begin{frame}
 	\frametitle{Integración de puntos dispersos.}
 	Supongamos que tenemos N nodos, $P=\{\eta_1,...,\eta_N\}$ y sus valores aproximados $f_i~\approx f(\eta_i)$. Queremos aproximar la integral $$I(f) =  \int_{\mathds{S}^2} f(\eta)dS^2(\eta)$$.
 	\begin{prop}
@@ -246,12 +260,18 @@ La expresión de las parciales es la siguiente:
 	La bondad de la aproximación depende de la triangulación y del conjunto de nodos elegidos.
 	Es conocido que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
 	%que pollas es C_f
+	%tener en la manga que es un polinomio homogeneo
+	%atar bien que f estas tomando en la integracion
 \end{frame}
 \section{Competición en Kaggle.}
+
 \subsection{Introducción.}
 \begin{frame}
+	\tableofcontents[currentsubsection]
+\end{frame}
+\begin{frame}
 	\frametitle{Descripción del problema.}
-	Queremos clasificar ... a partir de los siguientes datos.
+	Queremos detectar cuando se registran clicks en los anuncios y estos no conllevan la instalación de la app a partir de los siguientes datos.
 \begin{itemize}
 	
 	\item ip: dirección IP de click.
@@ -266,33 +286,104 @@ La expresión de las parciales es la siguiente:
 \end{frame}
 \subsection{Preprocesamiento}
 \begin{frame}
-	\frametitle{Visualización de los datos.}
+	\tableofcontents[currentsubsection]
 \end{frame}
 \begin{frame}
 	\frametitle{Visualización de los datos.}
-	\begin{enumerate}
-		\item Valores vacíos.
-		\item Distribución de los valores.
-		\item Balanceo de clases.
-	\end{enumerate}
+	Para poder elegir una estrategia para el preprocesamiento es necesario
+	realizar una visualización de los datos.De esta forma, podremos obtener
+	cómo están distribuidos los valores de cada uno de los atributos o si existe alguna relación de correlación entre ellos.
+	\medskip
+	
+	Tras realizar el estudio de los datos se obtienen las siguientes conclusiones:
+		\begin{itemize}
+		\item La columna $attributed\_time$ puede ser eliminada ya que la mayoría de sus valores son vacíos.
+		\item De la variable $click\_time$ podemos obviar los datos relativos al mes y al año.
+		\item Las variables $os$ y $device$ representan la misma información.
+		\item Existe un gran desbalanceo de clases.
+	\end{itemize}
 \end{frame}
+
 \begin{frame}
 	\frametitle{Preprocesamiento.}
 	\begin{enumerate}
-		\item Eliminar las columnas que no ofrecen información.
-		\item Agrupar las variable categóricas.
+		\item Eliminar la columna attributed\_time,
+		\item Obtener los datos timestamp y día de la variable click\_time.
+		\item Agrupar las variables categóricas.
 		\begin{itemize}
 			\item Teniendo en cuenta el número de apariciones.
 			\item Usando el valor medio.
 		\end{itemize}
 \end{enumerate}
 \end{frame}
+%meter magia por aqui
+%hacer hincapie en que estas usando undersampling
+\begin{frame}
+	La siguiente tabla recoge los resultados obtenidos en las distintas fases del preprocesamiento.
+	\begin{table}[H]
+		\centering
+		
+		\begin{tabular}{ll}
+			\textbf{Cambio realizado}& \textbf{Resultado} \\
+			\hline
+			\\
+			Conjunto inicial& 0.8385028     \\
+			Eliminar mes,año y click\_time& 0.8471159  \\
+			Añadir día y hora&  0.8471159 \\
+			Cambiar día por día de la semana & 0.8471159\\
+			count(channel) tras agrupar ip-app e ip-app-os & 0.8289424 \\
+			count(channel) tras agrupar ip-day e ip-day-hour & 0.8569927 \\
+			media(channel) tras agrupar ip-app e ip-app-os & 0.8559159 \\
+			media(channel) tras agrupar ip-day e ip-day-hour & 0.8628768 \\
+			Conjunto final & 0.8649459
+		\end{tabular}
+		\caption{Pruebas realizadas durante el preprocesamiento.}
+	\end{table}
+\end{frame}
 \subsection{Algoritmos}
+\begin{frame}
+	\tableofcontents[currentsubsection]
+\end{frame}
 	\begin{frame}
-	
+		\frametitle{Algoritmos Usados.}
+		Los algoritmos elegidos para construir un clasificador han sido los siguientes:
+	\begin{itemize}
+		\item Como punto de partida usaremos el algoritmo Boosting.
+			\begin{itemize}
+				\item Se han estudiado los parámetros que lo componen y se han optimizado algunos de ellos.
+				\item Se ha balanceado el conjuntos de datos de entrenamiento.
+			\end{itemize} 
+		\item Se han estudiado algunas variantes como RUSBoosting y CUSBoosting.
+	\end{itemize}
 	\end{frame}
+\begin{frame}
+	La siguiente tabla recoge los resultados obtenidos.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ll}
+			\textbf{Algoritmo}& \textbf{Resultado} \\
+			\hline
+			\\
+			Boosting base&    0.9509598  \\
+			Boosting con parámetros optimizados& 0.9769301 \\
+			RUSBoosting & 0.8763027 \\
+			CUSBoosting &  -  \\
+			Boosting con conjunto balanceado & 0.9441415  \\
+		\end{tabular}
+		\caption{Resultados obtenidos con los diferentes algoritmos.}
+	\end{table}
+\end{frame}
 \subsection{Resultados obtenidos.}
 \begin{frame}
+	\tableofcontents[currentsubsection]
+\end{frame}
+\begin{frame}
 	\frametitle{Resultados obtenidos.}
+	\begin{itemize}
+		\item Los resultados obtenidos en esta última sección no han sido tan satisfactorios como a priori esperaba, ya que la aplicación de algoritmos alternativos no ha mejorado los resultados.
+		\item Tras obtener los mejores parámetros del algoritmo Boosting hemos mejorado la puntuación un 2,73\%.
+		\item Durante la fase de preprocesamiento hemos mejorado el rendimiento de nuestro clasificador un 3 \% aproximadamente.
+	   
+	\end{itemize}
 \end{frame}
 \end{document}
