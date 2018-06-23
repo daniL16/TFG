@@ -2,67 +2,18 @@
 
 %% Configuración de la presentación
 \mode<presentation> {
-  %%% Selección de estilo
-  % The Beamer class comes with a number of default slide themes
-  % which change the colors and layouts of slides. Below this is a list
-  % of all the themes, uncomment each in turn to see what they look like.
 
-  %\usetheme{default}
-  %\usetheme{AnnArbor}
-  %\usetheme{Antibes}
-  %\usetheme{Bergen}
-  %\usetheme{Berkeley}
-  %\usetheme{Berlin}
-  %\usetheme{Boadilla}
-  %\usetheme{CambridgeUS}
-  %\usetheme{Copenhagen}
-  %\usetheme{Darmstadt}
-  %\usetheme{Dresden}
-  %\usetheme{Frankfurt}
-  %\usetheme{Goettingen}
-  %\usetheme{Hannover}
-  %\usetheme{Ilmenau}
-  %\usetheme{JuanLesPins}
-  %\usetheme{Luebeck}
-  %\usetheme{Madrid}
-  %\usetheme{Malmoe}
-  %\usetheme{Marburg}
-  %\usetheme{Montpellier}
-  %\usetheme{PaloAlto}
-  %\usetheme{Pittsburgh}
-  %\usetheme{Rochester}
-  %\usetheme{Singapore}
-  %\usetheme{Szeged}
   \usetheme{Warsaw}
 
-  %% Selección de color
-  % As well as themes, the Beamer class has a number of color themes
-  % for any slide theme. Uncomment each of these in turn to see how it
-  % changes the colors of your current slide theme.
-
-  %\usecolortheme{albatross}
+  
   \usecolortheme{beaver}
-  %\usecolortheme{beetle}
-  %\usecolortheme{crane}
-  %\usecolortheme{dolphin}
-  %\usecolortheme{dove}
-  %\usecolortheme{fly}
-  %\usecolortheme{lily}
-  %\usecolortheme{orchid}
-  %\usecolortheme{rose}
-  %\usecolortheme{seagull}
-  %\usecolortheme{seahorse}
-  %\usecolortheme{whale}
-  %\usecolortheme{wolverine}
-
-  %% Configuración del pie de línea
-  %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-  %\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
-  %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+ 
 }
 
 %% Fuentes de tamaño arbitrario
 \usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{dsfont}
 
 %% Gráficos
 \usepackage{graphicx} % Allows including images
@@ -85,10 +36,9 @@
 \usetikzlibrary{arrows,shapes}
 \usepackage{amsthm}
 \usepackage{accents}
+\usepackage{amsmath,amssymb,lmodern}
 
 % Definitions
-
-
 \theoremstyle{plain}
 \newtheorem{thm}{Teorema}
 \theoremstyle{definition}
@@ -96,16 +46,13 @@
 \theoremstyle{plain}
 \newtheorem{prop}[thm]{Proposici\'{o}n}
 \theoremstyle{definition}
-%\newtheorem{example}[thm]{Ejemplo}
 \theoremstyle{remark}
 \newtheorem{rem}[thm]{Nota}
 \theoremstyle{definition}
-\theoremstyle{lem}
 \newtheorem{lem}[thm]{Lema}
-\theoremstyle{cor}
 \newtheorem{cor}[thm]{Corolario}
-
-
+\newtheorem{ejemplo}[thm]{Ejemplo}
+\newtheorem{ejemplos}[thm]{Ejemplos}
 % Counter
 
 \newcounter{saveenumi}
@@ -115,6 +62,14 @@
 % Sections
 \AtBeginSection{\frame{\sectionpage}}
 \newtranslation[to=spanish]{Section}{Sección}
+
+%comandos para agilizar la escritura de simbolos frecuentes
+\newcommand{\sphere}{\mathds{S}^{d-1}}
+\newcommand{\esfera}{\mathds{S}^{2}}
+\newcommand{\orto}{\mathbb{O}^d}
+\newcommand{\R}{\mathds{R}^d}
+\newcommand{\spharm}{\mathds{Y}^d_n}
+\newcommand{\sphint}{\int_{\sphere}}
 
 \defbeamertemplate{section page}{mine}[1][]{%
   \begin{centering}
@@ -138,7 +93,7 @@
   Universidad de Granada \\ % Your institution for the title page
   % Your email address
 }
-\date{\today} % Date, can be changed to a custom date
+\date{26 de junio de 2018} % Date, can be changed to a custom date
 
 
 
@@ -180,18 +135,69 @@
 	\end{itemize}
 	
 \end{frame}
-\subsection{Esféricos Armónicos.}
-
+\subsection{Armónicos Esféricos.}
+	
 \begin{frame}
-	\frametitle{Armónicos esféricos.}
+	\frametitle{Espacios de Polinomios Homogéneos.}
+	Consideramos $\mathcal{H}^d_n$ el espacio de polinomios homogéneos de grado n en d dimensiones.
+	Estas funciones son de la forma:
+	\begin{gather*}
+		\sum_{|\alpha|=n}a_\alpha x^\alpha, a_\alpha \in \mathds{C}
+	\end{gather*}
+
+	\begin{ejemplos}
+		\begin{gather*}
+		\begin{aligned}
+		\mathcal{H}^2_2 &= \{ a_1x_1^2 + a_2x_1x_2 + a_3x_2^2\} \\
+		\mathcal{H}^2_3 &= \{ a_1x_1^3 + a_2x_2^3 + a_3x_1^2x_2 + a_4x_1x_2^2 \}
+		\end{aligned}
+		\end{gather*}
+	\end{ejemplos}
 \end{frame}
 
+\begin{frame}
+	\begin{defn}
+		Una función f es armónica si $\triangle f (x) = 0$, es decir $$\frac{\partial^2 f}{\partial x_1^2}+\frac{\partial^2 f}{\partial x_2^2}+...+\frac{\partial^2 f}{\partial x_n^2} = 0$$
+	\end{defn}
 
+	Llamamos $\mathds{Y}_n(\mathds{R}^d)$ al espacio de los polinomios homogéneos de grado n en $\mathds{R}^d$ que son armónicos.
+
+\end{frame}
+\begin{frame}
+	\frametitle{Armónicos Esféricos.}
+	\begin{defn}
+		Se llama espacio de armónicos esféricos de orden $n$ en $d$ dimensiones a	$\mathds{Y}^d_n = \mathds{Y}_n(\mathds{R}^d)_{|\mathds{S}^{d-1}}$ 
+	\end{defn}
+	De la definición se deduce que un armónico esférico $\mathds{Y}_n \in \mathds{Y}^d_n$ está asociado a un armónico homogéneo $\mathds{H}_n \in \mathds{Y}^d_n$ de la siguiente forma:
+	$$
+	\mathds{H}_n(r\xi) = r^n\mathds{Y}_n(\xi)
+	$$
+\end{frame}
 \subsection{Cálculo del gradiente.}
 \begin{frame}
+		\frametitle{Caso particular. Esfera de dimensión 3.}
+		Tomando coordenadas esféricas,
+		\begin{gather*}
+		\begin{aligned}
+		x_1 &= r \sen \theta \sen \phi\\
+		x_2 &= r \sen \theta \sen \phi\\
+		x_3 &= r \cos \theta\\
+		\end{aligned}
+		\\
+		0\le \theta \le \pi,0\le\phi\le2\pi,r>0
+		\end{gather*}
+		una base ortogonal de $\spharm$ viene dada por
+		\begin{equation*}
+		\left\lbrace
+		\begin{array}{ll}
+		Y^n_ {k,1} = r^n(\sen \theta)^kC_{n-k,k+1/2}(\cos \theta) \cos(k\phi),\quad 0\le k\le n \\
+		Y^n_{k,2}(x) = r^{n-k}(\sen\theta)^kC_{n-k,k+1/2}(\cos\theta)\sen(k\phi), \quad 1\le k\le n
+		\end{array}
+		\right.
+		\end{equation*}
 \end{frame}
 \begin{frame}
-	\frametitle{Caso particular. Esfera de dimensión 3.}
+La expresión de las parciales es la siguiente:
 	\begin{prop} Para $k=0,...,n$
 		\begin{gather*} 
 		\begin{aligned}
@@ -200,18 +206,12 @@
 		\partial_3 Y_{k,1}^{n}(x) &=(n+k)Y_{k,1}^{n-1}(x)
 		\end{aligned}
 		\end{gather*}
-%		Para $k=1,...,n$
-%		\begin{gather*}
-%		\begin{aligned}
-%		\partial_1Y^{n}_{k,2}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,1}(x)+(k+\frac{1}{2})Y^{n-1}_ {k+1,1}(x)\\
-%		\partial_2Y^{n}_{k,2}(x) &= \frac{(n+k)(n+k-1)}{2(2k-1)}Y^{n-1}_{k-1,2}(x)-(k+\frac{1}{2})Y^{n-1}_ {k+1,2}(x)\\
-%		\partial_3 Y_{k,2}^{n}(x) &=(n+k)Y_{k,2}^{n-1}(x)
-%		\end{aligned}
-%		\end{gather*}
+
 	\end{prop}
 \end{frame}
 \begin{frame}
 	\frametitle{Puntos críticos del gradiente.}
+
 	Igualando las expresiones de las parciales a 0, tenemos que ha de verificarse una de las siguientes igualdades
 	\begin{gather*}
 	\left\{
@@ -222,17 +222,31 @@
 	\end{array}
 	\right.
 	\end{gather*}
-	De aquí se deduce que,
-	Si $\sen \theta = 0$ tendremos que $\theta=0$ o $\theta=\pi$.
+	De estas condiciones se deduce que existen, $2k(n-k)+2$ puntos que anulan el gradiente.
 \end{frame}
-\begin{frame}
-	\frametitle{Visualización}
-\end{frame}
+%% falta meter la base del espacio entero y guardarse las espaldas en esta ultima
 \subsection{Integración numérica.}
 \begin{frame}
-	\frametitle{Integración numérica}
+	\frametitle{Integración de puntos dispersos.}
+	Supongamos que tenemos N nodos, $P=\{\eta_1,...,\eta_N\}$ y sus valores aproximados $f_i~\approx f(\eta_i)$. Queremos aproximar la integral $$I(f) =  \int_{\mathds{S}^2} f(\eta)dS^2(\eta)$$.
+	\begin{prop}
+		Sea $T_N=\{\triangle_1,...,\triangle_{M(N)}\}$ la triangulación de $\mathds{S}^2$, donde los vértices de cada triángulo son los nodos.
+		\begin{gather*}
+		\begin{aligned}
+			I(f) &= \sum_{k=1}^{M} \int_{\triangle_k} f(n)dS^2(n) \\& \approx  \sum_{k=1}^{M} \frac{1}{3}[f(n_{k,1})+f(n_{k,2})+f(n_{k,3})] area(\triangle_k)
+		\end{aligned}
+		\end{gather*}
+	\end{prop}
 \end{frame}
-
+\begin{frame}
+		\frametitle{Integración de puntos dispersos.}
+		\begin{prop}
+			$|I(f)-I_n(f)|\le 4\pi c_f \max$ diam$(\triangle) \quad \triangle\in T_N$
+		\end{prop}
+	La bondad de la aproximación depende de la triangulación y del conjunto de nodos elegidos.
+	Es conocido que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
+	%que pollas es C_f
+\end{frame}
 \section{Competición en Kaggle.}
 \subsection{Introducción.}
 \begin{frame}

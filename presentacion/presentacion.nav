@@ -10,44 +10,48 @@
 \headcommand {\beamer@subsectionentry {0}{1}{1}{4}{Introducci\IeC {\'o}n}}\headcommand {\beamer@subsectionpages {3}{3}}
 \headcommand {\slideentry {1}{1}{1}{4/4}{Introducci\IeC {\'o}n}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{5}{Esf\IeC {\'e}ricos Arm\IeC {\'o}nicos.}}\headcommand {\beamer@subsectionpages {4}{4}}
-\headcommand {\slideentry {1}{2}{1}{5/5}{Esf\IeC {\'e}ricos Arm\IeC {\'o}nicos.}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{5}{Arm\IeC {\'o}nicos Esf\IeC {\'e}ricos.}}\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\slideentry {1}{2}{1}{5/5}{Arm\IeC {\'o}nicos Esf\IeC {\'e}ricos.}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{6}{C\IeC {\'a}lculo del gradiente.}}\headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\slideentry {1}{3}{1}{6/6}{C\IeC {\'a}lculo del gradiente.}{0}}
+\headcommand {\slideentry {1}{2}{2}{6/6}{Arm\IeC {\'o}nicos Esf\IeC {\'e}ricos.}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {1}{3}{2}{7/7}{C\IeC {\'a}lculo del gradiente.}{0}}
+\headcommand {\slideentry {1}{2}{3}{7/7}{Arm\IeC {\'o}nicos Esf\IeC {\'e}ricos.}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {1}{3}{3}{8/8}{C\IeC {\'a}lculo del gradiente.}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{8}{C\IeC {\'a}lculo del gradiente.}}\headcommand {\beamer@subsectionpages {5}{7}}
+\headcommand {\slideentry {1}{3}{1}{8/8}{C\IeC {\'a}lculo del gradiente.}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {1}{3}{4}{9/9}{C\IeC {\'a}lculo del gradiente.}{0}}
+\headcommand {\slideentry {1}{3}{2}{9/9}{C\IeC {\'a}lculo del gradiente.}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{10}{Integraci\IeC {\'o}n num\IeC {\'e}rica.}}\headcommand {\beamer@subsectionpages {6}{9}}
-\headcommand {\slideentry {1}{4}{1}{10/10}{Integraci\IeC {\'o}n num\IeC {\'e}rica.}{0}}
+\headcommand {\slideentry {1}{3}{3}{10/10}{C\IeC {\'a}lculo del gradiente.}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\sectionentry {2}{Competici\IeC {\'o}n en Kaggle.}{11}{Competici\IeC {\'o}n en Kaggle.}{0}}
-\headcommand {\beamer@sectionpages {3}{10}}
-\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\slideentry {2}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{11}{Integraci\IeC {\'o}n num\IeC {\'e}rica.}}\headcommand {\beamer@subsectionpages {8}{10}}
+\headcommand {\slideentry {1}{4}{1}{11/11}{Integraci\IeC {\'o}n num\IeC {\'e}rica.}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{12}{Introducci\IeC {\'o}n.}}\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\slideentry {2}{1}{1}{12/12}{Introducci\IeC {\'o}n.}{0}}
+\headcommand {\slideentry {1}{4}{2}{12/12}{Integraci\IeC {\'o}n num\IeC {\'e}rica.}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{13}{Preprocesamiento}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {2}{2}{1}{13/13}{Preprocesamiento}{0}}
+\headcommand {\sectionentry {2}{Competici\IeC {\'o}n en Kaggle.}{13}{Competici\IeC {\'o}n en Kaggle.}{0}}
+\headcommand {\beamer@sectionpages {3}{12}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\slideentry {2}{0}{1}{13/13}{}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {2}{2}{2}{14/14}{Preprocesamiento}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{14}{Introducci\IeC {\'o}n.}}\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\slideentry {2}{1}{1}{14/14}{Introducci\IeC {\'o}n.}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {2}{2}{3}{15/15}{Preprocesamiento}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{15}{Preprocesamiento}}\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\slideentry {2}{2}{1}{15/15}{Preprocesamiento}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{16}{Algoritmos}}\headcommand {\beamer@subsectionpages {13}{15}}
-\headcommand {\slideentry {2}{3}{1}{16/16}{Algoritmos}{0}}
+\headcommand {\slideentry {2}{2}{2}{16/16}{Preprocesamiento}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{17}{Resultados obtenidos.}}\headcommand {\beamer@subsectionpages {16}{16}}
-\headcommand {\slideentry {2}{4}{1}{17/17}{Resultados obtenidos.}{0}}
+\headcommand {\slideentry {2}{2}{3}{17/17}{Preprocesamiento}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@partpages {1}{17}}
-\headcommand {\beamer@subsectionpages {17}{17}}
-\headcommand {\beamer@sectionpages {11}{17}}
-\headcommand {\beamer@documentpages {17}}
-\headcommand {\def \inserttotalframenumber {17}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{18}{Algoritmos}}\headcommand {\beamer@subsectionpages {15}{17}}
+\headcommand {\slideentry {2}{3}{1}{18/18}{Algoritmos}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{19}{Resultados obtenidos.}}\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\slideentry {2}{4}{1}{19/19}{Resultados obtenidos.}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@partpages {1}{19}}
+\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\beamer@sectionpages {13}{19}}
+\headcommand {\beamer@documentpages {19}}
+\headcommand {\def \inserttotalframenumber {19}}

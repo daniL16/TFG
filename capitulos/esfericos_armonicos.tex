@@ -41,51 +41,6 @@ $$
 	\triangle = \nabla.\nabla = \sum_{j=1}^{d}(\frac{\partial}{\partial x_j})^2 .
 $$
 
-
-%\begin{defn} Dado $x\in\mathds{(R)^+}$ definimos la función gamma como
-%	$$
-%	\Gamma(x) := \int_{0}^{\infty} t^{x-1}e^{-t}dt		
-%	$$
-%\end{defn}
-%\begin{prop}Se verifican las siguientes formulas:
-%	$$
-%	\int_{0}^{\infty}  t{x-1}e^{-at^b}dt = b^{-1}a^{-x/b}\Gamma(x/b)  , x,a,b \in \mathds{R}^+
-%	$$
-%	
-%	$$
-%	\int_{0}^{1} |ln (t)|^{x-1}dt = \Gamma(x),   x \in \mathds{R}^+
-%	$$
-%	
-%	$$
-%	\Gamma(x+1) = x \Gamma(x) ,		x\in \mathds{R}^+
-%	$$
-%	
-%	$$
-%	\Gamma^{(k)}(x) = \int_{0}^{\infty} (ln (t))^k t^{x-1} e^{-t} dt,   k\in\mathds{N}_0,x\in\mathds{R}^+
-%	$$
-%\end{prop}
-%\begin{rem}
-%$\Gamma(1)=1$ y de la tercera fórmula se deduce que $\Gamma(n+1)=n!$,\\$ n\in\mathds{N}_0$. Es decir, la función $\Gamma$ extiende el operador factorial de los números naturales a los reales positivos.
-%\end{rem}
-%\begin{lem} 
-%	$$
-%	\Gamma(\frac{1}{2}) = 	\sqrt{\pi}
-%	$$
-%	$$
-%	\Gamma(n+\frac{1}{2})=\frac{(2n)!}{2^{2n}n!} \sqrt{\pi}
-%	$$
-%\end{lem}
-%\begin{defn}Sea $x\in\mathds{R}$ y $n\in\mathds{N}$,el símbolo de Pochhammer se define como
-%	$$
-%	(x)_0 = 1, (x)_n=x(x+1)(x+2)...(x+n-1)
-%	$$
-%\end{defn}
-%\begin{prop} Sea $x\in\mathds{R}^+$ entonces
-%	$$
-%	(x)_n = \frac{\Gamma(x+n)}{\Gamma(x)}
-%	$$
-%\end{prop}
-
 \section{Armónicos Esféricos y Espacios Primitivos.}
 Consideramos $\mathds{O}^d$ el conjunto de matrices ortogonales de orden d. Para cualquier $\eta \in \mathds{O}^d$ vector no nulo, $\mathds{O}^d (\eta)= \{ A \in \mathds{O}^d : A\eta = \eta \} $ es el subconjunto de matrices ortogonales que deja el subespacio $\spn\{\eta\} = \{\alpha \eta : \alpha \in \mathds{R}\}$ invariante.
 
@@ -151,23 +106,7 @@ n+d-1 \\
 n
 \end{pmatrix}
 $$
-%Cada $\mathds{H}_n \in \mathds{H}^d_n$ se puede escribir como:
-%$$
-%	\mathds{H}_n(x) = \sum_{|\alpha| = n } a_\alpha x^\alpha ,   a_\alpha \in \mathds{C}.
-%$$
-%Para el polinomio $	\mathds{H}_n(x)$ definimos
-%$$
-%		\mathds{H}_n(\triangledown) = \sum_{|\alpha| = n } a_\alpha \triangledown^\alpha.
-%$$
-%Dados 2 polinomios cualesquiera $\mathds{H}_n(x)$,
-%$$
-%\mathds{H}_{n,1}(x) =  \sum_{|\alpha| = n } a_{\alpha,1} x^\alpha ,		\mathds{H}_{n,2}(x) =  \sum_{|\alpha| = n } a_{\alpha,2} x^\alpha   
-%$$
-%Se sigue que 
-%$$
-%%cosas raras
-%$$
-%Luego $(\mathds{H}_{n,1},\mathds{H}_{n,2})_{\mathds{H}_n^d} := \mathds{H}_{n,1}(\triangledown)\overline{\mathds{H}_{n,2}(x)}$ define un producto escalar en $\mathds{H}_n^d$
+
 \begin{defn}
 Una función f es armónica si $\triangle f (x) = 0$. 
 \end{defn}
