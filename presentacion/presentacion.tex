@@ -138,7 +138,7 @@
 
 \subsection{Armónicos Esféricos.}
 \begin{frame}
-	\tableofcontents[currentsection,currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=1]
 \end{frame}
 \begin{frame}
 	\frametitle{Espacios de Polinomios Homogéneos.}
@@ -194,7 +194,7 @@
 \end{frame}
 \subsection{Cálculo del gradiente.}
 \begin{frame}
-	\tableofcontents[currentsection,currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=1]
 \end{frame}
 
 \begin{frame}
@@ -235,22 +235,22 @@ La expresión de las parciales es la siguiente:
 \begin{frame}
 	\frametitle{Puntos críticos del gradiente.}
 
-	Igualando las expresiones de las parciales a 0, tenemos que ha de verificarse una de las siguientes igualdades
+	Igualando las expresiones de las parciales a 0 tenemos que 
 	\begin{gather*}
 	\left\{
 	\begin{array}{ll}
 	\sen \theta= 0 \\
 	\cos k\phi = 0 &\\
-	C_{n-k-1,k+1/2}(\cos \theta) = 0
+c_{n,k}C_{n-k}^{k-1/2}(cos \theta) + d_k sen^2\theta C_{n-k-2}^{k+3/2}(cos \theta) = 0
 	\end{array}
 	\right.
 	\end{gather*}
 	De estas condiciones se deduce que existen, $2k(n-k)+2$ puntos que anulan el gradiente.
 \end{frame}
-%% guardarse las espaldas en esta ultima
+
 \subsection{Integración numérica.}
 \begin{frame}
-	\tableofcontents[currentsection,currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=1]
 \end{frame}
 \begin{frame}
 	\frametitle{Integración de puntos dispersos.}
@@ -277,7 +277,7 @@ La expresión de las parciales es la siguiente:
 
 \subsection{Introducción.}
 \begin{frame}
-	\tableofcontents[currentsection,currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=2]
 \end{frame}
 \begin{frame}
 	\frametitle{Descripción del problema.}
@@ -296,7 +296,7 @@ La expresión de las parciales es la siguiente:
 \end{frame}
 \subsection{Preprocesamiento}
 \begin{frame}
-	\tableofcontents[currentsection,currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=2]
 \end{frame}
 \begin{frame}
 	\frametitle{Visualización de los datos.}
@@ -313,12 +313,51 @@ La expresión de las parciales es la siguiente:
 		\item Existe un gran desbalanceo de clases.
 	\end{itemize}
 \end{frame}
+\begin{frame}
 
+
+	\begin{columns}[t]
+		\column{.5\textwidth}
+		\centering
+	\includegraphics[scale=0.4]{../img/device_distribution.png}\\
+
+	
+		\centering
+
+	\column{.5\textwidth}
+				\includegraphics[scale=0.4]{../img/normalDistclick_time_timestamp.png}
+	\end{columns}
+\end{frame}
+\begin{frame}
+		\begin{columns}[t]
+		\column{.5\textwidth}
+		\includegraphics[scale=0.25]{../img/correlation.png}
+		\column{.5\textwidth}
+	\includegraphics[scale=0.35]{../img/imbalacing.png}
+		\end{columns}
+	\end{frame}
+\begin{frame}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{lllll}
+			Atributo& Total & \%    \\
+			ip	& 0 &0 \\
+			app	& 0 & 0   \\
+			os	& 0 & 0 \\
+			chanel &0 & 0 \\
+			device & 0 & 0  \\
+			click\_time& 0& 0 \\
+			attributed\_time &184447044& 99.7529
+		\end{tabular}
+		\caption{Valores perdidos.}
+		\label{}
+	\end{table}
+	\end{frame}
 \begin{frame}
 	\frametitle{Preprocesamiento.}
 	\begin{enumerate}
 		\item Eliminar la columna attributed\_time,
-		\item Obtener los datos timestamp y día de la variable click\_time.
+			\item Obtener los datos timestamp y día de la variable click\_time.
 		\item Agrupar las variables categóricas.
 		\begin{itemize}
 			\item Teniendo en cuenta el número de apariciones.
@@ -326,8 +365,7 @@ La expresión de las parciales es la siguiente:
 		\end{itemize}
 \end{enumerate}
 \end{frame}
-%meter magia por aqui
-%hacer hincapie en que estas usando undersampling
+
 \begin{frame}
 	La siguiente tabla recoge los resultados obtenidos en las distintas fases del preprocesamiento.
 	\begin{table}[H]
@@ -350,9 +388,9 @@ La expresión de las parciales es la siguiente:
 		\caption{Pruebas realizadas durante el preprocesamiento.}
 	\end{table}
 \end{frame}
-\subsection{Algoritmos}
+\subsection{Algoritmos usados.}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=2]
 \end{frame}
 	\begin{frame}
 		\frametitle{Algoritmos Usados.}
@@ -385,7 +423,7 @@ La expresión de las parciales es la siguiente:
 \end{frame}
 \subsection{Resultados obtenidos.}
 \begin{frame}
-	\tableofcontents[currentsection,currentsubsection]
+	\tableofcontents[currentsection,currentsubsection,sections=2]
 \end{frame}
 \begin{frame}
 	\frametitle{Resultados obtenidos.}
