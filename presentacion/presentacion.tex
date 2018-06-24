@@ -138,7 +138,7 @@
 
 \subsection{Armónicos Esféricos.}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection]
 \end{frame}
 \begin{frame}
 	\frametitle{Espacios de Polinomios Homogéneos.}
@@ -176,15 +176,27 @@
 	\mathds{H}_n(r\xi) = r^n\mathds{Y}_n(\xi)
 	$$
 \end{frame}
+\begin{frame}
+	\frametitle{Base ortogonal}
+	\begin{thm}
+		Sean, $T_{n}(t),U_{n}(t)$ los polinomios de Chebyshev de 1ª y 2ª clase respectivamente.Y definimos
+		\begin{gather*}
+		g_{0,n}(x_1,x_2) = (x_1^2+x_2^2)T_n^2(x_2(x_1^2+x_2^2)^{-1/2})
+		\\
+		g_{1,n-1}(x_1,x_2) = x_1(x_1^2+x_2^2)^{\frac{n-1}{2}}U_{n-1}(x_2(x_1^2+x_2^2)^{-1/2})
+		\end{gather*}
+		entonces, si tomamos $\textbf{n}=(n_1,...,n_d)$ con $n_1 = \{0,1\}$ se define
+		\begin{gather*}
+		Y_{\textbf{n}}=g_{n_1,n_2}(x_1,x_2)\prod_{j=3}^{d}(x_1^2+...+x_j^2)^{n_j/2}C_{n_j,\lambda_j}(x_j(x_1^2+...+x_j^2)^{-1/2})
+		\end{gather*}
+		donde $\lambda_j =\lambda_j(n_1,...,n_{j-1}) = \sum_{i=1}^{j-1}n_i + \frac{j-2}{2}$. Entonces $\{Y_n,|\textbf{n}|=n\}$ es una base de $\mathds{Y}_{n}^{d}$.
+	\end{thm}
+\end{frame}
 \subsection{Cálculo del gradiente.}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection]
 \end{frame}
-\begin{frame}
-	\frametitle{Cálculo del gradiente.}
-	Una base ortogonal del espacio de armónicos esféricos es 
-	
-\end{frame}
+
 \begin{frame}
 		\frametitle{Caso particular. Esfera de dimensión 3.}
 		Tomando coordenadas esféricas,
@@ -197,7 +209,7 @@
 		\\
 		0\le \theta \le \pi,0\le\phi\le2\pi,r>0
 		\end{gather*}
-		una base ortogonal de $\spharm$ viene dada por
+		una base ortogonal de $\mathds{Y}_n^3$ viene dada por
 		\begin{equation*}
 		\left\lbrace
 		\begin{array}{ll}
@@ -235,10 +247,10 @@ La expresión de las parciales es la siguiente:
 	\end{gather*}
 	De estas condiciones se deduce que existen, $2k(n-k)+2$ puntos que anulan el gradiente.
 \end{frame}
-%% falta meter la base del espacio entero y guardarse las espaldas en esta ultima
+%% guardarse las espaldas en esta ultima
 \subsection{Integración numérica.}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection]
 \end{frame}
 \begin{frame}
 	\frametitle{Integración de puntos dispersos.}
@@ -258,16 +270,14 @@ La expresión de las parciales es la siguiente:
 			$|I(f)-I_n(f)|\le 4\pi c_f \max$ diam$(\triangle) \quad \triangle\in T_N$
 		\end{prop}
 	La bondad de la aproximación depende de la triangulación y del conjunto de nodos elegidos.
-	Es conocido que se obtienen buenos resultados tomando un conjunto en el que los punto están bien distribuidos.
-	%que pollas es C_f
-	%tener en la manga que es un polinomio homogeneo
-	%atar bien que f estas tomando en la integracion
+	Es conocido que se obtienen buenos resultados tomando un conjunto en el que los puntos están bien distribuidos.
+
 \end{frame}
 \section{Competición en Kaggle.}
 
 \subsection{Introducción.}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection]
 \end{frame}
 \begin{frame}
 	\frametitle{Descripción del problema.}
@@ -286,7 +296,7 @@ La expresión de las parciales es la siguiente:
 \end{frame}
 \subsection{Preprocesamiento}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection]
 \end{frame}
 \begin{frame}
 	\frametitle{Visualización de los datos.}
@@ -375,7 +385,7 @@ La expresión de las parciales es la siguiente:
 \end{frame}
 \subsection{Resultados obtenidos.}
 \begin{frame}
-	\tableofcontents[currentsubsection]
+	\tableofcontents[currentsection,currentsubsection]
 \end{frame}
 \begin{frame}
 	\frametitle{Resultados obtenidos.}
